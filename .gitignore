@@ -1,0 +1,15 @@
+# Archives & deployment bundles
+*.zip
+
+# OS metadata
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary files & logs
+*.log
+*.tmp
+
+# Scratch / reference analysis
+references/

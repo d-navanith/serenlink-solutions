@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SerenLink Solutions - Splash Screen Demo</title>
+  <link rel="stylesheet" href="splash.css?v=1">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #030a1c;
+      color: #fff;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .demo-content {
+      text-align: center;
+      padding: 2rem;
+    }
+    .demo-content h1 {
+      color: #38bdf8;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .demo-content p {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+    .replay-btn {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.8rem;
+      background: #0284c7;
+      color: #fff;
+      border: 1px solid #00e5ff;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+      transition: all 0.25s ease;
+    }
+    .replay-btn:hover {
+      background: #0369a1;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       CINEMATIC 3-SECOND ANIMATED SPLASH SCREEN (SerenLink Solutions)
+       ========================================================================== -->
+  <div id="serenlinkSplashScreen" class="serenlink-splash" role="dialog" aria-modal="true" aria-label="Brand Intro">
+    
+    <!-- Skip Button -->
+    <button type="button" class="splash-skip-btn" id="splashSkipBtn" aria-label="Skip Intro">
+      <span>Skip</span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+
+    <div class="splash-stage">
+      
+      <!-- Background Deep Aura -->
+      <div class="splash-bg-aura"></div>
+      
+      <!-- Scene 1: Initial Central Light Seed Particle -->
+      <div class="splash-seed-particle"></div>
+
+      <!-- Scene 2 & 3: Network Light Trails & Curved Fiber Links (SVG Vector Canvas) -->
+      <svg class="splash-network-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+        <defs>
+          <linearGradient id="cyanTrailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f0ff" stop-opacity="0" />
+            <stop offset="50%" stop-color="#00e5ff" stop-opacity="0.9" />
+            <stop offset="100%" stop-color="#38bdf8" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient id="blueTrailGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#0284c7" stop-opacity="0" />
+            <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.8" />
+            <stop offset="100%" stop-color="#00f0ff" stop-opacity="0" />
+          </linearGradient>
+          <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1" />
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2" />
+            <feMerge>
+              <feMergeNode in="blur2" />
+              <feMergeNode in="blur1" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- Elliptical Light Pulse Rings -->
+        <ellipse class="splash-pulse-ring ring-1" cx="400" cy="300" rx="220" ry="85" />
+        <ellipse class="splash-pulse-ring ring-2" cx="400" cy="300" rx="340" ry="130" />
+
+        <!-- Vertical & Horizontal Light Beams -->
+        <line class="splash-beam beam-v" x1="400" y1="50" x2="400" y2="550" />
+        <line class="splash-beam beam-h" x1="120" y1="300" x2="680" y2="300" />
+
+        <!-- Elegant Curved Network Arcs (Connecting into center) -->
+        <path class="splash-curve curve-top-left" d="M 160 120 Q 280 200 400 300" />
+        <path class="splash-curve curve-top-right" d="M 640 120 Q 520 200 400 300" />
+        <path class="splash-curve curve-bot-left" d="M 160 480 Q 280 400 400 300" />
+        <path class="splash-curve curve-bot-right" d="M 640 480 Q 520 400 400 300" />
+
+        <!-- Orbiting Fiber Data Pulses -->
+        <path class="splash-orbit-arc orbit-1" d="M 280 300 A 120 48 0 1 1 520 300 A 120 48 0 1 1 280 300" />
+        <path class="splash-orbit-arc orbit-2" d="M 240 300 A 160 62 25 1 1 560 300 A 160 62 25 1 1 240 300" />
+
+        <!-- Traveling Luminous Particles along paths -->
+        <circle class="splash-particle p-1" r="3.5" />
+        <circle class="splash-particle p-2" r="3.0" />
+        <circle class="splash-particle p-3" r="3.5" />
+        <circle class="splash-particle p-4" r="3.0" />
+        <circle class="splash-particle p-5" r="4.0" />
+        <circle class="splash-particle p-6" r="4.0" />
+      </svg>
+
+      <!-- Scene 3: Energy Transition Core Expansion & Flash -->
+      <div class="splash-energy-burst"></div>
+      <div class="splash-energy-ring"></div>
+
+      <!-- Scene 4: SerenLink Solutions Logo Reveal -->
+      <div class="splash-logo-container">
+        <!-- Part 2: SerenLink Full Logo & Tagline (Resolves sharply at 2.3s - 3.0s) -->
+        <div class="splash-wordmark-wrap">
+          <img src="assets/serenlink_logo_white.png?v=1" alt="Serenlink Solutions - Network Solutions for Sri Lanka" class="splash-full-logo-img">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Underlying Homepage Demo Content -->
+  <div class="demo-content">
+    <h1>SerenLink Solutions Homepage</h1>
+    <p>The 3-second animated splash screen has concluded, revealing the homepage smoothly underneath.</p>
+    <button type="button" class="replay-btn" onclick="location.reload()">Replay Splash Animation</button>
+  </div>
+
+  <script src="splash.js?v=1"></script>
+</body>
+</html>

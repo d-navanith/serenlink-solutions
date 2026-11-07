@@ -1,0 +1,639 @@
+/* ==========================================================================
+   SERENLINK SOLUTIONS - CINEMATIC SLOW-PACED SPLASH SCREEN
+   Theme: Deep Celestial Navy, Electric Cyan & Vibrant Teal Network Energy
+   Pacing: Majestic, Smooth, Cinematic (~5.4s total timeline)
+   ========================================================================== */
+
+/* Fullscreen Overlay Container */
+.serenlink-splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #030a1c;
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer; /* Allows click anywhere to skip */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Splash Hidden / Fade-out State */
+.serenlink-splash.splash-fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: scale(1.03);
+  pointer-events: none !important;
+}
+
+/* Interactive Skip Button */
+.splash-skip-btn {
+  position: absolute;
+  top: 28px;
+  right: 32px;
+  background: rgba(14, 38, 88, 0.5);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 1.2rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  z-index: 1000000;
+  opacity: 0;
+  animation: splashSkipBtnFadeIn 0.8s ease 1.2s forwards;
+  transition: all 0.3s ease;
+}
+
+.splash-skip-btn:hover {
+  background: rgba(20, 56, 128, 0.85);
+  border-color: #00e5ff;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.45);
+}
+
+@keyframes splashSkipBtnFadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 0.85; transform: translateY(0); }
+}
+
+/* Animation Stage Container */
+.splash-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  max-height: 800px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Background Deep Ambient Radial Aura */
+.splash-bg-aura {
+  position: absolute;
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 210, 255, 0.16) 0%, rgba(14, 48, 120, 0.12) 45%, transparent 70%);
+  animation: splashAuraBreathe 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes splashAuraBreathe {
+  0% { transform: scale(0.85); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.85; filter: drop-shadow(0 0 50px rgba(0, 229, 255, 0.35)); }
+  100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+/* ==========================================================================
+   SCENE 1: INITIAL SEED PARTICLE (0.0s - 1.8s)
+   - Tiny glowing blue seed particle in center blooming gently
+   ========================================================================== */
+.splash-seed-particle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 
+    0 0 16px 4px #00f0ff,
+    0 0 36px 12px #0284c7,
+    0 0 65px 20px rgba(0, 229, 255, 0.5);
+  animation: seedParticleLife 2.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  z-index: 10;
+}
+
+@keyframes seedParticleLife {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1.8);
+    opacity: 1;
+    box-shadow: 
+      0 0 20px 5px #00f0ff,
+      0 0 45px 14px #0284c7;
+  }
+  65% {
+    transform: scale(1.2);
+    opacity: 0.95;
+    box-shadow: 
+      0 0 18px 4px #00f0ff,
+      0 0 35px 10px #0284c7;
+  }
+  100% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   SCENE 2: LIGHT MOTION ANIMATION (1.0s - 3.4s)
+   - Network light trails, curved lines, travelling particles, elliptical pulses
+   ========================================================================== */
+.splash-network-svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-width: 950px;
+  max-height: 700px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* Horizontal & Vertical Light Beams */
+.splash-beam {
+  stroke: url(#cyanTrailGrad);
+  stroke-width: 1.6;
+  opacity: 0;
+  filter: url(#neonGlow);
+}
+
+.beam-v {
+  animation: beamVerticalAnim 2.5s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+}
+
+.beam-h {
+  stroke: url(#blueTrailGrad);
+  animation: beamHorizontalAnim 2.5s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
+}
+
+@keyframes beamVerticalAnim {
+  0% {
+    opacity: 0;
+    stroke-dasharray: 0 600;
+    stroke-dashoffset: 300;
+  }
+  28% {
+    opacity: 0.9;
+    stroke-dasharray: 400 600;
+    stroke-dashoffset: 100;
+  }
+  75% {
+    opacity: 0.7;
+    stroke-dasharray: 520 600;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+    stroke-dasharray: 0 600;
+    stroke-dashoffset: -300;
+  }
+}
+
+@keyframes beamHorizontalAnim {
+  0% {
+    opacity: 0;
+    stroke-dasharray: 0 600;
+    stroke-dashoffset: 300;
+  }
+  28% {
+    opacity: 0.85;
+    stroke-dasharray: 450 600;
+    stroke-dashoffset: 100;
+  }
+  75% {
+    opacity: 0.65;
+    stroke-dasharray: 560 600;
+    stroke-dashoffset: 0;
+  }
+  100% {
+    opacity: 0;
+    stroke-dasharray: 0 600;
+    stroke-dashoffset: -300;
+  }
+}
+
+/* Elliptical Light Pulse Rings */
+.splash-pulse-ring {
+  fill: none;
+  stroke: #00e5ff;
+  stroke-width: 1.4;
+  opacity: 0;
+  transform-origin: 400px 300px;
+  filter: url(#neonGlow);
+}
+
+.ring-1 {
+  animation: pulseRingAnim1 2.6s ease-out 1.0s forwards;
+}
+
+.ring-2 {
+  stroke: #38bdf8;
+  animation: pulseRingAnim2 2.8s ease-out 1.3s forwards;
+}
+
+@keyframes pulseRingAnim1 {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+    stroke-width: 3;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  70% {
+    opacity: 0.55;
+    stroke-width: 1.4;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+}
+
+@keyframes pulseRingAnim2 {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+    stroke-width: 2.2;
+  }
+  35% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+}
+
+/* Elegant Curved Network Fiber Arcs */
+.splash-curve {
+  fill: none;
+  stroke: url(#cyanTrailGrad);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  filter: url(#neonGlow);
+  opacity: 0;
+}
+
+.curve-top-left {
+  animation: drawCurveAnim 2.4s cubic-bezier(0.16, 1, 0.3, 1) 1.0s forwards;
+}
+
+.curve-top-right {
+  stroke: url(#blueTrailGrad);
+  animation: drawCurveAnim 2.4s cubic-bezier(0.16, 1, 0.3, 1) 1.2s forwards;
+}
+
+.curve-bot-left {
+  stroke: url(#blueTrailGrad);
+  animation: drawCurveAnim 2.4s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+}
+
+.curve-bot-right {
+  animation: drawCurveAnim 2.4s cubic-bezier(0.16, 1, 0.3, 1) 1.1s forwards;
+}
+
+@keyframes drawCurveAnim {
+  0% {
+    stroke-dashoffset: 400;
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.95;
+  }
+  70% {
+    stroke-dashoffset: 60;
+    opacity: 0.8;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+/* Orbiting Elliptical Paths */
+.splash-orbit-arc {
+  fill: none;
+  stroke: rgba(56, 189, 248, 0.4);
+  stroke-width: 1.2;
+  stroke-dasharray: 8 6;
+  opacity: 0;
+  transform-origin: 400px 300px;
+}
+
+.orbit-1 {
+  animation: orbitArcFade 2.6s ease 1.3s forwards;
+}
+
+.orbit-2 {
+  animation: orbitArcFade 2.6s ease 1.5s forwards;
+}
+
+@keyframes orbitArcFade {
+  0% { opacity: 0; transform: scale(0.7) rotate(0deg); }
+  30% { opacity: 0.7; }
+  75% { opacity: 0.45; transform: scale(1.08) rotate(20deg); }
+  100% { opacity: 0; transform: scale(1.25) rotate(30deg); }
+}
+
+/* Traveling Network Data Particles */
+.splash-particle {
+  fill: #ffffff;
+  filter: drop-shadow(0 0 8px #00e5ff) drop-shadow(0 0 16px #0284c7);
+  opacity: 0;
+}
+
+.p-1 {
+  cx: 160; cy: 120;
+  animation: particleFly1 2.2s cubic-bezier(0.4, 0, 0.2, 1) 1.2s forwards;
+}
+
+.p-2 {
+  cx: 640; cy: 120;
+  animation: particleFly2 2.2s cubic-bezier(0.4, 0, 0.2, 1) 1.35s forwards;
+}
+
+.p-3 {
+  cx: 160; cy: 480;
+  animation: particleFly3 2.2s cubic-bezier(0.4, 0, 0.2, 1) 1.45s forwards;
+}
+
+.p-4 {
+  cx: 640; cy: 480;
+  animation: particleFly4 2.2s cubic-bezier(0.4, 0, 0.2, 1) 1.55s forwards;
+}
+
+.p-5 {
+  cx: 400; cy: 80;
+  animation: particleFlyV1 2.0s cubic-bezier(0.4, 0, 0.2, 1) 1.6s forwards;
+}
+
+.p-6 {
+  cx: 400; cy: 520;
+  animation: particleFlyV2 2.0s cubic-bezier(0.4, 0, 0.2, 1) 1.7s forwards;
+}
+
+@keyframes particleFly1 {
+  0% { transform: translate(0, 0); opacity: 0; }
+  25% { opacity: 1; }
+  85% { opacity: 0.9; }
+  100% { transform: translate(240px, 180px); opacity: 0; }
+}
+
+@keyframes particleFly2 {
+  0% { transform: translate(0, 0); opacity: 0; }
+  25% { opacity: 1; }
+  85% { opacity: 0.9; }
+  100% { transform: translate(-240px, 180px); opacity: 0; }
+}
+
+@keyframes particleFly3 {
+  0% { transform: translate(0, 0); opacity: 0; }
+  25% { opacity: 1; }
+  85% { opacity: 0.9; }
+  100% { transform: translate(240px, -180px); opacity: 0; }
+}
+
+@keyframes particleFly4 {
+  0% { transform: translate(0, 0); opacity: 0; }
+  25% { opacity: 1; }
+  85% { opacity: 0.9; }
+  100% { transform: translate(-240px, -180px); opacity: 0; }
+}
+
+@keyframes particleFlyV1 {
+  0% { transform: translate(0, 0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translate(0, 220px); opacity: 0; }
+}
+
+@keyframes particleFlyV2 {
+  0% { transform: translate(0, 0); opacity: 0; }
+  30% { opacity: 1; }
+  100% { transform: translate(0, -220px); opacity: 0; }
+}
+
+/* ==========================================================================
+   SCENE 3: ENERGY TRANSITION (2.8s - 3.8s)
+   - Gentle luminous energy burst, center gathering, cyan flash bloom
+   ========================================================================== */
+.splash-energy-burst {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #00f0ff 30%, #0284c7 65%, transparent 80%);
+  opacity: 0;
+  transform: scale(0);
+  filter: blur(14px) drop-shadow(0 0 50px rgba(0, 229, 255, 0.85));
+  animation: energyBurstAnim 1.8s cubic-bezier(0.16, 1, 0.3, 1) 2.9s forwards;
+  z-index: 8;
+  pointer-events: none;
+}
+
+@keyframes energyBurstAnim {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  35% {
+    transform: scale(1.6);
+    opacity: 0.95;
+    filter: blur(10px) drop-shadow(0 0 70px rgba(0, 229, 255, 1));
+  }
+  70% {
+    transform: scale(2.3);
+    opacity: 0.45;
+    filter: blur(24px);
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+    filter: blur(35px);
+  }
+}
+
+.splash-energy-ring {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid #00f0ff;
+  opacity: 0;
+  transform: scale(0.2);
+  filter: drop-shadow(0 0 20px #00f0ff);
+  animation: energyRingAnim 1.6s cubic-bezier(0.16, 1, 0.3, 1) 3.1s forwards;
+  z-index: 9;
+  pointer-events: none;
+}
+
+@keyframes energyRingAnim {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+    border-width: 3.5px;
+  }
+  30% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(3.8);
+    opacity: 0;
+    border-width: 0.5px;
+  }
+}
+
+/* ==========================================================================
+   SCENE 4: SERENLINK SOLUTIONS UNIFIED LOGO REVEAL (3.4s - 5.4s)
+   - Only ONE unified logo in the center (no duplicate icon on top)
+   - Emerges majestically from the cyan optical bloom
+   - Stays cleanly displayed with breathing halo until fade-out
+   ========================================================================== */
+.splash-logo-container {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Unified SerenLink Logo & Tagline Wrapper */
+.splash-wordmark-wrap {
+  position: relative;
+  width: 440px;
+  max-width: 88vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(14px) scale(0.94);
+  animation: wordmarkRevealAnim 1.4s cubic-bezier(0.16, 1, 0.3, 1) 3.4s forwards;
+}
+
+.splash-full-logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 30px rgba(0, 229, 255, 0.5)) drop-shadow(0 0 50px rgba(2, 132, 199, 0.3));
+}
+
+@keyframes wordmarkRevealAnim {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.92);
+    filter: blur(8px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.02);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.0);
+    filter: blur(0px);
+  }
+}
+
+/* Subtle Shimmer Line Under Wordmark */
+.splash-wordmark-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 15%;
+  right: 15%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, #00e5ff 50%, transparent 100%);
+  opacity: 0;
+  animation: splashShimmerLine 1.2s ease 4.1s forwards;
+}
+
+@keyframes splashShimmerLine {
+  0% { opacity: 0; transform: scaleX(0.3); }
+  60% { opacity: 0.9; transform: scaleX(1); }
+  100% { opacity: 0.7; transform: scaleX(1); }
+}
+
+/* Soft Ambient Glow Halo behind the Logo */
+.splash-wordmark-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -25px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.22) 0%, rgba(2, 132, 199, 0.1) 45%, transparent 70%);
+  filter: blur(18px);
+  z-index: -1;
+  opacity: 0;
+  animation: logoHaloFadeIn 1.6s ease 3.6s forwards;
+}
+
+@keyframes logoHaloFadeIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Desktop, Tablet & Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .splash-skip-btn {
+    top: 20px;
+    right: 20px;
+    padding: 0.45rem 1rem;
+    font-size: 0.75rem;
+  }
+  .splash-wordmark-wrap {
+    width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .splash-wordmark-wrap {
+    width: 270px;
+  }
+}
+
+/* Reduced Motion Preference (Instant Dismiss) */
+@media (prefers-reduced-motion: reduce) {
+  .serenlink-splash {
+    animation: none !important;
+    transition: opacity 0.2s ease !important;
+  }
+  .splash-seed-particle,
+  .splash-beam,
+  .splash-pulse-ring,
+  .splash-curve,
+  .splash-orbit-arc,
+  .splash-particle,
+  .splash-energy-burst,
+  .splash-energy-ring {
+    display: none !important;
+  }
+  .splash-wordmark-wrap {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    filter: none !important;
+  }
+}
