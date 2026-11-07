@@ -268,6 +268,17 @@ function initSectorPillTabs() {
       pills.forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
 
+      // Smooth card transition
+      const card = document.querySelector('.sector-content-card');
+      if (card) {
+        card.style.opacity = '0.5';
+        card.style.transform = 'translateY(6px)';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 120);
+      }
+
       // Update content
       if (titleEl) titleEl.textContent = data.title;
       if (bodyEl) bodyEl.textContent = data.body;
