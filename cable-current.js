@@ -34,15 +34,15 @@
       isReducedMotion = true;
     }
 
-    // Color Palette Matching Serenlink Identity
+    // Simple, Crisp Highlight Color Palette (Light, clean highlights; No dark colors, No dark green)
     const colors = {
-      solidCable: 'rgba(148, 163, 184, 0.45)',    // Sleek slate guide cable
-      dottedCable: 'rgba(56, 189, 248, 0.48)',   // Electric cyan dotted conduit
-      cyanCurrent: '#00e5ff',                     // Electric Cyan Pulse
-      blueCurrent: '#2563eb',                     // Serenlink Royal Blue Pulse
-      tealCurrent: '#0d9488',                     // Deep Teal Pulse
-      limeCurrent: '#e2ff38',                     // Signature Neon Lime Energy Pulse
-      whiteCore: '#ffffff'
+      solidCable: 'rgba(203, 213, 225, 0.45)',    // Subtle light slate track
+      dottedCable: 'rgba(56, 189, 248, 0.35)',   // Delicate light sky-blue dotted track
+      cyanHighlight: '#00e5ff',                   // Simple bright electric cyan highlight
+      blueHighlight: '#60a5fa',                   // Soft bright sky azure highlight
+      skyHighlight: '#38bdf8',                    // Clean radiant sky blue highlight
+      limeHighlight: '#bef264',                   // Soft light lime-green highlight (clean & vivid, no dark green)
+      whiteCore: '#ffffff'                        // Pure white highlight bead
     };
 
     // Control waypoints in normalized zone coordinates: (xRatio, yRatio)
@@ -221,31 +221,31 @@
 
     buildSampledTracks();
 
-    // Pulse Objects: Moving "Power Current" Capsules & Beads
+    // Pulse Objects: Moving Thin "Power Current" Capsules & Beads (Simple Highlight Colors)
     const pulses = [
       // Left Solid Bus Pulses
-      { trackIdx: 0, progress: 0.05, speed: 0.0018, length: 0.045, color: colors.cyanCurrent, glow: colors.cyanCurrent, hasBead: true },
-      { trackIdx: 0, progress: 0.45, speed: 0.0014, length: 0.038, color: colors.limeCurrent, glow: colors.limeCurrent, hasBead: true },
-      { trackIdx: 0, progress: 0.80, speed: 0.0020, length: 0.042, color: colors.blueCurrent, glow: colors.cyanCurrent, hasBead: false },
+      { trackIdx: 0, progress: 0.05, speed: 0.0018, length: 0.045, color: colors.cyanHighlight, glow: colors.cyanHighlight, hasBead: true },
+      { trackIdx: 0, progress: 0.45, speed: 0.0014, length: 0.038, color: colors.limeHighlight, glow: colors.limeHighlight, hasBead: true },
+      { trackIdx: 0, progress: 0.80, speed: 0.0020, length: 0.042, color: colors.skyHighlight, glow: colors.skyHighlight, hasBead: false },
 
       // Left Dotted Conduit Pulses
-      { trackIdx: 1, progress: 0.25, speed: 0.0016, length: 0.032, color: colors.tealCurrent, glow: colors.tealCurrent, hasBead: true },
-      { trackIdx: 1, progress: 0.68, speed: 0.0019, length: 0.036, color: colors.cyanCurrent, glow: colors.cyanCurrent, hasBead: true },
+      { trackIdx: 1, progress: 0.25, speed: 0.0016, length: 0.032, color: colors.skyHighlight, glow: colors.skyHighlight, hasBead: true },
+      { trackIdx: 1, progress: 0.68, speed: 0.0019, length: 0.036, color: colors.cyanHighlight, glow: colors.cyanHighlight, hasBead: true },
 
       // Right Solid Bus Pulses
-      { trackIdx: 2, progress: 0.12, speed: 0.0017, length: 0.044, color: colors.limeCurrent, glow: colors.limeCurrent, hasBead: true },
-      { trackIdx: 2, progress: 0.52, speed: 0.0015, length: 0.040, color: colors.cyanCurrent, glow: colors.cyanCurrent, hasBead: true },
-      { trackIdx: 2, progress: 0.86, speed: 0.0021, length: 0.035, color: colors.blueCurrent, glow: colors.cyanCurrent, hasBead: false },
+      { trackIdx: 2, progress: 0.12, speed: 0.0017, length: 0.044, color: colors.limeHighlight, glow: colors.limeHighlight, hasBead: true },
+      { trackIdx: 2, progress: 0.52, speed: 0.0015, length: 0.040, color: colors.cyanHighlight, glow: colors.cyanHighlight, hasBead: true },
+      { trackIdx: 2, progress: 0.86, speed: 0.0021, length: 0.035, color: colors.blueHighlight, glow: colors.blueHighlight, hasBead: false },
 
       // Right Dotted Conduit Pulses
-      { trackIdx: 3, progress: 0.32, speed: 0.0018, length: 0.030, color: colors.tealCurrent, glow: colors.tealCurrent, hasBead: true },
-      { trackIdx: 3, progress: 0.74, speed: 0.0015, length: 0.038, color: colors.cyanCurrent, glow: colors.cyanCurrent, hasBead: true },
+      { trackIdx: 3, progress: 0.32, speed: 0.0018, length: 0.030, color: colors.skyHighlight, glow: colors.skyHighlight, hasBead: true },
+      { trackIdx: 3, progress: 0.74, speed: 0.0015, length: 0.038, color: colors.limeHighlight, glow: colors.limeHighlight, hasBead: true },
 
       // Cross-Link 1 Pulse (Upper)
-      { trackIdx: 4, progress: 0.15, speed: 0.0022, length: 0.065, color: colors.cyanCurrent, glow: colors.cyanCurrent, hasBead: true },
+      { trackIdx: 4, progress: 0.15, speed: 0.0022, length: 0.065, color: colors.cyanHighlight, glow: colors.cyanHighlight, hasBead: true },
 
       // Cross-Link 2 Pulse (Mid)
-      { trackIdx: 5, progress: 0.40, speed: 0.0020, length: 0.055, color: colors.limeCurrent, glow: colors.limeCurrent, hasBead: true }
+      { trackIdx: 5, progress: 0.40, speed: 0.0020, length: 0.055, color: colors.blueHighlight, glow: colors.blueHighlight, hasBead: true }
     ];
 
     // High-DPI Resize
@@ -263,36 +263,36 @@
       ctx.scale(dpr, dpr);
     }
 
-    // Direction Chevron Drawer
+    // Direction Chevron Drawer (Delicate, thin 2px accent)
     function drawChevron(ctx, x, y, angle, color) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
       ctx.fillStyle = color;
       ctx.beginPath();
-      ctx.moveTo(-5, -4);
-      ctx.lineTo(3, 0);
-      ctx.lineTo(-5, 4);
+      ctx.moveTo(-3.5, -2.5);
+      ctx.lineTo(2, 0);
+      ctx.lineTo(-3.5, 2.5);
       ctx.closePath();
       ctx.fill();
       ctx.restore();
     }
 
-    // Terminal Port Node Drawer
+    // Terminal Port Node Drawer (Minimal, thin micro-node)
     function drawTerminalPort(ctx, x, y, labelColor) {
       ctx.save();
       ctx.beginPath();
-      ctx.arc(x, y, 7, 0, Math.PI * 2);
+      ctx.arc(x, y, 4.0, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
       ctx.strokeStyle = labelColor;
-      ctx.lineWidth = 2.5;
+      ctx.lineWidth = 1.4;
       ctx.shadowColor = labelColor;
-      ctx.shadowBlur = 10;
+      ctx.shadowBlur = 5;
       ctx.fill();
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+      ctx.arc(x, y, 1.5, 0, Math.PI * 2);
       ctx.fillStyle = labelColor;
       ctx.fill();
       ctx.restore();
@@ -335,11 +335,11 @@
 
         if (track.type === 'dotted') {
           ctx.strokeStyle = colors.dottedCable;
-          ctx.lineWidth = 1.3;
-          ctx.setLineDash([3, 7]);
+          ctx.lineWidth = 0.75;
+          ctx.setLineDash([2.5, 6]);
         } else {
           ctx.strokeStyle = colors.solidCable;
-          ctx.lineWidth = 1.6;
+          ctx.lineWidth = 0.95;
           ctx.setLineDash([]);
         }
 
@@ -387,10 +387,10 @@
       const topP2y = zoneTop + topP2.y * zoneH;
 
       if (topP1y >= -40 && topP1y <= height + 40) {
-        drawTerminalPort(ctx, topP1.x * width, topP1y, colors.cyanCurrent);
+        drawTerminalPort(ctx, topP1.x * width, topP1y, colors.cyanHighlight);
       }
       if (topP2y >= -40 && topP2y <= height + 40) {
-        drawTerminalPort(ctx, topP2.x * width, topP2y, colors.cyanCurrent);
+        drawTerminalPort(ctx, topP2.x * width, topP2y, colors.cyanHighlight);
       }
 
       // Bottom ports at Enterprise Connectivity CTA (yRatio = 1.0)
@@ -400,10 +400,10 @@
       const botP2y = zoneTop + botP2.y * zoneH;
 
       if (botP1y >= -40 && botP1y <= height + 40) {
-        drawTerminalPort(ctx, botP1.x * width, botP1y, colors.blueCurrent);
+        drawTerminalPort(ctx, botP1.x * width, botP1y, colors.skyHighlight);
       }
       if (botP2y >= -40 && botP2y <= height + 40) {
-        drawTerminalPort(ctx, botP2.x * width, botP2y, colors.blueCurrent);
+        drawTerminalPort(ctx, botP2.x * width, botP2y, colors.skyHighlight);
       }
 
       // 3. Update & Draw Moving Power Current Pulses (Reference Video Motion)
@@ -419,14 +419,14 @@
           const tailProgress = (p.progress - p.length + 1.0) % 1.0;
           const tailIdx = Math.floor(tailProgress * (total - 1));
 
-          // Draw the glowing current capsule along the curve
+          // Draw the thin glowing current capsule along the curve
           ctx.save();
           ctx.beginPath();
-          ctx.lineWidth = 4.0;
+          ctx.lineWidth = 1.8;
           ctx.lineCap = 'round';
           ctx.strokeStyle = p.color;
           ctx.shadowColor = p.glow;
-          ctx.shadowBlur = 12;
+          ctx.shadowBlur = 6;
 
           let stepCount = Math.max(2, Math.floor(p.length * total));
           let headPt = null;
@@ -450,13 +450,13 @@
           }
           ctx.stroke();
 
-          // Leading Energy Bead / Dot
+          // Leading Energy Bead / Dot (Delicate 2.0px white micro-dot)
           if (p.hasBead && headPt && headPt.sy >= -30 && headPt.sy <= height + 30) {
             ctx.beginPath();
-            ctx.arc(headPt.sx, headPt.sy, 3.8, 0, Math.PI * 2);
+            ctx.arc(headPt.sx, headPt.sy, 2.0, 0, Math.PI * 2);
             ctx.fillStyle = colors.whiteCore;
             ctx.shadowColor = p.glow;
-            ctx.shadowBlur = 14;
+            ctx.shadowBlur = 6;
             ctx.fill();
           }
 
