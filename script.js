@@ -130,7 +130,7 @@ function initDropdownMenus() {
 }
 
 /* ==========================================================================
-   3. MOBILE NAVIGATION DRAWER
+   3. MOBILE NAVIGATION DRAWER (Native Touch Accordion Architecture)
    ========================================================================== */
 function initMobileNavigation() {
   const toggleBtn = document.getElementById('mobileNavToggle');
@@ -138,23 +138,69 @@ function initMobileNavigation() {
 
   if (!toggleBtn || !navMenu) return;
 
-  toggleBtn.addEventListener('click', () => {
-    const isVisible = navMenu.style.display === 'flex';
-    if (isVisible) {
-      navMenu.style.display = 'none';
+  function toggleMenu() {
+    const isOpen = navMenu.classList.contains('is-open');
+    if (isOpen) {
+      closeMenu();
     } else {
-      navMenu.style.display = 'flex';
-      navMenu.style.flexDirection = 'column';
-      navMenu.style.position = 'absolute';
-      navMenu.style.top = '100%';
-      navMenu.style.left = '0';
-      navMenu.style.right = '0';
-      navMenu.style.background = '#040d21';
-      navMenu.style.padding = '1.5rem';
-      navMenu.style.borderBottom = '1px solid rgba(255, 255, 255, 0.15)';
-      navMenu.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4)';
+      openMenu();
+    }
+  }
+
+  function openMenu() {
+    navMenu.classList.add('is-open');
+    toggleBtn.classList.add('is-active');
+    toggleBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden'; // Lock background scroll on mobile
+  }
+
+  function closeMenu() {
+    navMenu.classList.remove('is-open');
+    toggleBtn.classList.remove('is-active');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    toggleMenu();
+  });
+
+  // Close when clicking any nav link that navigates to a new page/anchor
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      // If it's a dropdown toggle trigger on mobile, don't close the drawer yet
+      if (link.parentElement.classList.contains('has-dropdown') && link.classList.contains('nav-link')) {
+        return;
+      }
+      if (window.innerWidth <= 1080) {
+        closeMenu();
+      }
+    });
+  });
+
+  // Close when clicking outside on mobile
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth <= 1080 && navMenu.classList.contains('is-open')) {
+      if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
+        closeMenu();
+      }
     }
   });
+
+  // Close on Escape key
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  });
+
+  // Clean reset when rotating or resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1080 && navMenu.classList.contains('is-open')) {
+      closeMenu();
+    }
+  }, { passive: true });
 }
 
 /* ==========================================================================
