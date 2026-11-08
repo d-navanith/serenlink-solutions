@@ -634,19 +634,25 @@ function initAnimatedMetrics() {
 function initScrollReveals() {
   // Check if user prefers reduced motion (Accessibility First)
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.innerWidth <= 768;
 
-  // Comprehensive selector list covering homepage and all 5 subpages
+  // Comprehensive selector list covering homepage and all 6 subpages
   const revealSelectors = [
-    // Section headers & titles
+    // Section headers, tags & descriptions
     '.section-tag',
     '.detail-badge',
     '.section-title',
     '.section-desc',
+    '.page-hero-title',
+    '.page-hero-lead',
     '.page-hero-banner h1',
     '.page-hero-banner p',
+    '.detail-title',
+    '.detail-desc',
     '.section-fade-divider',
     // Cards, grids & grouped content
     '.expect-card',
+    '.solution-card',
     '.solution-overview-card',
     '.partner-box',
     '.stat-card',
@@ -654,6 +660,8 @@ function initScrollReveals() {
     '.coverage-summary-card',
     '.calculator-card',
     '.calc-step',
+    '.hub-row',
+    '.sla-box',
     '.contact-card',
     '.about-milestone',
     '.detail-card-visual',
@@ -664,7 +672,14 @@ function initScrollReveals() {
     '.contact-form-wrap',
     '.contact-info-card',
     '.spec-card',
-    '.sol-detail-block'
+    '.sol-detail-block',
+    '.sector-spec-item',
+    // Final CTA & button groups
+    '.section-final-cta',
+    '.final-cta-capsule',
+    '.final-cta-btns',
+    '.hero-cta-group',
+    '.hero-trust-strip'
   ];
 
   const elements = document.querySelectorAll(revealSelectors.join(', '));
@@ -676,36 +691,57 @@ function initScrollReveals() {
     return;
   }
 
-  // Group elements by parent to calculate natural 80-100ms stagger delays
+  // Progressive enhancement: add reveal-init class and calculate natural stagger
   elements.forEach(el => {
     el.classList.add('reveal-init');
 
-    const parent = el.parentElement;
-    if (parent) {
-      const siblings = Array.from(parent.children).filter(child => {
-        return child.matches && child.matches(revealSelectors.join(', '));
-      });
-      const childIndex = siblings.indexOf(el);
-      if (childIndex > 0) {
-        // Stagger delay between 80ms and 100ms per child (capped at 5 to prevent long chains)
-        const delay = (childIndex % 5) * 0.09;
-        el.style.transitionDelay = `${delay.toFixed(2)}s`;
+    // Slower, more elegant timing for illustrations and images (1250ms)
+    if (
+      el.classList.contains('detail-card-visual') ||
+      el.matches('img') ||
+      (el.querySelector('img') && !el.classList.contains('detail-badge') && !el.classList.contains('onramp-lime-badge'))
+    ) {
+      el.classList.add('reveal-image');
+    }
+
+    // Coordinated section heading cascade: tag (0s) -> title (160ms) -> desc (320ms) -> CTA (480ms)
+    if (el.classList.contains('section-tag') || el.classList.contains('detail-badge')) {
+      el.style.transitionDelay = '0s';
+    } else if (el.classList.contains('section-title') || el.classList.contains('page-hero-title') || el.classList.contains('detail-title')) {
+      el.style.transitionDelay = '0.16s';
+    } else if (el.classList.contains('section-desc') || el.classList.contains('page-hero-lead') || el.classList.contains('detail-desc')) {
+      el.style.transitionDelay = '0.32s';
+    } else if (el.classList.contains('final-cta-btns') || el.classList.contains('hero-cta-group')) {
+      el.style.transitionDelay = '0.48s';
+    } else {
+      // Natural 180ms card & grid stagger delay between siblings (120ms on mobile)
+      const parent = el.parentElement;
+      if (parent) {
+        const siblings = Array.from(parent.children).filter(child => {
+          return child.matches && child.matches(revealSelectors.join(', '));
+        });
+        const childIndex = siblings.indexOf(el);
+        if (childIndex > 0) {
+          const staggerUnit = isMobile ? 0.12 : 0.18;
+          const delay = (childIndex % 6) * staggerUnit;
+          el.style.transitionDelay = `${delay.toFixed(2)}s`;
+        }
       }
     }
   });
 
-  // IntersectionObserver with threshold: 0.15 and bottom rootMargin of -40px
+  // IntersectionObserver configured with 85% viewport trigger (-15% rootMargin from bottom)
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
-        // Unobserve once revealed to eliminate scroll event overhead
+        // Unobserve once revealed to eliminate scroll overhead and replay
         obs.unobserve(entry.target);
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.08,
+    rootMargin: '0px 0px -15% 0px'
   });
 
   elements.forEach(el => observer.observe(el));
