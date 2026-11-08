@@ -2019,10 +2019,19 @@ button, input, select, textarea {
    PAGE SPECIFIC STYLES (Solutions, Services, Industries, About, Contact)
    ========================================================================== */
 .page-hero-banner {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(180deg, #030a1c 0%, #071940 35%, #10388d 75%, #ffffff 100%);
   color: #ffffff;
   padding: 5rem 1.5rem 4rem;
   text-align: center;
+}
+
+.page-hero-banner .onramp-lime-badge,
+.page-hero-banner .page-hero-title,
+.page-hero-banner .page-hero-lead {
+  position: relative;
+  z-index: 3;
 }
 
 .page-hero-title {
@@ -2803,9 +2812,14 @@ section {
   opacity: 1;
 }
 
-/* Ensure content cards, tabs, estimator, and CTA sit above the cables */
+/* Ensure content cards, tabs, estimator, CTA, and detail sections sit above the cables */
 .cable-highway-zone .section-container,
-.cable-highway-zone .final-cta-capsule {
+.cable-highway-zone .final-cta-capsule,
+.cable-highway-zone .detail-section,
+.cable-highway-zone .detail-block-grid,
+.cable-highway-zone .calculator-card,
+.cable-highway-zone .about-values-grid,
+.cable-highway-zone .timeline-wrap {
   position: relative;
   z-index: 3;
 }
