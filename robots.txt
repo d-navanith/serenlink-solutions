@@ -1,0 +1,46 @@
+# ==============================================================================
+# ROBOTS.TXT - SERENLINK SOLUTIONS (PVT) LTD
+# Sri Lanka's Premier Network Infrastructure & Cybersecurity Integrator
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /solutions.html
+Allow: /services.html
+Allow: /industries.html
+Allow: /locations.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /assets/
+Allow: /style.css
+Allow: /script.js
+Allow: /splash.css
+Allow: /splash.js
+
+# Disallow system configurations and source archives
+Disallow: /web.config
+Disallow: /.htaccess
+Disallow: /_headers
+Disallow: /*.zip$
+Disallow: /*.log$
+Disallow: /*.jsonl$
+Disallow: /*.bak$
+Disallow: /.git/
+
+# Search Engine Specific Crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /assets/
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# XML Sitemaps
+Sitemap: https://serenlink.lk/sitemap.xml
+Sitemap: https://serenlink.runasp.net/sitemap.xml
+Sitemap: https://d-navanith.github.io/serenlink-solutions/sitemap.xml

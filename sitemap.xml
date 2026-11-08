@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- 1. Homepage -->
+  <url>
+    <loc>https://serenlink.lk/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://serenlink.lk/assets/logo.png</image:loc>
+      <image:title>SerenLink Solutions - Enterprise Network Solutions Sri Lanka</image:title>
+      <image:caption>Premier systems integrator and network engineering firm in Sri Lanka.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- 2. Solutions -->
+  <url>
+    <loc>https://serenlink.lk/solutions.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://serenlink.lk/assets/solutions/structured_cabling.png</image:loc>
+      <image:title>Structured Cabling &amp; Optical Fiber Solutions Colombo</image:title>
+    </image:image>
+  </url>
+
+  <!-- 3. Managed Services & SLA -->
+  <url>
+    <loc>https://serenlink.lk/services.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 4. Industry Architectures -->
+  <url>
+    <loc>https://serenlink.lk/industries.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 5. Islandwide Locations & Hubs -->
+  <url>
+    <loc>https://serenlink.lk/locations.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 6. About Company -->
+  <url>
+    <loc>https://serenlink.lk/about.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 7. Contact & Instant Quotation -->
+  <url>
+    <loc>https://serenlink.lk/contact.html</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>
