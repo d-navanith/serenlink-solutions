@@ -1,5 +1,5 @@
 /**
- * SERENLINK SOLUTIONS - CINEMATIC SLOW-PACED SPLASH SCREEN ENGINE
+ * SERENLINK SOLUTIONS - CINEMATIC SPLASH SCREEN ENGINE
  * Fully isolated, responsive, and performance-optimized
  */
 
@@ -9,18 +9,6 @@
   function initSplashScreen() {
     const splash = document.getElementById('serenlinkSplashScreen');
     if (!splash) return;
-
-    // Check if user already saw the splash screen in this browser session
-    try {
-      if (sessionStorage.getItem('serenlink_splash_viewed') === '1') {
-        splash.style.display = 'none';
-        document.body.classList.remove('splash-active');
-        window.dispatchEvent(new CustomEvent('serenlink:splashCompleted'));
-        return;
-      }
-    } catch (e) {
-      // Ignore storage errors in private browsing modes
-    }
 
     const skipBtn = document.getElementById('splashSkipBtn');
     let isDismissed = false;
@@ -35,10 +23,6 @@
       if (isDismissed) return;
       isDismissed = true;
 
-      try {
-        sessionStorage.setItem('serenlink_splash_viewed', '1');
-      } catch (e) {}
-
       if (autoDismissTimer) clearTimeout(autoDismissTimer);
       if (failSafeTimer) clearTimeout(failSafeTimer);
 
@@ -49,7 +33,7 @@
       }
       splash.setAttribute('aria-hidden', 'true');
 
-      const delay = isFast ? 220 : 700;
+      const delay = isFast ? 240 : 700;
       setTimeout(() => {
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
@@ -67,11 +51,11 @@
       return;
     }
 
-    // 4. Majestic Cinematic Auto-Dismiss Timers
+    // 4. Majestic Cinematic Auto-Dismiss Timers (Play full sequence ~5.3s)
     const autoDismissTimer = setTimeout(() => dismissSplash(false), 5300);
     const failSafeTimer = setTimeout(() => dismissSplash(true), 6800);
 
-    // 5. Interactive Instant Skip Handlers
+    // 5. Dedicated Skip Button Handler
     function handleSkipEvent(e) {
       if (e) {
         if (e.cancelable) e.preventDefault();
@@ -80,22 +64,16 @@
       dismissSplash(true);
     }
 
-    // Explicit Skip Button listeners (instant on mouse/touch/pointer)
+    // Explicit Skip Button listeners (mouse & touch)
     if (skipBtn) {
       skipBtn.addEventListener('click', handleSkipEvent);
       skipBtn.addEventListener('pointerdown', handleSkipEvent);
       skipBtn.addEventListener('touchstart', handleSkipEvent, { passive: false });
     }
 
-    // Clicking / tapping anywhere on the splash backdrop also dismisses immediately
-    splash.addEventListener('click', handleSkipEvent);
-    splash.addEventListener('pointerdown', (e) => {
-      handleSkipEvent(e);
-    });
-
-    // Any keyboard press dismisses (Escape, Space, Enter, etc.)
+    // Allow user to dismiss with Escape key
     window.addEventListener('keydown', (e) => {
-      if (!isDismissed) {
+      if (e.key === 'Escape' && !isDismissed) {
         handleSkipEvent(e);
       }
     });
