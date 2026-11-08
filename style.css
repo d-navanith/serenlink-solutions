@@ -2775,3 +2775,37 @@ section {
     gap: 0.75rem;
   }
 }
+
+
+/* ==========================================================================
+   DIGITAL POWER CURRENT & OPTICAL CABLE HIGHWAY ANIMATION
+   Flowing continuously from Tier-1 Alliances down to Enterprise Connectivity
+   ========================================================================== */
+.cable-highway-zone {
+  position: relative;
+  width: 100%;
+  overflow-x: clip;
+}
+
+.cable-highway-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.cable-highway-canvas.is-active {
+  opacity: 1;
+}
+
+/* Ensure content cards, tabs, estimator, and CTA sit above the cables */
+.cable-highway-zone .section-container,
+.cable-highway-zone .final-cta-capsule {
+  position: relative;
+  z-index: 3;
+}
