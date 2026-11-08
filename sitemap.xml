@@ -4,12 +4,12 @@
 
   <!-- 1. Homepage -->
   <url>
-    <loc>https://serenlink.lk/</loc>
+    <loc>https://serenlink.runasp.net/</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://serenlink.lk/assets/logo.png</image:loc>
+      <image:loc>https://serenlink.runasp.net/assets/logo.png</image:loc>
       <image:title>SerenLink Solutions - Enterprise Network Solutions Sri Lanka</image:title>
       <image:caption>Premier systems integrator and network engineering firm in Sri Lanka.</image:caption>
     </image:image>
@@ -17,19 +17,19 @@
 
   <!-- 2. Solutions -->
   <url>
-    <loc>https://serenlink.lk/solutions.html</loc>
+    <loc>https://serenlink.runasp.net/solutions.html</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://serenlink.lk/assets/solutions/structured_cabling.png</image:loc>
+      <image:loc>https://serenlink.runasp.net/assets/solutions/structured_cabling.png</image:loc>
       <image:title>Structured Cabling &amp; Optical Fiber Solutions Colombo</image:title>
     </image:image>
   </url>
 
   <!-- 3. Managed Services & SLA -->
   <url>
-    <loc>https://serenlink.lk/services.html</loc>
+    <loc>https://serenlink.runasp.net/services.html</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -37,7 +37,7 @@
 
   <!-- 4. Industry Architectures -->
   <url>
-    <loc>https://serenlink.lk/industries.html</loc>
+    <loc>https://serenlink.runasp.net/industries.html</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
@@ -45,7 +45,7 @@
 
   <!-- 5. Islandwide Locations & Hubs -->
   <url>
-    <loc>https://serenlink.lk/locations.html</loc>
+    <loc>https://serenlink.runasp.net/locations.html</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
@@ -53,7 +53,7 @@
 
   <!-- 6. About Company -->
   <url>
-    <loc>https://serenlink.lk/about.html</loc>
+    <loc>https://serenlink.runasp.net/about.html</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -61,7 +61,7 @@
 
   <!-- 7. Contact & Instant Quotation -->
   <url>
-    <loc>https://serenlink.lk/contact.html</loc>
+    <loc>https://serenlink.runasp.net/contact.html</loc>
     <lastmod>2026-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
