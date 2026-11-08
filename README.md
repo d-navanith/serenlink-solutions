@@ -63,16 +63,6 @@
   <img src="docs/images/contact_page.png" alt="SerenLink Contact and Site Survey Portal" width="95%" />
 </div>
 
-<br/>
-
-### 6. Mobile & Tablet Responsive Architecture
-> Engineered from the ground up for smooth thumb navigation on all screen sizes (360px – 1080px). Includes a native-feeling slide-down navigation drawer with touch accordions, horizontal pill scrolling, stacked full-width CTA buttons, and zero horizontal overflow.
-
-<div align="center">
-  <img src="docs/images/mobile_preview_375.png" alt="SerenLink Mobile Homepage (375px)" width="45%" style="border-radius: 14px; margin-right: 2%;" />
-  <img src="docs/images/mobile_menu_open.png" alt="SerenLink Mobile Navigation Drawer" width="45%" style="border-radius: 14px;" />
-</div>
-
 ---
 
 ## ✨ Highlights & Architecture
