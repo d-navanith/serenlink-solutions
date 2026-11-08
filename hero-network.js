@@ -17,7 +17,7 @@
   'use strict';
 
   function initHeroNetwork() {
-    const heroSection = document.querySelector('.hero-onramp-section') || document.querySelector('.page-hero-banner');
+    const heroSection = document.querySelector('.hero-onramp-section') || document.querySelector('.page-hero-banner') || document.querySelector('.hero-section');
     const canvas = document.getElementById('heroNetworkCanvas');
     if (!heroSection || !canvas) return;
 
