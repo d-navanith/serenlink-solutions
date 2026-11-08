@@ -917,8 +917,8 @@ button, input, select, textarea {
 }
 
 .btn-onramp-lime {
-  background: rgba(14, 38, 88, 0.85);
-  color: #ffffff;
+  background: var(--color-lime);
+  color: #090d16;
   font-size: 1.05rem;
   font-weight: 700;
   padding: 0.95rem 2.2rem;
@@ -926,10 +926,8 @@ button, input, select, textarea {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  border: 1px solid rgba(56, 189, 248, 0.45);
-  box-shadow: 0 8px 24px rgba(4, 13, 33, 0.4), 0 0 20px rgba(56, 189, 248, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-lime);
+  box-shadow: 0 4px 20px rgba(226, 255, 56, 0.4), 0 8px 24px rgba(4, 13, 33, 0.3);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   position: relative;
@@ -937,17 +935,20 @@ button, input, select, textarea {
 }
 
 .btn-onramp-lime:hover {
-  background: rgba(20, 52, 118, 0.95);
-  border-color: #00e5ff;
+  background: var(--color-lime-hover);
+  border-color: var(--color-lime-hover);
+  color: #090d16;
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 32px rgba(4, 13, 33, 0.5), 0 0 28px rgba(0, 229, 255, 0.45);
+  box-shadow: 0 8px 30px rgba(226, 255, 56, 0.65), 0 12px 32px rgba(4, 13, 33, 0.4);
 }
 
 .btn-onramp-lime svg {
+  stroke: #090d16;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .btn-onramp-lime:hover svg {
+  stroke: #090d16;
   transform: translate(3px, -3px);
 }
 
