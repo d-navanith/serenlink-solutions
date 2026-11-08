@@ -10,6 +10,18 @@
     const splash = document.getElementById('serenlinkSplashScreen');
     if (!splash) return;
 
+    // Check if user already saw the splash screen in this browser session
+    try {
+      if (sessionStorage.getItem('serenlink_splash_viewed') === '1') {
+        splash.style.display = 'none';
+        document.body.classList.remove('splash-active');
+        window.dispatchEvent(new CustomEvent('serenlink:splashCompleted'));
+        return;
+      }
+    } catch (e) {
+      // Ignore storage errors in private browsing modes
+    }
+
     const skipBtn = document.getElementById('splashSkipBtn');
     let isDismissed = false;
 
@@ -19,15 +31,25 @@
     document.body.style.overflow = 'hidden';
 
     // 2. Dismiss function
-    function dismissSplash() {
+    function dismissSplash(isFast) {
       if (isDismissed) return;
       isDismissed = true;
 
-      // Add fade-out transition class
-      splash.classList.add('splash-fade-out');
+      try {
+        sessionStorage.setItem('serenlink_splash_viewed', '1');
+      } catch (e) {}
+
+      if (autoDismissTimer) clearTimeout(autoDismissTimer);
+      if (failSafeTimer) clearTimeout(failSafeTimer);
+
+      if (isFast) {
+        splash.classList.add('splash-fast-exit');
+      } else {
+        splash.classList.add('splash-fade-out');
+      }
       splash.setAttribute('aria-hidden', 'true');
 
-      // Restore body scrolling after CSS transition completes
+      const delay = isFast ? 220 : 700;
       setTimeout(() => {
         document.documentElement.style.overflow = '';
         document.body.style.overflow = '';
@@ -36,49 +58,45 @@
 
         // Dispatch custom event when splash screen finishes
         window.dispatchEvent(new CustomEvent('serenlink:splashCompleted'));
-      }, 850); // Matches CSS transition duration (0.85s)
+      }, delay);
     }
 
     // 3. Accessibility check (Reduced Motion)
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setTimeout(dismissSplash, 400);
+      dismissSplash(true);
       return;
     }
 
-    // 4. Majestic Slow Cinematic Timeline (~5.3 seconds)
-    // - Scene 1: Initial Seed Particle (0.0s - 1.8s)
-    // - Scene 2: Network Light Beams, Arcs & Orbiting Data (1.0s - 3.4s)
-    // - Scene 3: Optical Energy Burst Bloom (2.9s - 3.8s)
-    // - Scene 4: Unified SerenLink Solutions Logo Reveal (3.4s - 5.3s)
-    // At ~5.3s, begin smooth 0.85s fade-out into the homepage.
-    const autoDismissTimer = setTimeout(dismissSplash, 5300);
+    // 4. Majestic Cinematic Auto-Dismiss Timers
+    const autoDismissTimer = setTimeout(() => dismissSplash(false), 5300);
+    const failSafeTimer = setTimeout(() => dismissSplash(true), 6800);
 
-    // Hard fail-safe timeout guarantees website is never permanently blocked
-    const failSafeTimer = setTimeout(dismissSplash, 6800);
-
-    // 5. Interactive Skip Handlers
-    if (skipBtn) {
-      skipBtn.addEventListener('click', (e) => {
+    // 5. Interactive Instant Skip Handlers
+    function handleSkipEvent(e) {
+      if (e) {
+        if (e.cancelable) e.preventDefault();
         e.stopPropagation();
-        clearTimeout(autoDismissTimer);
-        clearTimeout(failSafeTimer);
-        dismissSplash();
-      });
+      }
+      dismissSplash(true);
     }
 
-    // Clicking anywhere on the splash screen also skips
-    splash.addEventListener('click', () => {
-      clearTimeout(autoDismissTimer);
-      clearTimeout(failSafeTimer);
-      dismissSplash();
+    // Explicit Skip Button listeners (instant on mouse/touch/pointer)
+    if (skipBtn) {
+      skipBtn.addEventListener('click', handleSkipEvent);
+      skipBtn.addEventListener('pointerdown', handleSkipEvent);
+      skipBtn.addEventListener('touchstart', handleSkipEvent, { passive: false });
+    }
+
+    // Clicking / tapping anywhere on the splash backdrop also dismisses immediately
+    splash.addEventListener('click', handleSkipEvent);
+    splash.addEventListener('pointerdown', (e) => {
+      handleSkipEvent(e);
     });
 
-    // Escape key skips
+    // Any keyboard press dismisses (Escape, Space, Enter, etc.)
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !isDismissed) {
-        clearTimeout(autoDismissTimer);
-        clearTimeout(failSafeTimer);
-        dismissSplash();
+      if (!isDismissed) {
+        handleSkipEvent(e);
       }
     });
   }

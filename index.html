@@ -6,6 +6,11 @@
   <link rel="shortcut icon" href="favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Enterprise Security & Anti-Exploit Policies -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>SerenLink Solutions | Enterprise Network Solutions Sri Lanka</title>
   <meta name="description" content="Sri Lanka's premier network infrastructure and cybersecurity company. Carrier-grade structured cabling, enterprise Wi-Fi 7, Fortinet firewalls, and 24/7 Colombo NOC.">
   
@@ -27,7 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="splash.css?v=2025.55">
-  <link rel="stylesheet" href="style.css?v=2025.61">
+  <link rel="stylesheet" href="style.css?v=2025.62">
 </head>
 <body>
   <!-- ==========================================================================
@@ -486,78 +491,216 @@
     <!-- Viewport-Fixed Lightweight Hardware-Accelerated 60FPS Cable Canvas -->
     <canvas id="cableHighwayCanvas" class="cable-highway-canvas" aria-hidden="true"></canvas>
 
-  <section class="section-partners" id="partners">
-    <div class="section-container">
-      <div class="section-fade-divider" style="margin-bottom: 3.5rem;"></div>
-      
-      <div style="text-align: center; margin-bottom: 2.5rem;">
-        <span class="section-tag">Tier-1 Alliances</span>
-        <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; letter-spacing: -0.02em;">
-          Certified Global Technology Partners
-        </h2>
-        <p style="color: #64748b; font-size: 1rem; max-width: 680px; margin: 0.5rem auto 0;">
-          Direct tier-1 relationships ensuring genuine enterprise hardware, expedited RMA replacements, and vendor-certified engineers.
-        </p>
-      </div>
+      <section class="section-partners" id="partners">
+      <div class="section-container">
+        <div class="section-fade-divider" style="margin-bottom: 3.5rem;"></div>
+        
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="section-tag">Tier-1 Alliances</span>
+          <h2 style="font-size: 2.2rem; font-weight: 800; color: #0f172a; letter-spacing: -0.02em;">
+            Certified Global Technology Partners
+          </h2>
+          <p style="color: #64748b; font-size: 1rem; max-width: 680px; margin: 0.5rem auto 0;">
+            Direct tier-1 relationships ensuring genuine enterprise hardware, expedited RMA replacements, and vendor-certified engineers.
+          </p>
+        </div>
 
-      <!-- Infinite Seamless Marquee Track -->
-      <div class="partners-marquee-container">
-        <div class="partners-marquee-track">
-          <!-- Loop Set 1 -->
-          <div class="partner-box">
-            <img src="assets/partners/ruijie_clean.png" alt="Ruijie Networks" class="partner-logo-img">
-            <span class="partner-tier">Gold Integrator</span>
+        <!-- Infinite Seamless Marquee Container (Dual-Row Gliding Tracks) -->
+        <div class="partners-marquee-container">
+          
+          <!-- Track 1: Enterprise Networking, Cybersecurity & Core Infrastructure -->
+          <div class="partners-marquee-track">
+            <!-- Loop Set 1 -->
+            <div class="partner-box">
+              <img src="assets/partners/cisco_clean.png" alt="Cisco Enterprise Networking" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Networking</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/fortinet_clean.png" alt="Fortinet Firewalls & Security" class="partner-logo-img">
+              <span class="partner-tier">Next-Gen Cybersecurity</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/aruba_clean.png" alt="HPE Aruba Networking" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Wi-Fi & Switching</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/commscope_clean.png" alt="CommScope SYSTIMAX" class="partner-logo-img">
+              <span class="partner-tier">Structured Cabling & Fiber</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/paloalto_clean.png" alt="Palo Alto Networks" class="partner-logo-img">
+              <span class="partner-tier">Zero Trust Firewalls</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/ubiquiti_clean.png" alt="Ubiquiti UniFi" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Wi-Fi & Protect</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/dell_clean.png" alt="Dell Technologies" class="partner-logo-img">
+              <span class="partner-tier">Servers & Compute Systems</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/ruijie_clean.png" alt="Ruijie Networks" class="partner-logo-img">
+              <span class="partner-tier">Cloud Managed Enterprise</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/hikvision_clean.png" alt="Hikvision Video Surveillance" class="partner-logo-img">
+              <span class="partner-tier">AI CCTV & Physical Security</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/fluke_clean.png" alt="Fluke Networks" class="partner-logo-img">
+              <span class="partner-tier">OTDR & Cable Testing</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/juniper_clean.png" alt="Juniper Networks" class="partner-logo-img">
+              <span class="partner-tier">Carrier Routing & AI Mist</span>
+            </div>
+
+            <!-- Loop Set 2 (Identical for Seamless Loop) -->
+            <div class="partner-box">
+              <img src="assets/partners/cisco_clean.png" alt="Cisco Enterprise Networking" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Networking</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/fortinet_clean.png" alt="Fortinet Firewalls & Security" class="partner-logo-img">
+              <span class="partner-tier">Next-Gen Cybersecurity</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/aruba_clean.png" alt="HPE Aruba Networking" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Wi-Fi & Switching</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/commscope_clean.png" alt="CommScope SYSTIMAX" class="partner-logo-img">
+              <span class="partner-tier">Structured Cabling & Fiber</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/paloalto_clean.png" alt="Palo Alto Networks" class="partner-logo-img">
+              <span class="partner-tier">Zero Trust Firewalls</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/ubiquiti_clean.png" alt="Ubiquiti UniFi" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Wi-Fi & Protect</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/dell_clean.png" alt="Dell Technologies" class="partner-logo-img">
+              <span class="partner-tier">Servers & Compute Systems</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/ruijie_clean.png" alt="Ruijie Networks" class="partner-logo-img">
+              <span class="partner-tier">Cloud Managed Enterprise</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/hikvision_clean.png" alt="Hikvision Video Surveillance" class="partner-logo-img">
+              <span class="partner-tier">AI CCTV & Physical Security</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/fluke_clean.png" alt="Fluke Networks" class="partner-logo-img">
+              <span class="partner-tier">OTDR & Cable Testing</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/juniper_clean.png" alt="Juniper Networks" class="partner-logo-img">
+              <span class="partner-tier">Carrier Routing & AI Mist</span>
+            </div>
           </div>
-          <div class="partner-box">
-            <img src="assets/partners/unifi_clean.png" alt="Ubiquiti UniFi" class="partner-logo-img">
-            <span class="partner-tier">Enterprise Partner</span>
+
+          <!-- Track 2: Cabling, Wireless, Unified Voice, Storage & Physical Security (Glides Right) -->
+          <div class="partners-marquee-track track-reverse">
+            <!-- Loop Set 1 -->
+            <div class="partner-box">
+              <img src="assets/partners/belden_clean.png" alt="Belden Enterprise" class="partner-logo-img">
+              <span class="partner-tier">Industrial Optical & Copper</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/ruckus_clean.png" alt="Ruckus Wireless" class="partner-logo-img">
+              <span class="partner-tier">High-Density Wi-Fi 7</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/sophos_clean.png" alt="Sophos Cybersecurity" class="partner-logo-img">
+              <span class="partner-tier">Synchronized Security</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/synology_clean.png" alt="Synology NAS" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Storage & Backup</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/molex_clean.png" alt="Molex Premise Networks" class="partner-logo-img">
+              <span class="partner-tier">Premise Network Cabling</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/axis_clean.png" alt="Axis Communications" class="partner-logo-img">
+              <span class="partner-tier">Network Video Solutions</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/zkteco_clean.png" alt="ZKTeco" class="partner-logo-img">
+              <span class="partner-tier">Biometric & Access Control</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/threecx_clean.png" alt="3CX Phone System" class="partner-logo-img">
+              <span class="partner-tier">Enterprise IP Telephony</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/grandstream_clean.png" alt="Grandstream Networks" class="partner-logo-img">
+              <span class="partner-tier">Unified Communications</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/avaya_clean.png" alt="Avaya Enterprise" class="partner-logo-img">
+              <span class="partner-tier">Corporate VoIP Systems</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/reolink_clean.png" alt="Reolink Security" class="partner-logo-img">
+              <span class="partner-tier">Smart IP Surveillance</span>
+            </div>
+
+            <!-- Loop Set 2 (Identical for Seamless Loop) -->
+            <div class="partner-box">
+              <img src="assets/partners/belden_clean.png" alt="Belden Enterprise" class="partner-logo-img">
+              <span class="partner-tier">Industrial Optical & Copper</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/ruckus_clean.png" alt="Ruckus Wireless" class="partner-logo-img">
+              <span class="partner-tier">High-Density Wi-Fi 7</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/sophos_clean.png" alt="Sophos Cybersecurity" class="partner-logo-img">
+              <span class="partner-tier">Synchronized Security</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/synology_clean.png" alt="Synology NAS" class="partner-logo-img">
+              <span class="partner-tier">Enterprise Storage & Backup</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/molex_clean.png" alt="Molex Premise Networks" class="partner-logo-img">
+              <span class="partner-tier">Premise Network Cabling</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/axis_clean.png" alt="Axis Communications" class="partner-logo-img">
+              <span class="partner-tier">Network Video Solutions</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/zkteco_clean.png" alt="ZKTeco" class="partner-logo-img">
+              <span class="partner-tier">Biometric & Access Control</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/threecx_clean.png" alt="3CX Phone System" class="partner-logo-img">
+              <span class="partner-tier">Enterprise IP Telephony</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/grandstream_clean.png" alt="Grandstream Networks" class="partner-logo-img">
+              <span class="partner-tier">Unified Communications</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/avaya_clean.png" alt="Avaya Enterprise" class="partner-logo-img">
+              <span class="partner-tier">Corporate VoIP Systems</span>
+            </div>
+            <div class="partner-box">
+              <img src="assets/partners/reolink_clean.png" alt="Reolink Security" class="partner-logo-img">
+              <span class="partner-tier">Smart IP Surveillance</span>
+            </div>
           </div>
-          <div class="partner-box">
-            <img src="assets/partners/hikvision_clean.png" alt="Hikvision Network" class="partner-logo-img">
-            <span class="partner-tier">Certified Security</span>
-          </div>
-          <div class="partner-box">
-            <img src="assets/partners/lansan_clean.png" alt="Lansan Cabling" class="partner-logo-img">
-            <span class="partner-tier">Structured Cabling</span>
-          </div>
-          <div class="partner-box">
-            <img src="assets/partners/ceynex_clean.png" alt="Ceynex Fiber" class="partner-logo-img">
-            <span class="partner-tier">Optical Hardware</span>
-          </div>
-          <div class="partner-box">
-            <img src="assets/partners/unv_clean.png" alt="UNV Enterprise" class="partner-logo-img">
-            <span class="partner-tier">ELV Systems</span>
-          </div>
-          <!-- Loop Set 2 (Duplicate for Continuous Seamless Infinite Scroll) -->
-          <div class="partner-box" aria-hidden="true">
-            <img src="assets/partners/ruijie_clean.png" alt="Ruijie Networks" class="partner-logo-img">
-            <span class="partner-tier">Gold Integrator</span>
-          </div>
-          <div class="partner-box" aria-hidden="true">
-            <img src="assets/partners/unifi_clean.png" alt="Ubiquiti UniFi" class="partner-logo-img">
-            <span class="partner-tier">Enterprise Partner</span>
-          </div>
-          <div class="partner-box" aria-hidden="true">
-            <img src="assets/partners/hikvision_clean.png" alt="Hikvision Network" class="partner-logo-img">
-            <span class="partner-tier">Certified Security</span>
-          </div>
-          <div class="partner-box" aria-hidden="true">
-            <img src="assets/partners/lansan_clean.png" alt="Lansan Cabling" class="partner-logo-img">
-            <span class="partner-tier">Structured Cabling</span>
-          </div>
-          <div class="partner-box" aria-hidden="true">
-            <img src="assets/partners/ceynex_clean.png" alt="Ceynex Fiber" class="partner-logo-img">
-            <span class="partner-tier">Optical Hardware</span>
-          </div>
-          <div class="partner-box" aria-hidden="true">
-            <img src="assets/partners/unv_clean.png" alt="UNV Enterprise" class="partner-logo-img">
-            <span class="partner-tier">ELV Systems</span>
-          </div>
+
         </div>
       </div>
-
-    </div>
-  </section>
+    </section>
 
   <!-- ==========================================================================
        SECTION: "ON WHAT TO EXPECT" (Exact 3-Icon Graphic Columns from OnRamp)
@@ -1150,6 +1293,12 @@
       </div>
 
       <form id="instantQuoteForm">
+        <!-- Anti-Bot Security Honeypot (Invisible to real users, traps automated exploit bots) -->
+        <div style="display:none !important; position:absolute; left:-9999px;" aria-hidden="true">
+          <label for="trap_hp_check">Leave empty</label>
+          <input type="text" id="trap_hp_check" name="_sec_honeypot_trap" tabindex="-1" autocomplete="off">
+        </div>
+
         <div class="form-row-2col">
           <div class="form-group">
             <label class="form-label">Full Name *</label>

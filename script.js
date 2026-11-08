@@ -1,5 +1,35 @@
 /**
  * SERENLINK SOLUTIONS (PVT) LTD
+ * Enterprise Security Engine & Dynamic Architecture
+ */
+
+// Production Automatic HTTPS Upgrade
+(function enforceSecureTransport() {
+  if (
+    typeof window !== 'undefined' &&
+    window.location &&
+    window.location.protocol === 'http:' &&
+    !['localhost', '127.0.0.1'].includes(window.location.hostname)
+  ) {
+    window.location.replace('https:' + window.location.href.substring(window.location.protocol.length));
+  }
+})();
+
+// Client-side HTML Entity Sanitizer to prevent DOM XSS
+function sanitizeSecurityString(str) {
+  if (typeof str !== 'string') return '';
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#x27;')
+    .replace(/\//g, '&#x2F;')
+    .trim();
+}
+
+/**
+ * SERENLINK SOLUTIONS (PVT) LTD
  * Theme: OnRamp 2025 Dynamic Engine & TKWIT Navigation
  */
 
@@ -13,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSectorPillTabs();
   initNetworkCalculator();
   initQuoteModal();
+  initContactForm();
   initSmoothScroll();
 });
 
@@ -473,13 +504,33 @@ function initQuoteModal() {
     document.body.style.overflow = '';
   }
 
+  let lastQuoteSubmitTime = 0;
+
   if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = quoteForm.querySelector('[name="client_name"]').value;
-      const company = quoteForm.querySelector('[name="company_name"]').value;
-      const phone = quoteForm.querySelector('[name="phone"]').value;
-      const service = quoteForm.querySelector('[name="service_type"]').value;
+
+      // 1. Anti-Bot Honeypot Trap Check
+      const honeypot = quoteForm.querySelector('[name="_sec_honeypot_trap"]');
+      if (honeypot && honeypot.value.trim() !== '') {
+        console.warn('Bot submission blocked.');
+        quoteForm.reset();
+        return;
+      }
+
+      // 2. Submission Rate Limiting (Prevents flood attacks)
+      const now = Date.now();
+      if (now - lastQuoteSubmitTime < 4000) {
+        alert('Please wait a moment before submitting again.');
+        return;
+      }
+      lastQuoteSubmitTime = now;
+
+      // 3. Strict Input Sanitization
+      const name = sanitizeSecurityString(quoteForm.querySelector('[name="client_name"]').value);
+      const company = sanitizeSecurityString(quoteForm.querySelector('[name="company_name"]').value);
+      const phone = sanitizeSecurityString(quoteForm.querySelector('[name="phone"]').value);
+      const service = sanitizeSecurityString(quoteForm.querySelector('[name="service_type"]').value);
 
       // WhatsApp redirection link
       const text = encodeURIComponent(
@@ -494,7 +545,7 @@ function initQuoteModal() {
 
       const whatsappUrl = `https://wa.me/94771234567?text=${text}`;
 
-      // Show instant success message
+      // Show instant secure success message
       quoteForm.innerHTML = `
         <div style="text-align: center; padding: 2rem 1rem;">
           <div style="width: 60px; height: 60px; border-radius: 50%; background: #d1fae5; color: #065f46; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
@@ -654,7 +705,7 @@ function initScrollReveals() {
     '.expect-card',
     '.solution-card',
     '.solution-overview-card',
-    '.partner-box',
+    
     '.stat-card',
     '.sector-blueprint-card',
     '.coverage-summary-card',
@@ -745,4 +796,75 @@ function initScrollReveals() {
   });
 
   elements.forEach(el => observer.observe(el));
+}
+
+
+/* ==========================================================================
+   ENTERPRISE CONTACT FORM WITH SECURITY HONEYPOT & DISPATCH
+   ========================================================================== */
+function initContactForm() {
+  const contactForm = document.getElementById('contactPageForm');
+  if (!contactForm) return;
+
+  let lastSubmitTime = 0;
+
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // 1. Anti-Bot Honeypot Trap Check
+    const honeypot = contactForm.querySelector('[name="_sec_honeypot_trap"]');
+    if (honeypot && honeypot.value.trim() !== '') {
+      console.warn('Spam bot submission blocked.');
+      contactForm.reset();
+      return;
+    }
+
+    // 2. Submission Rate Limiting
+    const now = Date.now();
+    if (now - lastSubmitTime < 4000) {
+      alert('Please wait a moment before submitting again.');
+      return;
+    }
+    lastSubmitTime = now;
+
+    // 3. Strict Input Sanitization
+    const name = sanitizeSecurityString(contactForm.querySelector('[name="name"]').value);
+    const company = sanitizeSecurityString(contactForm.querySelector('[name="company"]').value);
+    const phone = sanitizeSecurityString(contactForm.querySelector('[name="phone"]').value);
+    const email = sanitizeSecurityString(contactForm.querySelector('[name="email"]').value);
+    const service = sanitizeSecurityString(contactForm.querySelector('[name="service"]').value);
+    const message = sanitizeSecurityString(contactForm.querySelector('[name="message"]') ? contactForm.querySelector('[name="message"]').value : '');
+
+    const text = encodeURIComponent(
+      `Hello SerenLink Solutions Team!\n\n` +
+      `New Enterprise Inquiry from Website:\n\n` +
+      `*Name:* ${name}\n` +
+      `*Company:* ${company}\n` +
+      `*Phone:* ${phone}\n` +
+      `*Email:* ${email}\n` +
+      `*Requirement:* ${service}\n` +
+      (message ? `*Notes:* ${message}\n\n` : '\n') +
+      `Please assign a Network Solutions Specialist.`
+    );
+
+    const whatsappUrl = `https://wa.me/94771234567?text=${text}`;
+
+    contactForm.innerHTML = `
+      <div style="text-align: center; padding: 2.5rem 1.5rem; background: #f8fafc; border-radius: 16px; border: 1.5px solid #10b981;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: #d1fae5; color: #065f46; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Inquiry Successfully Transmitted!</h3>
+        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.5;">
+          Thank you, <strong>${name}</strong> (${company}). Your request has been queued with highest priority. A senior solutions engineer will contact you at <strong>${phone}</strong> or <strong>${email}</strong> within 15 minutes.
+        </p>
+        <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25d366; color: white; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 700; text-decoration: none;">
+          <span>Connect via WhatsApp NOC Channel</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    `;
+  });
 }

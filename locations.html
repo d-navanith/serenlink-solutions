@@ -5,6 +5,11 @@
   <link rel="shortcut icon" href="favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Enterprise Security & Anti-Exploit Policies -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <title>Locations & Islandwide SLA Depots | SerenLink Solutions Sri Lanka</title>
   <meta name="description" content="SerenLink Solutions nationwide network operations: Colombo Headquarters, Katunayake FTZ, Kandy, Galle, and Jaffna emergency response depots.">
   <link rel="stylesheet" href="style.css?v=2025.61">
@@ -386,6 +391,12 @@
       <button type="button" class="modal-close-btn" id="modalCloseBtn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg></button>
       <div class="modal-title">Request Regional Engineering Dispatch</div>
       <form id="instantQuoteForm">
+        <!-- Anti-Bot Security Honeypot (Invisible to real users, traps automated exploit bots) -->
+        <div style="display:none !important; position:absolute; left:-9999px;" aria-hidden="true">
+          <label for="trap_hp_check">Leave empty</label>
+          <input type="text" id="trap_hp_check" name="_sec_honeypot_trap" tabindex="-1" autocomplete="off">
+        </div>
+
         <div class="form-row-2col">
           <div class="form-group"><label class="form-label">Full Name *</label><input type="text" name="client_name" class="form-input" required></div>
           <div class="form-group"><label class="form-label">Company Name *</label><input type="text" name="company_name" class="form-input" required></div>

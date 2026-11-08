@@ -35,43 +35,67 @@
   pointer-events: none !important;
 }
 
-/* Interactive Skip Button */
+/* Interactive Skip Button - High visibility, instant access from 0ms */
 .splash-skip-btn {
   position: absolute;
-  top: 28px;
-  right: 32px;
-  background: rgba(14, 38, 88, 0.5);
-  border: 1px solid rgba(56, 189, 248, 0.35);
-  color: rgba(255, 255, 255, 0.85);
-  padding: 0.5rem 1.2rem;
+  top: 24px;
+  right: 28px;
+  background: rgba(3, 10, 28, 0.92);
+  border: 1.5px solid #e2ff38;
+  color: #ffffff;
+  padding: 0.6rem 1.35rem;
   border-radius: 9999px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  cursor: pointer;
-  z-index: 1000000;
-  opacity: 0;
-  animation: splashSkipBtnFadeIn 0.8s ease 1.2s forwards;
-  transition: all 0.3s ease;
+  gap: 0.55rem;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer !important;
+  z-index: 10000001;
+  opacity: 1 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5), 0 0 16px rgba(226, 255, 56, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: auto !important;
+}
+
+.splash-skip-btn span {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.splash-skip-btn svg {
+  stroke: #e2ff38;
+  transition: transform 0.25s ease;
 }
 
 .splash-skip-btn:hover {
-  background: rgba(20, 56, 128, 0.85);
-  border-color: #00e5ff;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(0, 229, 255, 0.45);
+  background: #e2ff38;
+  color: #090d16;
+  border-color: #e2ff38;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(226, 255, 56, 0.65);
 }
 
-@keyframes splashSkipBtnFadeIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 0.85; transform: translateY(0); }
+.splash-skip-btn:hover span {
+  color: #090d16;
+}
+
+.splash-skip-btn:hover svg {
+  stroke: #090d16;
+  transform: rotate(90deg);
+}
+
+/* Fast Fade Out for Skip Actions */
+.serenlink-splash.splash-fast-exit {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease !important;
+  transform: scale(1.02);
+  pointer-events: none !important;
 }
 
 /* Animation Stage Container */

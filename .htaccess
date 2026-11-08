@@ -1,0 +1,57 @@
+# ==============================================================================
+# SERENLINK SOLUTIONS - ENTERPRISE HARDENING (.htaccess)
+# Protection against Reconnaissance, Framing, MIME Sniffing, Script Injections
+# ==============================================================================
+
+# 1. Disable Directory Listing
+Options -Indexes
+
+# 2. Block Hidden Files & Exploitable Extensions
+<FilesMatch "^\.|\.(bak|config|sql|log|env|ps1|bat|cmd|sh|jsonl|md|dll|exe|php|asp|aspx)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 3. Security HTTP Response Headers
+<IfModule mod_headers.c>
+    # Enforce HTTPS Only (HSTS)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Prevent MIME Sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Prevent Clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # Legacy XSS Filter
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Referrer Leakage Protection
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Hardware Permissions Isolation
+    Header always set Permissions-Policy "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+    
+    # Content Security Policy (CSP)
+    Header always set Content-Security-Policy "default-src 'self' data: https:; script-src 'self' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https:; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https://wa.me https:; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://wa.me;"
+    
+    # Cross Origin Isolation
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    Header always set Cross-Origin-Resource-Policy "same-origin"
+
+    # Remove Server Fingerprinting
+    Header unset X-Powered-By
+    Header unset Server
+</IfModule>
+
+# 4. HTTPS Enforcement
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
