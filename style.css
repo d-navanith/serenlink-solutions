@@ -596,6 +596,28 @@ button, input, select, textarea {
   }
 }
 
+/* Interactive Vector Network Particle Mesh Canvas (Behind hero content) */
+.hero-network-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-network-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
 /* Side Halftone Matrix Pattern Wings (OnRamp signature visual) */
 .halftone-wing {
   position: absolute;
@@ -603,7 +625,7 @@ button, input, select, textarea {
   bottom: 0;
   width: 32%;
   pointer-events: none;
-  opacity: 0.42;
+  opacity: 0.22;
   background-repeat: repeat;
   background-size: 26px 26px;
   z-index: 1;
@@ -753,7 +775,7 @@ button, input, select, textarea {
 /* Hero Content Wrap */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   max-width: 980px;
   margin: 0 auto;
   text-align: center;
