@@ -13,6 +13,8 @@ Allow: /locations.html
 Allow: /about.html
 Allow: /contact.html
 Allow: /assets/
+Allow: /favicon.ico
+Allow: /favicon.png
 Allow: /style.css
 Allow: /script.js
 Allow: /splash.css
@@ -34,6 +36,9 @@ Allow: /
 Crawl-delay: 1
 
 User-agent: Googlebot-Image
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon.png
 Allow: /assets/
 
 User-agent: Bingbot
@@ -41,6 +46,6 @@ Allow: /
 Crawl-delay: 1
 
 # XML Sitemaps
-Sitemap: https://serenlink.lk/sitemap.xml
 Sitemap: https://serenlink.runasp.net/sitemap.xml
+Sitemap: https://serenlink.lk/sitemap.xml
 Sitemap: https://d-navanith.github.io/serenlink-solutions/sitemap.xml
