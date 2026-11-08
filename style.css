@@ -1294,7 +1294,7 @@ button, input, select, textarea {
   display: inline-flex !important;
   align-items: center !important;
   gap: 0.55rem !important;
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04) !important;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04) !important;
 }
 
 .pill-dot {
@@ -1307,30 +1307,30 @@ button, input, select, textarea {
 }
 
 .sector-pill:hover {
-  background: #eff6ff !important;
-  color: #1d4ed8 !important;
-  border-color: #93c5fd !important;
+  background: #f0f9ff !important;
+  color: #0284c7 !important;
+  border-color: #7dd3fc !important;
   transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12) !important;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.12) !important;
 }
 
 .sector-pill:hover .pill-dot {
-  background: #1d4ed8 !important;
+  background: #0284c7 !important;
 }
 
-/* Active Sector Pill - Replaced black with SerenLink Blue & Teal Gradient */
+/* Active Sector Pill - Vibrant SerenLink Cyan & Sapphire Blue (Light Theme) */
 .sector-pill.active {
-  background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%) !important;
+  background: linear-gradient(135deg, #0284c7 0%, #00b4d8 100%) !important;
   color: #ffffff !important;
   font-weight: 700 !important;
-  border-color: #1d4ed8 !important;
-  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.35) !important;
+  border-color: #0284c7 !important;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
   transform: translateY(-2px) !important;
 }
 
 .sector-pill.active .pill-dot {
   background: #ffffff !important;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8) !important;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.9) !important;
 }
 
 /* White Sector Card Container */
@@ -1357,14 +1357,14 @@ button, input, select, textarea {
   left: 8%;
   right: 8%;
   height: 2px;
-  background: linear-gradient(90deg, transparent 0%, #1d4ed8 25%, #00b4d8 75%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, #0284c7 25%, #00b4d8 75%, transparent 100%);
   opacity: 0.85;
 }
 
 .sector-lead-statement {
   font-size: 1.85rem !important;
   font-weight: 800 !important;
-  color: #090d16 !important;
+  color: #0f172a !important;
   line-height: 1.3 !important;
   margin-bottom: 1.25rem !important;
   letter-spacing: -0.02em !important;
@@ -1403,14 +1403,14 @@ button, input, select, textarea {
   filter: none !important;
 }
 
-/* Metric Benchmark Box - Replaced flat black with SerenLink Royal Blue & Sapphire System */
+/* Metric Benchmark Box - Clean High-Tech SerenLink Light Theme (No dark/black variables) */
 .sector-metric-box {
-  background: linear-gradient(145deg, #071739 0%, #0f307d 55%, #1a4ec8 100%) !important;
-  color: #ffffff !important;
+  background: linear-gradient(145deg, #f0f9ff 0%, #e0f2fe 45%, #f8fafc 100%) !important;
+  color: #0f172a !important;
   border-radius: 20px !important;
   padding: 2.5rem !important;
-  border: 1px solid rgba(56, 189, 248, 0.3) !important;
-  box-shadow: 0 16px 36px -8px rgba(15, 48, 125, 0.35), 0 0 20px rgba(2, 132, 199, 0.12) !important;
+  border: 1px solid #bae6fd !important;
+  box-shadow: 0 14px 32px -8px rgba(2, 132, 199, 0.1), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
   position: relative !important;
   overflow: hidden !important;
 }
@@ -1421,15 +1421,15 @@ button, input, select, textarea {
   top: 0 !important;
   left: 0 !important;
   right: 0 !important;
-  height: 2px !important;
-  background: linear-gradient(90deg, #00e5ff 0%, #38bdf8 50%, #0284c7 100%) !important;
+  height: 3px !important;
+  background: linear-gradient(90deg, #0284c7 0%, #00b4d8 50%, #38bdf8 100%) !important;
 }
 
 .metric-title {
   font-size: 0.8125rem !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
   text-transform: uppercase !important;
-  color: #38bdf8 !important;
+  color: #0369a1 !important;
   letter-spacing: 0.1em !important;
   margin-bottom: 1.75rem !important;
   display: flex !important;
@@ -1442,8 +1442,8 @@ button, input, select, textarea {
   width: 8px !important;
   height: 8px !important;
   border-radius: 50% !important;
-  background: #00e5ff !important;
-  box-shadow: 0 0 8px #00e5ff !important;
+  background: #0284c7 !important;
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.45) !important;
   display: inline-block !important;
 }
 
@@ -1452,7 +1452,7 @@ button, input, select, textarea {
   align-items: center !important;
   justify-content: space-between !important;
   padding: 0.85rem 0 !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-bottom: 1px solid rgba(186, 230, 253, 0.75) !important;
 }
 
 .metric-stat-row:last-child {
@@ -1461,13 +1461,14 @@ button, input, select, textarea {
 
 .metric-label {
   font-size: 0.92rem !important;
-  color: #bfdbfe !important;
+  color: #475569 !important;
+  font-weight: 500 !important;
 }
 
 .metric-value {
   font-size: 0.95rem !important;
   font-weight: 700 !important;
-  color: #ffffff !important;
+  color: #0f172a !important;
   font-family: var(--font-mono) !important;
   letter-spacing: -0.01em !important;
 }
@@ -1475,15 +1476,16 @@ button, input, select, textarea {
 .sector-metric-badge {
   margin-top: 1.5rem !important;
   padding: 0.65rem 1rem !important;
-  background: rgba(255, 255, 255, 0.08) !important;
-  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  background: #ffffff !important;
+  border: 1px solid #bae6fd !important;
   border-radius: 10px !important;
   display: flex !important;
   align-items: center !important;
   gap: 0.55rem !important;
   font-size: 0.78rem !important;
   font-weight: 600 !important;
-  color: #7dd3fc !important;
+  color: #0369a1 !important;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.06) !important;
 }
 
 /* ==========================================================================
