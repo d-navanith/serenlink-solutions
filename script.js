@@ -1331,23 +1331,71 @@ function initIndustryCardsAndModal() {
     }
   };
 
+  const industryGrid = document.getElementById('industryGrid');
+  const viewMoreWrap = document.getElementById('industryViewMoreWrap');
+  const viewMoreBtn = document.getElementById('industryViewMoreBtn');
+  let isExpanded = false;
+  let currentFilter = 'all';
+
+  function applyIndustryVisibility(animateNewOnly = false) {
+    cards.forEach((card, index) => {
+      const category = card.getAttribute('data-category');
+      if (currentFilter === 'all') {
+        const shouldShow = isExpanded || index < 6;
+        if (shouldShow) {
+          card.style.display = 'flex';
+          if (!animateNewOnly || index >= 6) {
+            card.style.animation = 'fadeInCard 0.35s ease forwards';
+          }
+        } else {
+          card.style.display = 'none';
+        }
+      } else {
+        if (category === currentFilter) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeInCard 0.35s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      }
+    });
+
+    if (industryGrid) {
+      industryGrid.classList.toggle('is-expanded', isExpanded);
+      industryGrid.classList.toggle('is-filtered', currentFilter !== 'all');
+    }
+
+    if (viewMoreWrap) {
+      viewMoreWrap.classList.toggle('is-hidden', currentFilter !== 'all');
+    }
+
+    if (viewMoreBtn) {
+      viewMoreBtn.textContent = isExpanded ? 'View less' : 'View more';
+      viewMoreBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    }
+  }
+
+  // Initialize default 6-card state on load
+  applyIndustryVisibility(false);
+
+  if (viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', () => {
+      isExpanded = !isExpanded;
+      applyIndustryVisibility(true);
+    });
+  }
+
   // 1. Category Filter Tabs Click Handling
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
-      const filter = btn.getAttribute('data-filter');
-
-      cards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          card.style.display = 'flex';
-          card.style.animation = 'fadeInCard 0.35s ease forwards';
-        } else {
-          card.style.display = 'none';
-        }
-      });
+      currentFilter = btn.getAttribute('data-filter') || 'all';
+      if (currentFilter === 'all') {
+        isExpanded = false;
+      }
+      applyIndustryVisibility(false);
     });
   });
 

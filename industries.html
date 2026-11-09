@@ -89,7 +89,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=2025.68">
+  <link rel="stylesheet" href="style.css?v=2025.70">
 </head>
 <body>
 
@@ -644,15 +644,43 @@
   </div>
 
   <!-- Footer -->
-    <footer class="main-footer">
+    <!-- ==========================================================================
+       MAIN FOOTER (Modern 2025 Enterprise Violet-Indigo & Neon-Lime UI)
+       ========================================================================== -->
+  <footer class="main-footer">
     <div class="footer-container">
+
+      <!-- Live 24/7 NOC Telemetry & Instant Dispatch Strip -->
+      <div class="footer-status-banner">
+        <div class="footer-noc-indicator">
+          <span class="footer-noc-dot"></span>
+          <span>24/7 Colombo NOC &amp; 9-Province SLA Dispatch — All Systems Operational</span>
+        </div>
+        <div class="footer-quick-actions">
+          <a href="tel:+94112345678" class="footer-hotline-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>+94 11 234 5678</span>
+          </a>
+          <a href="tel:+94771234567" class="footer-hotline-pill">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>24/7 Emergency: +94 77 123 4567</span>
+          </a>
+          <button type="button" class="footer-cta-mini js-open-quote-modal">
+            <span>Request Free Site Survey</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </button>
+        </div>
+      </div>
+
       <div class="footer-top-grid">
-        
-        <!-- Brand Info -->
+
+        <!-- Column 1: Brand Info, Compliance & Socials -->
         <div class="footer-brand-info">
-          <img src="assets/serenlink_logo_white.png?v=2" alt="Serenlink Solutions" style="height: 48px; width: auto; object-fit: contain; margin-bottom: 0.75rem; align-self: flex-start;">
-          <p style="color: #64748b; line-height: 1.6; font-size: 0.875rem;">
-            SerenLink Solutions (Pvt) Ltd is Sri Lanka's premier systems integrator and network engineering firm. Delivering carrier-grade optical networks, cybersecurity, and managed IT infrastructure nationwide.
+          <a href="index.html" class="footer-logo-link" aria-label="SerenLink Solutions Home">
+            <img src="assets/serenlink_logo_white.png?v=2" alt="SerenLink Solutions" style="height: 46px; width: auto; object-fit: contain;">
+          </a>
+          <p class="footer-brand-desc">
+            SerenLink Solutions (Pvt) Ltd is Sri Lanka's premier systems integrator and network engineering firm. Delivering Fluke-certified optical backbones, zero-trust cybersecurity, and managed enterprise infrastructure nationwide.
           </p>
           <div class="footer-compliance-badges">
             <span class="compliance-tag">PV 00249814</span>
@@ -660,74 +688,114 @@
             <span class="compliance-tag">ISO 9001:2015 Aligned</span>
             <span class="compliance-tag">CBSL Guideline Ready</span>
           </div>
+          <div class="footer-socials">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://wa.me/94771234567" target="_blank" rel="noopener noreferrer" class="footer-social-btn" aria-label="WhatsApp Engineering Desk">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a href="mailto:info@serenlink.lk" class="footer-social-btn" aria-label="Email SerenLink">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </a>
+            <a href="locations.html" class="footer-social-btn" aria-label="Islandwide Regional Hubs">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </a>
+          </div>
         </div>
 
-        <!-- Solutions Links -->
+        <!-- Column 2: Solutions Links -->
         <div class="footer-col">
           <h5>Solutions</h5>
           <ul class="footer-links">
-            <li><a href="solutions.html#cabling">Structured Cabling</a></li>
-            <li><a href="solutions.html#wireless">Enterprise Wi-Fi 7</a></li>
-            <li><a href="solutions.html#security">Fortinet Firewalls</a></li>
-            <li><a href="solutions.html#sdwan">Enterprise SD-WAN</a></li>
-            <li><a href="solutions.html#datacenter">Data Center Racks</a></li>
-            <li><a href="solutions.html#voip">Unified IP Telephony</a></li>
+            <li><a href="solutions.html#cabling">Structured Cabling &amp; Fiber</a></li>
+            <li><a href="solutions.html#wireless">Enterprise Wi-Fi 6E &amp; 7</a></li>
+            <li><a href="solutions.html#security">Fortinet Zero-Trust Firewalls</a></li>
+            <li><a href="solutions.html#communications">Unified IP Telephony</a></li>
+            <li><a href="solutions.html#datacenter">Data Center &amp; Server Racks</a></li>
+            <li><a href="solutions.html#intelligence">Network Telemetry &amp; AI</a></li>
           </ul>
         </div>
 
-        <!-- Services Links -->
+        <!-- Column 3: Services Links -->
         <div class="footer-col">
           <h5>Services</h5>
           <ul class="footer-links">
             <li><a href="services.html#noc">24/7 Colombo NOC</a></li>
             <li><a href="services.html#sla">Emergency SLA Dispatch</a></li>
-            <li><a href="services.html#audit">Fluke Cable Audits</a></li>
+            <li><a href="services.html#audit">Fluke DSX-8000 Audits</a></li>
             <li><a href="services.html#amc">Annual Maintenance (AMC)</a></li>
-            <li><a href="services.html#turnkey">Turnkey Deployment</a></li>
+            <li><a href="services.html#turnkey">Turnkey Core Cutover</a></li>
+            <li><a href="locations.html">Regional Engineering Hubs</a></li>
           </ul>
         </div>
 
-        <!-- Industries Links -->
+        <!-- Column 4: Industries Links -->
         <div class="footer-col">
           <h5>Industries</h5>
           <ul class="footer-links">
-            <li><a href="industries.html#banking">Banking & BFSI</a></li>
-            <li><a href="industries.html#apparel">Apparel & Manufacturing</a></li>
-            <li><a href="industries.html#hospitality">Resorts & Hotels</a></li>
+            <li><a href="industries.html#banking">Banking &amp; BFSI (CBSL)</a></li>
+            <li><a href="industries.html#apparel">Apparel &amp; FTZ Plants</a></li>
+            <li><a href="industries.html#hospitality">Luxury Resorts &amp; Hotels</a></li>
             <li><a href="industries.html#tech">IT/BPO Software Parks</a></li>
-            <li><a href="industries.html#ports">Logistics & Ports</a></li>
+            <li><a href="industries.html#ports">Maritime Ports &amp; Logistics</a></li>
+            <li><a href="about.html">Company Credentials</a></li>
           </ul>
         </div>
 
-        <!-- Contact & HQ -->
-        <div class="footer-col">
+        <!-- Column 5: Colombo Corporate HQ Glass Card -->
+        <div class="footer-col footer-hq-card">
           <h5>Colombo Corporate HQ</h5>
-          <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
-            Level 18, West Tower, World Trade Center, Echelon Square, Colombo 01, Sri Lanka.
-          </p>
-          <p style="color: #cbd5e1; font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.75rem;">
-            <strong>Tech & Testing Center:</strong> 42 Nawala Road, Nugegoda, Colombo.
-          </p>
-          <p style="color: #cbd5e1; font-size: 0.85rem;">
-            <strong>Hotline:</strong> +94 11 234 5678<br>
-            <strong>24/7 NOC Dispatch:</strong> +94 77 123 4567<br>
-            <strong>Email:</strong> info@serenlink.lk
-          </p>
+          <div class="footer-hq-item">
+            <span class="footer-hq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <div>
+              <strong>World Trade Center</strong><br>
+              Level 18, West Tower, Echelon Square, Colombo 01, Sri Lanka.
+            </div>
+          </div>
+          <div class="footer-hq-item">
+            <span class="footer-hq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </span>
+            <div>
+              <strong>Tech &amp; Fluke Testing Lab:</strong><br>
+              42 Nawala Road, Nugegoda, Colombo.
+            </div>
+          </div>
+          <div class="footer-hq-item">
+            <span class="footer-hq-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </span>
+            <div>
+              <strong>Direct Engineering Desk:</strong><br>
+              <a href="mailto:info@serenlink.lk">info@serenlink.lk</a>
+            </div>
+          </div>
         </div>
 
       </div>
 
+      <!-- Bottom Bar -->
       <div class="footer-bottom-bar">
-        <div>
-          &copy; 2026 SerenLink Solutions (Pvt) Ltd. All rights reserved.
+        <div class="footer-copyright">
+          <span>&copy; 2026 SerenLink Solutions (Pvt) Ltd. All rights reserved.</span>
+          <span class="footer-sl-badge">🇱🇰 Engineered for 99.999% Uptime Across Sri Lanka</span>
         </div>
-        <div style="display: flex; gap: 1.5rem;">
+        <div class="footer-bottom-links">
           <a href="about.html">About Company</a>
           <a href="solutions.html">Solutions</a>
+          <a href="locations.html">9-Province Hubs</a>
           <a href="contact.html">Emergency NOC</a>
-          <a href="contact.html">Privacy Policy</a>
+          <a href="contact.html">Privacy &amp; SLA Terms</a>
+          <a href="#top" class="footer-back-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
+            <span>Back to Top</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+          </a>
         </div>
       </div>
+
     </div>
   </footer>
 
@@ -767,6 +835,6 @@
   <script src="hero-network.js?v=2025.56"></script>
   <script src="cable-current.js?v=2025.56"></script>
   <script src="smooth-scroll.js?v=2025.65"></script>
-  <script src="script.js?v=2025.68"></script>
+  <script src="script.js?v=2025.70"></script>
 </body>
 </html>
