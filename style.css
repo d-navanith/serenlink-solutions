@@ -1444,12 +1444,13 @@ button, input, select, textarea {
   transform: translateX(4px);
 }
 
-/* Detailed Industry Architecture Modal - Unified with Quote Modal Theme */
+/* Detailed Industry Architecture Modal - Unified with Dark Violet-Indigo Theme */
 .industry-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(2, 8, 23, 0.8);
-  backdrop-filter: blur(8px);
+  background: rgba(1, 7, 43, 0.82);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
   z-index: 220;
   display: flex;
   align-items: center;
@@ -1466,22 +1467,23 @@ button, input, select, textarea {
 }
 
 .industry-modal-card {
-  background: #ffffff;
-  border-radius: 20px;
+  background: radial-gradient(circle at 14% 12%, #372772 0%, #25286b 34%, #0b1341 68%, #01072b 100%);
+  color: #ffffff;
+  border-radius: 22px;
   width: 100%;
   max-width: 760px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 30px 70px -12px rgba(1, 7, 43, 0.95), 0 0 45px rgba(55, 39, 114, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(180, 165, 255, 0.35);
   position: relative;
   padding: 2.5rem;
-  transform: translateY(20px);
-  transition: transform var(--transition-smooth);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .industry-modal-backdrop.active .industry-modal-card {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .modal-industry-header {
@@ -1490,15 +1492,17 @@ button, input, select, textarea {
   gap: 1.25rem;
   margin-bottom: 1.5rem;
   padding-bottom: 1.25rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid rgba(180, 165, 255, 0.2);
 }
 
 .modal-industry-icon {
   width: 54px;
   height: 54px;
   border-radius: 14px;
-  background: #f1f5f9;
-  color: #372772;
+  background: rgba(55, 39, 114, 0.65);
+  border: 1px solid rgba(180, 165, 255, 0.35);
+  box-shadow: 0 6px 18px rgba(1, 7, 43, 0.45);
+  color: var(--color-lime);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1508,18 +1512,18 @@ button, input, select, textarea {
 .modal-industry-icon svg {
   width: 28px;
   height: 28px;
-  stroke: #372772;
+  stroke: var(--color-lime);
 }
 
 .modal-industry-badge {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #475569;
-  background: #f1f5f9;
-  border: 1px solid #e2e8f0;
+  letter-spacing: 0.07em;
+  color: var(--color-lime);
+  background: rgba(226, 255, 56, 0.12);
+  border: 1px solid rgba(226, 255, 56, 0.35);
   border-radius: 6px;
   padding: 0.25rem 0.65rem;
   margin-bottom: 0.45rem;
@@ -1528,17 +1532,17 @@ button, input, select, textarea {
 .modal-industry-title {
   font-size: 1.65rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   letter-spacing: -0.02em;
   line-height: 1.2;
 }
 
 .modal-section-h4 {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: #372772;
+  letter-spacing: 0.08em;
+  color: var(--color-lime);
   margin-top: 1.35rem;
   margin-bottom: 0.7rem;
 }
@@ -1557,24 +1561,26 @@ button, input, select, textarea {
 }
 
 .modal-spec-card {
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  border-left: 3.5px solid #372772;
-  border-radius: 8px;
+  background: rgba(1, 7, 43, 0.55);
+  border: 1px solid rgba(180, 165, 255, 0.22);
+  border-left: 3.5px solid var(--color-lime);
+  border-radius: 10px;
   padding: 0.85rem 1rem;
 }
 
 .modal-spec-card-title {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
-  color: #372772;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #c4b5fd;
   margin-bottom: 0.25rem;
 }
 
 .modal-spec-card-val {
-  font-size: 0.9rem;
-  color: #0f172a;
-  font-weight: 600;
+  font-size: 0.92rem;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .modal-compliance-wrap {
@@ -1587,11 +1593,11 @@ button, input, select, textarea {
 .modal-compliance-pill {
   font-size: 0.78rem;
   font-weight: 600;
-  background: #f1f5f9;
-  color: #334155;
-  border: 1px solid #cbd5e1;
+  background: rgba(55, 39, 114, 0.55);
+  color: #e2e8f0;
+  border: 1px solid rgba(180, 165, 255, 0.28);
   border-radius: 6px;
-  padding: 0.3rem 0.65rem;
+  padding: 0.32rem 0.7rem;
 }
 
 .modal-actions-bar {
@@ -1601,14 +1607,14 @@ button, input, select, textarea {
   gap: 1rem;
   margin-top: 1.75rem;
   padding-top: 1.25rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid rgba(180, 165, 255, 0.2);
 }
 
 /* Modal close button */
 .btn-modal-cancel {
-  background: #f1f5f9;
-  color: #475569;
-  border: 1px solid #cbd5e1;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  border: 1px solid rgba(180, 165, 255, 0.28);
   border-radius: 9px;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -1618,8 +1624,9 @@ button, input, select, textarea {
 }
 
 .btn-modal-cancel:hover {
-  background: #e2e8f0;
-  color: #0f172a;
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border-color: rgba(180, 165, 255, 0.5);
 }
 
 
@@ -2415,13 +2422,14 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   INTERACTIVE MODAL: GET A QUOTE / FAST CONSULTATION
+   INTERACTIVE MODAL: GET A QUOTE / FAST CONSULTATION (Violet-Indigo Theme)
    ========================================================================== */
 .quote-modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(2, 8, 23, 0.8);
-  backdrop-filter: blur(8px);
+  background: rgba(1, 7, 43, 0.82);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
   z-index: 200;
   display: flex;
   align-items: center;
@@ -2438,60 +2446,78 @@ button, input, select, textarea {
 }
 
 .quote-modal-card {
-  background: #ffffff;
-  border-radius: 20px;
+  background: radial-gradient(circle at 14% 12%, #372772 0%, #25286b 34%, #0b1341 68%, #01072b 100%);
+  color: #ffffff;
+  border-radius: 22px;
   width: 100%;
   max-width: 640px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.4);
-  border: 1px solid #e2e8f0;
+  box-shadow: 0 30px 70px -12px rgba(1, 7, 43, 0.95), 0 0 45px rgba(55, 39, 114, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(180, 165, 255, 0.35);
   position: relative;
   padding: 2.5rem;
-  transform: translateY(20px);
-  transition: transform var(--transition-smooth);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quote-modal-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 2.5rem;
+  right: 2.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-lime), rgba(167, 139, 250, 0.8), transparent);
+  opacity: 0.85;
+  pointer-events: none;
 }
 
 .quote-modal-backdrop.active .quote-modal-card {
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .modal-close-btn {
   position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: #f1f5f9;
-  border: none;
+  top: 1.4rem;
+  right: 1.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(180, 165, 255, 0.28);
   border-radius: 50%;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #475569;
-  transition: all var(--transition-fast);
+  color: #e2e8f0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .modal-close-btn:hover {
-  background: #e2e8f0;
-  color: #0f172a;
+  background: rgba(226, 255, 56, 0.16);
+  border-color: var(--color-lime);
+  color: var(--color-lime);
+  transform: rotate(90deg);
 }
 
 .modal-title {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #0f172a;
+  color: #ffffff;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
+  padding-right: 2.5rem;
 }
 
 .modal-sub {
-  font-size: 0.95rem;
-  color: #64748b;
-  margin-bottom: 2rem;
+  font-size: 0.94rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  margin-bottom: 1.85rem;
 }
 
+/* Base Form Controls (used on light Contact page) */
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -2507,18 +2533,18 @@ button, input, select, textarea {
 .form-input, .form-select, .form-textarea {
   width: 100%;
   padding: 0.75rem 1rem;
-  border-radius: 8px;
+  border-radius: 9px;
   border: 1px solid #cbd5e1;
   background: #f8fafc;
   color: #0f172a;
   outline: none;
-  transition: border-color var(--transition-fast);
+  transition: border-color var(--transition-fast), background var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
-  border-color: #2563eb;
+  border-color: #372772;
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 3px rgba(55, 39, 114, 0.15);
 }
 
 .form-row-2col {
@@ -2529,13 +2555,13 @@ button, input, select, textarea {
 
 .btn-form-submit {
   width: 100%;
-  background: #0f172a;
+  background: linear-gradient(135deg, #372772 0%, #25286b 100%);
   color: #ffffff;
   padding: 0.95rem;
-  border-radius: 9px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 1rem;
-  border: none;
+  border: 1px solid rgba(180, 165, 255, 0.3);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -2546,8 +2572,66 @@ button, input, select, textarea {
 }
 
 .btn-form-submit:hover {
-  background: #1e293b;
-  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, #433089 0%, #2f3387 100%);
+  box-shadow: 0 10px 25px -5px rgba(55, 39, 114, 0.45);
+  transform: translateY(-1px);
+}
+
+/* Dark Violet-Indigo Scoped Form Controls inside Quote Popup Modal */
+.quote-modal-card .form-label {
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.quote-modal-card .form-input,
+.quote-modal-card .form-select,
+.quote-modal-card .form-textarea {
+  background: rgba(1, 7, 43, 0.62);
+  border: 1px solid rgba(180, 165, 255, 0.28);
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.quote-modal-card .form-input::placeholder,
+.quote-modal-card .form-textarea::placeholder {
+  color: rgba(203, 213, 225, 0.5);
+}
+
+.quote-modal-card .form-input:hover,
+.quote-modal-card .form-select:hover,
+.quote-modal-card .form-textarea:hover {
+  border-color: rgba(180, 165, 255, 0.48);
+  background: rgba(1, 7, 43, 0.78);
+}
+
+.quote-modal-card .form-input:focus,
+.quote-modal-card .form-select:focus,
+.quote-modal-card .form-textarea:focus {
+  border-color: var(--color-lime);
+  background: rgba(11, 19, 65, 0.9);
+  box-shadow: 0 0 0 3px rgba(226, 255, 56, 0.2);
+}
+
+.quote-modal-card .form-select option {
+  background: #0b1341;
+  color: #ffffff;
+}
+
+.quote-modal-card .btn-form-submit {
+  background: var(--color-lime);
+  color: #090d16;
+  border: 1px solid var(--color-lime);
+  font-weight: 800;
+  box-shadow: 0 8px 25px rgba(226, 255, 56, 0.28);
+}
+
+.quote-modal-card .btn-form-submit:hover {
+  background: var(--color-lime-hover);
+  border-color: var(--color-lime-hover);
+  box-shadow: var(--shadow-glow-lime);
+  transform: translateY(-2px);
 }
 
 /* ==========================================================================

@@ -599,21 +599,21 @@ function initQuoteModal() {
 
       const whatsappUrl = `https://wa.me/94771234567?text=${text}`;
 
-      // Show instant secure success message
+      // Show instant secure success message (Harmonized with Violet-Indigo & Lime Popup Theme)
       quoteForm.innerHTML = `
-        <div style="text-align: center; padding: 2rem 1rem;">
-          <div style="width: 60px; height: 60px; border-radius: 50%; background: #d1fae5; color: #065f46; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+        <div style="text-align: center; padding: 2rem 1rem; background: rgba(1, 7, 43, 0.5); border: 1px solid rgba(180, 165, 255, 0.28); border-radius: 16px;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(226, 255, 56, 0.14); border: 1.5px solid var(--color-lime); color: var(--color-lime); box-shadow: 0 0 24px rgba(226, 255, 56, 0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
           </div>
-          <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Quotation Request Registered!</h3>
-          <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.5;">
-            Thank you, <strong>${name}</strong>. A certified CCIE/Fortinet network engineer has received your specifications and will contact you at <strong>${phone}</strong> within 15 minutes.
+          <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem;">Quotation Request Registered!</h3>
+          <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.6;">
+            Thank you, <strong style="color: #ffffff;">${name}</strong>. A certified CCIE/Fortinet network engineer has received your specifications and will contact you at <strong style="color: var(--color-lime);">${phone}</strong> within 15 minutes.
           </p>
-          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25d366; color: white; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 700; text-decoration: none;">
+          <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--color-lime); color: #090d16; padding: 0.9rem 1.8rem; border-radius: 10px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 25px rgba(226, 255, 56, 0.3);">
             <span>Open WhatsApp for Instant Dispatch</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
       `;
@@ -1096,19 +1096,19 @@ function initContactForm() {
     const whatsappUrl = `https://wa.me/94771234567?text=${text}`;
 
     contactForm.innerHTML = `
-      <div style="text-align: center; padding: 2.5rem 1.5rem; background: #f8fafc; border-radius: 16px; border: 1.5px solid #10b981;">
-        <div style="width: 60px; height: 60px; border-radius: 50%; background: #d1fae5; color: #065f46; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+      <div style="text-align: center; padding: 2.5rem 1.5rem; background: radial-gradient(circle at 14% 12%, #372772 0%, #25286b 38%, #01072b 100%); border-radius: 18px; border: 1px solid rgba(180, 165, 255, 0.35); box-shadow: 0 24px 50px -12px rgba(1, 7, 43, 0.7);">
+        <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(226, 255, 56, 0.14); border: 1.5px solid var(--color-lime); color: var(--color-lime); box-shadow: 0 0 24px rgba(226, 255, 56, 0.3); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </div>
-        <h3 style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.5rem;">Inquiry Successfully Transmitted!</h3>
-        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.5;">
-          Thank you, <strong>${name}</strong> (${company}). Your request has been queued with highest priority. A senior solutions engineer will contact you at <strong>${phone}</strong> or <strong>${email}</strong> within 15 minutes.
+        <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff; margin-bottom: 0.5rem;">Inquiry Successfully Transmitted!</h3>
+        <p style="color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.75rem; line-height: 1.6;">
+          Thank you, <strong style="color: #ffffff;">${name}</strong> (<strong style="color: #e2e8f0;">${company}</strong>). Your request has been queued with highest priority. A senior solutions architect will call <strong style="color: var(--color-lime);">${phone}</strong> shortly.
         </p>
-        <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #25d366; color: white; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 700; text-decoration: none;">
-          <span>Connect via WhatsApp NOC Channel</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.6rem; background: var(--color-lime); color: #090d16; padding: 0.9rem 1.8rem; border-radius: 10px; font-weight: 800; text-decoration: none; box-shadow: 0 8px 25px rgba(226, 255, 56, 0.3);">
+          <span>Connect Immediately via WhatsApp</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     `;
@@ -1391,7 +1391,7 @@ function initIndustryCardsAndModal() {
     item.challenges.forEach(ch => {
       challengesHtml += `
         <li style="display:flex; align-items:flex-start; gap:0.6rem; margin-bottom:0.5rem; color:#475569; font-size:0.9rem;">
-          <svg style="flex-shrink:0; margin-top:3px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <svg style="flex-shrink:0; margin-top:3px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e2ff38" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
           <span>${ch}</span>
         </li>
       `;
@@ -1406,7 +1406,7 @@ function initIndustryCardsAndModal() {
         </div>
       </div>
 
-      <div style="font-size:1.05rem; color:#334155; line-height:1.6; margin-bottom:1.5rem;">
+      <div style="font-size:1.02rem; color:#e2e8f0; line-height:1.65; margin-bottom:1.5rem;">
         ${item.lead}
       </div>
 
@@ -1425,9 +1425,9 @@ function initIndustryCardsAndModal() {
         ${complianceHtml}
       </div>
 
-      <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-        <span style="font-size:0.88rem; font-weight:600; color:#166534;">${item.sla}</span>
+      <div style="background:rgba(226, 255, 56, 0.1); border:1px solid rgba(226, 255, 56, 0.35); border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#e2ff38" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span style="font-size:0.88rem; font-weight:600; color:#f8fafc;">${item.sla}</span>
       </div>
 
       <div class="modal-actions-bar">
