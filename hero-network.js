@@ -26,10 +26,10 @@
 
     // Palette & Physics Configuration
     const config = {
-      nodeCyan: 'rgba(165, 196, 255, 0.85)', // Light sapphire node
-      nodeTeal: 'rgba(215, 230, 255, 0.9)',  // Soft luminous highlight
+      nodeCyan: 'rgba(180, 165, 255, 0.85)', // Soft violet-indigo node
+      nodeTeal: 'rgba(215, 225, 255, 0.9)',  // Soft luminous white-blue
       nodeHighlight: '#ffffff',              // White node highlight
-      meshLineColor: 'rgba(110, 150, 220, ', // Harmonized navy mesh lines
+      meshLineColor: 'rgba(125, 115, 210, ', // Harmonized indigo mesh lines
       
       // Proximity connection thresholds
       desktopConnectDist: 140,
