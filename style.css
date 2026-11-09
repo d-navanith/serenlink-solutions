@@ -224,7 +224,6 @@ button, input, select, textarea {
   box-shadow: 0 4px 20px rgba(1, 7, 43, 0.6);
   z-index: 1000;
   transition: all var(--transition-fast);
-  overflow: hidden;
 }
 
 .main-header::before {
@@ -387,19 +386,36 @@ button, input, select, textarea {
    ========================================================================== */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 10px);
   left: 0;
-  background: #ffffff;
-  color: var(--text-dark);
-  border-radius: 14px;
-  box-shadow: var(--shadow-dropdown);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(1, 7, 43, 0.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 25px 60px -12px rgba(1, 7, 43, 0.95), 0 0 0 1px rgba(180, 165, 255, 0.25);
+  border: 1px solid rgba(180, 165, 255, 0.22);
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: all var(--transition-fast);
-  z-index: 150;
+  z-index: 1500;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 10% 10%, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.2) 40%, transparent 75%);
+  z-index: 0;
+}
+
+.dropdown-menu > * {
+  position: relative;
+  z-index: 1;
 }
 
 .nav-item:hover > .dropdown-menu,
@@ -427,22 +443,25 @@ button, input, select, textarea {
   display: flex;
   align-items: flex-start;
   gap: 0.85rem;
-  padding: 0.5rem 0.6rem;
-  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid transparent;
   transition: all var(--transition-fast);
   text-decoration: none;
 }
 
 .drop-item:hover {
-  background: #f8fafc;
-  transform: translateX(3px);
+  background: rgba(55, 39, 114, 0.35);
+  border-color: rgba(180, 165, 255, 0.25);
+  transform: translateX(4px);
 }
 
 .drop-icon-box {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
-  background: #f1f5f9;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(55, 39, 114, 0.4);
+  border: 1px solid rgba(180, 165, 255, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -453,11 +472,13 @@ button, input, select, textarea {
 .drop-icon-box svg {
   width: 20px;
   height: 20px;
-  stroke: #25286b;
+  stroke: rgba(220, 210, 255, 0.95);
 }
 
 .drop-item:hover .drop-icon-box {
-  background: #25286b;
+  background: #372772;
+  border-color: var(--color-lime);
+  box-shadow: 0 0 15px rgba(55, 39, 114, 0.6);
 }
 
 .drop-item:hover .drop-icon-box svg {
@@ -467,15 +488,15 @@ button, input, select, textarea {
 .drop-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #0f172a;
+  color: #ffffff;
   line-height: 1.25;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.25rem;
 }
 
 .drop-desc {
-  font-size: 0.8125rem;
-  color: #64748b;
-  line-height: 1.35;
+  font-size: 0.825rem;
+  color: #cbd5e1;
+  line-height: 1.4;
 }
 
 .drop-bottom-bar {
@@ -1019,20 +1040,33 @@ button, input, select, textarea {
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
   width: 100%;
-  max-width: 940px;
-  background: rgba(1, 7, 43, 0.82);
-  border: 1px solid rgba(37, 40, 107, 0.65);
-  border-radius: 16px;
-  padding: 1.6rem 2rem;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  max-width: 980px;
+  background: linear-gradient(135deg, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.32) 35%, rgba(1, 7, 43, 0.92) 100%);
+  border: 1px solid rgba(180, 165, 255, 0.4);
+  border-radius: 20px;
+  padding: 1.85rem 2.2rem;
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  box-shadow: 0 20px 50px -10px rgba(1, 7, 43, 0.95), 0 0 35px rgba(55, 39, 114, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   animation: heroEntranceUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both;
+  position: relative;
+  z-index: 2;
 }
 
 .trust-item {
   text-align: center;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.trust-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -0.75rem;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(180, 165, 255, 0.25), transparent);
 }
 
 .trust-item:hover {
@@ -1040,27 +1074,31 @@ button, input, select, textarea {
 }
 
 .trust-number {
-  font-size: 2.1rem;
+  font-size: 2.35rem;
   font-weight: 800;
   color: #ffffff;
   letter-spacing: -0.02em;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.45rem;
   line-height: 1;
+  text-shadow: 0 2px 16px rgba(180, 165, 255, 0.45);
   transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .trust-item:hover .trust-number {
-  color: #00e5ff;
-  text-shadow: 0 0 20px rgba(0, 229, 255, 0.8);
-  transform: scale(1.04);
+  color: var(--color-lime);
+  text-shadow: 0 0 22px rgba(226, 255, 56, 0.7);
+  transform: scale(1.05);
 }
 
 .trust-label {
-  font-size: 0.8rem;
-  color: #94a3b8;
-  font-weight: 500;
-  line-height: 1.35;
+  font-size: 0.885rem;
+  color: #e2e8f0;
+  font-weight: 600;
+  line-height: 1.45;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
+
+/* Trust items styled above */
 
 /* Staged Entrance Keyframes */
 @keyframes heroEntranceFade {
