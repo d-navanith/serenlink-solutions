@@ -4308,28 +4308,12 @@ html.lenis body {
   min-height: 184px;
 }
 
-.hub-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #372772 0%, #2563eb 65%, #e2ff38 100%);
-  opacity: 0;
-  transition: opacity 0.25s ease;
-}
-
 .hub-card:hover {
   transform: translateY(-5px);
   border-color: rgba(55, 39, 114, 0.38);
   box-shadow:
     0 16px 32px -8px rgba(11, 19, 65, 0.12),
     0 4px 12px rgba(37, 99, 235, 0.08);
-}
-
-.hub-card:hover::before {
-  opacity: 1;
 }
 
 .hub-card-top {
