@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
   initSmoothScroll();
   initIndustryCardsAndModal();
+  initSolutionsHubFilter();
 });
 
 /* ==========================================================================
@@ -1544,5 +1545,53 @@ function initIndustryCardsAndModal() {
       modal.classList.remove('active');
       document.body.style.overflow = '';
     }
+  }
+}
+
+/* ==========================================================================
+   13. ENTERPRISE SOLUTIONS HUB FILTER & INSTANT SEARCH (solutions.html)
+   ========================================================================== */
+function initSolutionsHubFilter() {
+  const hubGrid = document.getElementById('solutionsHubGrid');
+  if (!hubGrid) return;
+
+  const filterButtons = document.querySelectorAll('#solutionsHubTabs .hub-filter-btn');
+  const searchInput = document.getElementById('solutionsHubSearch');
+  const cards = Array.from(hubGrid.querySelectorAll('.hub-card'));
+
+  let activeCategory = 'all';
+  let searchQuery = '';
+
+  function filterHubCards() {
+    const q = searchQuery.trim().toLowerCase();
+    cards.forEach((card) => {
+      const cat = card.getAttribute('data-hub-category') || '';
+      const text = card.textContent.toLowerCase();
+      const matchesCat = activeCategory === 'all' || cat === activeCategory;
+      const matchesSearch = !q || text.includes(q);
+
+      if (matchesCat && matchesSearch) {
+        card.style.display = 'flex';
+        card.style.animation = 'fadeInCard 0.3s ease forwards';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeCategory = btn.getAttribute('data-hub-filter') || 'all';
+      filterHubCards();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value || '';
+      filterHubCards();
+    });
   }
 }

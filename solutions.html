@@ -104,7 +104,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=2025.73">
+  <link rel="stylesheet" href="style.css?v=2025.74">
 </head>
 <body>
 
@@ -268,24 +268,434 @@
     <!-- Viewport-Fixed Lightweight Hardware-Accelerated 60FPS Cable Canvas -->
     <canvas id="cableHighwayCanvas" class="cable-highway-canvas" aria-hidden="true"></canvas>
 
+  <!-- ==========================================================================
+       ENTERPRISE SOLUTIONS HUB DIRECTORY (16-Capability 4-Column Architecture Grid)
+       ========================================================================== -->
+  <section class="solutions-hub-section" id="solutions-hub">
+    <div class="section-container">
+      <div class="solutions-hub-header">
+        <span class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+          Complete Capability Directory
+        </span>
+        <div class="solutions-hub-top-row">
+          <div>
+            <h2 class="section-title" style="margin-bottom: 0.45rem;">Enterprise Solutions Hub</h2>
+            <p class="section-lead" style="margin-bottom: 0;">
+              Explore our 16 core infrastructure, cybersecurity, voice, and biometric practices—engineered for Sri Lanka's banking cores, BOI export zones, and tech campuses.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs & Instant Search -->
+      <div class="solutions-hub-controls">
+        <div class="solutions-hub-tabs" id="solutionsHubTabs" role="tablist" aria-label="Filter solutions by practice">
+          <button type="button" class="hub-filter-btn active" data-hub-filter="all">
+            <span>All Solutions</span>
+            <span class="hub-filter-count">16</span>
+          </button>
+          <button type="button" class="hub-filter-btn" data-hub-filter="network">
+            <span>Network, Wi-Fi &amp; Fiber</span>
+            <span class="hub-filter-count">4</span>
+          </button>
+          <button type="button" class="hub-filter-btn" data-hub-filter="security-cloud">
+            <span>Cybersecurity &amp; AI Cloud</span>
+            <span class="hub-filter-count">3</span>
+          </button>
+          <button type="button" class="hub-filter-btn" data-hub-filter="voice-bpo">
+            <span>BPO, Voice &amp; Smart Access</span>
+            <span class="hub-filter-count">6</span>
+          </button>
+          <button type="button" class="hub-filter-btn" data-hub-filter="datacenter-ops">
+            <span>Data Center, Testing &amp; NOC</span>
+            <span class="hub-filter-count">3</span>
+          </button>
+        </div>
+
+        <div class="solutions-hub-search-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="search" id="solutionsHubSearch" class="solutions-hub-search" placeholder="Filter capabilities (e.g. Fiber, BPO, Biometric)..." aria-label="Filter capabilities">
+        </div>
+      </div>
+
+      <!-- 4-Column Capability Cards Grid -->
+      <div class="solutions-hub-grid" id="solutionsHubGrid">
+
+        <!-- 1. Enterprise Architecture Hub -->
+        <a href="#cabling" class="hub-card" data-hub-category="network">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <span class="hub-card-tag">Turnkey Core</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Enterprise Architecture Hub</h3>
+              <p class="hub-card-desc">Integrated physical and logical blueprints engineered by business outcome</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 2. BPO & Call Center IT Setup -->
+        <a href="#communications" class="hub-card" data-hub-category="voice-bpo">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+              </div>
+              <span class="hub-card-tag">Colombo &amp; Orion City</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">BPO &amp; Call Center IT Setup</h3>
+              <p class="hub-card-desc">Zero-jitter agent workstations, dual-SIP voice trunks &amp; PCI clean-room VLANs</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 3. Physical Security & AI Surveillance -->
+        <a href="#biometrics" class="hub-card" data-hub-category="voice-bpo">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+              </div>
+              <span class="hub-card-tag">PoE++ &amp; NVR</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Enterprise Physical Security</h3>
+              <p class="hub-card-desc">AI IP surveillance, isolated camera VLANs, NVR storage &amp; perimeter protection</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 4. Identity & Access Management -->
+        <a href="#biometrics" class="hub-card" data-hub-category="voice-bpo">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.5"/></svg>
+              </div>
+              <span class="hub-card-tag">Zero-Trust Entry</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Identity &amp; Access Control</h3>
+              <p class="hub-card-desc">Multi-door controllers, encrypted RFID/NFC credentials &amp; server room interlocks</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 5. Enterprise Campus & SD-WAN Networking -->
+        <a href="#wireless" class="hub-card" data-hub-category="network">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="5" r="3"/><circle cx="5" cy="19" r="3"/><circle cx="19" cy="19" r="3"/><line x1="10.5" y1="7.5" x2="6.5" y2="16.5"/><line x1="13.5" y1="7.5" x2="17.5" y2="16.5"/><line x1="8" y1="19" x2="16" y2="19"/></svg>
+              </div>
+              <span class="hub-card-tag">10G/100G Core</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Enterprise Campus Networking</h3>
+              <p class="hub-card-desc">Leaf-spine core switching, high-density Wi-Fi 7 &amp; multi-branch SD-WAN</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 6. Enterprise Cybersecurity -->
+        <a href="#security" class="hub-card" data-hub-category="security-cloud">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+              </div>
+              <span class="hub-card-tag">CBSL &amp; PCI-DSS</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Enterprise Cybersecurity</h3>
+              <p class="hub-card-desc">Fortinet FortiGate HA clusters, Zero-Trust (ZTNA) &amp; 24/7 SOC threat defense</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 7. Structured Cabling & Optical Fiber -->
+        <a href="#cabling" class="hub-card" data-hub-category="network">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+              </div>
+              <span class="hub-card-tag">25-Yr Warranty</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Structured Cabling &amp; Fiber</h3>
+              <p class="hub-card-desc">LSZH Cat6A/Cat7 copper, OM4/OS2 fusion splicing &amp; data center containment</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 8. Fluke Testing & Certification -->
+        <a href="services.html#audit" class="hub-card" data-hub-category="datacenter-ops">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              </div>
+              <span class="hub-card-tag">Fluke DSX-8000</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Testing &amp; Certification</h3>
+              <p class="hub-card-desc">Fluke DSX-8000 copper channel validation &amp; OTDR optical loss certification</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 9. Unified IP Communications -->
+        <a href="#communications" class="hub-card" data-hub-category="voice-bpo">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <span class="hub-card-tag">IP-PBX &amp; VoIP</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Unified Communications</h3>
+              <p class="hub-card-desc">Enterprise IP telephony, SIP trunking, 4K boardroom video &amp; collaboration</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 10. Managed Services & 24/7 NOC -->
+        <a href="services.html#noc" class="hub-card" data-hub-category="datacenter-ops">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <span class="hub-card-tag">2-Hr Colombo SLA</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Managed NOC &amp; AMC Services</h3>
+              <p class="hub-card-desc">Annual Maintenance Contracts (AMC), 24/7 telemetry &amp; rapid engineer dispatch</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 11. AI Network Telemetry & Cloud -->
+        <a href="#intelligence" class="hub-card" data-hub-category="security-cloud">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+              </div>
+              <span class="hub-card-tag">AIOps &amp; Cloud</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">AI Telemetry &amp; Automation</h3>
+              <p class="hub-card-desc">Predictive fault analytics, automated QoS shaping &amp; AWS/Azure Direct Connect</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 12. Interactive Solution Finder -->
+        <a href="index.html#calculator" class="hub-card" data-hub-category="security-cloud">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+              </div>
+              <span class="hub-card-tag">Instant BOQ</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Interactive Solution Finder</h3>
+              <p class="hub-card-desc">Size your enterprise network, fiber drops &amp; firewall cluster in 3 guided steps</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 13. Tier-3 Data Center & Server Racks -->
+        <a href="#datacenter" class="hub-card" data-hub-category="datacenter-ops">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              </div>
+              <span class="hub-card-tag">Tier-3 Ready</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Data Center &amp; Server Racks</h3>
+              <p class="hub-card-desc">42U seismic cabinets, hot/cold aisle containment, precision cooling &amp; N+1 UPS</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 14. Biometric Facial & Palm-Vein Recognition -->
+        <a href="#biometrics" class="hub-card" data-hub-category="voice-bpo">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+              </div>
+              <span class="hub-card-tag">Touchless ID</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Facial, Palm &amp; Fingerprint ID</h3>
+              <p class="hub-card-desc">3D anti-spoof facial terminals, hygienic palm-vein &amp; optical fingerprint readers</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 15. Workforce Time & Attendance Systems -->
+        <a href="#biometrics" class="hub-card" data-hub-category="voice-bpo">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </div>
+              <span class="hub-card-tag">HRMS &amp; Payroll</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Time Attendance Systems</h3>
+              <p class="hub-card-desc">Automated factory &amp; corporate shift attendance with real-time ERP/payroll sync</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+        <!-- 16. Smart Visitor & Flap-Barrier Management -->
+        <a href="#biometrics" class="hub-card" data-hub-category="network">
+          <div>
+            <div class="hub-card-top">
+              <div class="hub-card-icon">
+                <svg viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+              </div>
+              <span class="hub-card-tag">Lobby &amp; Gates</span>
+            </div>
+            <div class="hub-card-body">
+              <h3 class="hub-card-title">Visitor &amp; Turnstile Control</h3>
+              <p class="hub-card-desc">Digital lobby check-in, QR badge printing, host SMS alerts &amp; speed-gate barriers</p>
+            </div>
+          </div>
+          <span class="hub-card-explore">
+            <span>Explore</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </span>
+        </a>
+
+      </div>
+
+      <!-- Dark Violet-Indigo & Neon-Lime Solution Finder Strip -->
+      <div class="hub-finder-strip">
+        <div class="hub-finder-strip-left">
+          <div class="hub-finder-badge-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+          </div>
+          <div>
+            <h3 class="hub-finder-strip-title">Not sure which architecture stack fits your facility?</h3>
+            <p class="hub-finder-strip-sub">Use our interactive BOQ estimator or book a complimentary on-site engineering survey in Colombo, Kandy, Galle, or any BOI zone.</p>
+          </div>
+        </div>
+        <div class="hub-finder-strip-actions">
+          <a href="index.html#calculator" class="btn-onramp-lime" style="text-decoration: none;">
+            <span>Launch BOQ Solution Finder</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <button type="button" class="btn-nav-quote js-open-quote-modal" style="background: rgba(255,255,255,0.1); color: #ffffff; border: 1px solid rgba(255,255,255,0.28);">
+            <span>Book Free Site Survey</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Solution 1: Structured Cabling & Fiber -->
   <section class="detail-section" id="cabling">
     <div class="section-container">
       <div class="detail-block-grid">
         <div>
-          <div class="detail-badge">Passive Infrastructure</div>
-          <h2 class="detail-title">Structured Cabling & High-Density Optical Fiber Backbones</h2>
+          <div class="detail-badge">01 • Passive Infrastructure &amp; Core Switching</div>
+          <h2 class="detail-title">Structured Cabling &amp; High-Density Optical Fiber Backbones</h2>
           <p class="detail-desc">
-            A reliable corporate network starts with impeccable physical layer engineering. We design and install high-density structured cabling systems utilizing Low Smoke Zero Halogen (LSZH) Cat6, Cat6A, and Cat7 copper lines alongside OM3, OM4, and OS2 single-mode optical fiber backbones.
+            A reliable corporate network starts with impeccable physical layer engineering. We design and install high-density structured cabling systems utilizing Low Smoke Zero Halogen (LSZH) Cat6, Cat6A, and Cat7 copper lines alongside OM3, OM4, and OS2 single-mode optical fiber backbones, paired with 10G/40G/100G leaf-spine campus switching.
           </p>
+          <div class="simple-terms-box">
+            <div class="simple-terms-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              In Simple Terms — Why It Matters
+            </div>
+            <p class="simple-terms-text">
+              Over 70% of mysterious network slowdowns and random disconnects come from poorly crimped cables or cheap copper. We install fire-safe, neatly labeled cables and certify every single wall port with a Fluke DSX-8000 analyzer so your wiring is guaranteed for 25 years.
+            </p>
+          </div>
           <ul class="sector-specs-list" style="margin-bottom: 2rem;">
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Every drop certified with Fluke DSX-8000 CableAnalyzer
+              Every drop certified with Fluke DSX-8000 CableAnalyzer (PDF report provided)
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Fusion optical splicing with &lt; 0.02 dB insertion loss
+              Fusion optical splicing with &lt; 0.02 dB insertion loss across floor risers
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -293,7 +703,7 @@
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Compliant with ANSI/TIA-568.2-D and ISO/IEC 11801
+              Compliant with ANSI/TIA-568.2-D and ISO/IEC 11801 international standards
             </li>
           </ul>
           <button type="button" class="btn-onramp-lime js-open-quote-modal">
@@ -318,8 +728,8 @@
             <span class="metric-value">IEC 60332-1 LSZH Sheathing</span>
           </div>
           <div class="metric-stat-row">
-            <span class="metric-label">Partner Vendors</span>
-            <span class="metric-value">CommScope, Panduit, Lansan, Ceynex</span>
+            <span class="metric-label">Partner Ecosystems</span>
+            <span class="metric-value">CommScope, Panduit, Cisco, Aruba</span>
           </div>
         </div>
       </div>
@@ -331,27 +741,36 @@
     <div class="section-container">
       <div class="detail-block-grid reverse">
         <div>
-          <div class="detail-badge">Wireless Engineering</div>
-          <h2 class="detail-title">Enterprise Campus & Industrial Wi-Fi 6E / Wi-Fi 7</h2>
+          <div class="detail-badge">02 • Wireless Engineering</div>
+          <h2 class="detail-title">Enterprise Campus &amp; Industrial Wi-Fi 6E / Wi-Fi 7</h2>
           <p class="detail-desc">
-            Designed for environments where wireless connectivity is non-negotiable. Whether delivering flawless 4K video roaming in corporate towers or supporting 3,000+ barcode terminals on an apparel factory floor, our Wi-Fi solutions leverage 6 GHz spectrum allocation and high-density beamforming.
+            Designed for environments where wireless connectivity is non-negotiable. Whether delivering flawless 4K video roaming in Colombo corporate towers or supporting 3,000+ barcode terminals on a Katunayake or Biyagama apparel factory floor, our Wi-Fi solutions leverage 6 GHz spectrum allocation and high-density beamforming.
           </p>
+          <div class="simple-terms-box">
+            <div class="simple-terms-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              In Simple Terms — Why It Matters
+            </div>
+            <p class="simple-terms-text">
+              Before mounting a single access point, we map your building's concrete walls, glass partitions, and machinery using Ekahau 3D radio heatmapping. Staff and guests can walk from floor to floor on a live Teams or WhatsApp call with zero drops or dead zones.
+            </p>
+          </div>
           <ul class="sector-specs-list" style="margin-bottom: 2rem;">
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Fast 802.11r/k/v seamless BSS transition
+              Fast 802.11r/k/v seamless BSS transition (&lt; 10ms handover)
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Ekahau AI predictive heatmapping & spectrum scans
+              Ekahau AI Pro predictive heatmapping &amp; post-deployment spectrum scans
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              IP67 dust and water-sealed outdoor APs
+              IP67 dust, humidity, and salt-mist sealed outdoor access points
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Automated channel optimization & band steering
+              Isolated guest captive portals with WPA3-Enterprise 802.1X authentication
             </li>
           </ul>
           <button type="button" class="btn-onramp-lime js-open-quote-modal">
@@ -389,27 +808,36 @@
     <div class="section-container">
       <div class="detail-block-grid">
         <div>
-          <div class="detail-badge">Cybersecurity & Edge Routing</div>
-          <h2 class="detail-title">Fortinet FortiGate Firewalls & Zero Trust SD-WAN</h2>
+          <div class="detail-badge">03 • Cybersecurity &amp; Edge Routing</div>
+          <h2 class="detail-title">Fortinet FortiGate Firewalls &amp; Zero Trust SD-WAN</h2>
           <p class="detail-desc">
-            Modern corporate perimeters must defend against advanced ransomware, phishing, and DDoS attacks while enabling seamless multi-branch interconnectivity. We architect active-active Fortinet FortiGate clusters with deep packet SSL inspection, IPS/IDS, and automated SD-WAN branch failover.
+            Modern corporate perimeters must defend against advanced ransomware, phishing, and DDoS attacks while enabling seamless multi-branch interconnectivity. We architect active-active Fortinet FortiGate clusters with deep packet SSL inspection, IPS/IDS, and automated SD-WAN branch failover across SLT, Dialog, and Lankabell links.
           </p>
+          <div class="simple-terms-box">
+            <div class="simple-terms-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              In Simple Terms — Why It Matters
+            </div>
+            <p class="simple-terms-text">
+              If your primary fiber internet line is cut in the street, our Dual-ISP SD-WAN switches your entire office to the backup fiber or 5G line in less than 50 milliseconds—while locking down your accounting, ERP, and banking servers against ransomware.
+            </p>
+          </div>
           <ul class="sector-specs-list" style="margin-bottom: 2rem;">
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              CBSL and PCI-DSS compliance certified layouts
+              CBSL and PCI-DSS 4.0 compliance certified firewall architectures
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Automated 4G/5G backup link failover in under 1 second
+              Sub-50ms multi-carrier WAN &amp; 4G/5G automatic link failover
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Zero Trust Network Access (ZTNA) application tagging
+              Zero Trust Network Access (ZTNA) micro-segmentation &amp; application tagging
             </li>
             <li class="sector-spec-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              High-throughput IPSec VPN tunnels for remote staff
+              Hardware-accelerated IPSec VPN tunnels connecting islandwide branches
             </li>
           </ul>
           <button type="button" class="btn-onramp-lime js-open-quote-modal">
@@ -423,7 +851,7 @@
           </div>
           <div class="metric-stat-row">
             <span class="metric-label">Threat Protection</span>
-            <span class="metric-value">Up to 20 Gbps Inspection</span>
+            <span class="metric-value">Up to 20 Gbps NGFW Inspection</span>
           </div>
           <div class="metric-stat-row">
             <span class="metric-label">Availability Mode</span>
@@ -431,11 +859,285 @@
           </div>
           <div class="metric-stat-row">
             <span class="metric-label">Security Fabric</span>
-            <span class="metric-value">Fortinet Security Fabric Certified</span>
+            <span class="metric-value">Fortinet NSE-7 Engineered</span>
           </div>
           <div class="metric-stat-row">
             <span class="metric-label">NOC Integration</span>
-            <span class="metric-value">24/7 SIEM & Log Telemetry</span>
+            <span class="metric-value">24/7 SIEM &amp; Log Telemetry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution 4: Unified IP Communications & BPO IT Setup -->
+  <section class="detail-section alt-bg" id="communications">
+    <div class="section-container">
+      <div class="detail-block-grid reverse">
+        <div>
+          <div class="detail-badge">04 • Voice, Video &amp; BPO Turnkey Setup</div>
+          <h2 class="detail-title">Unified IP Communications &amp; BPO Call Center Infrastructure</h2>
+          <p class="detail-desc">
+            Purpose-built for Sri Lanka's global BPOs, contact centers, and multi-branch enterprises in Orion City, Trace Expert City, and Colombo. We deliver complete call-floor IT setups—combining redundant IP-PBX voice servers, dual-undersea SIP trunk routing, PoE desk phones, acoustic workstation cabling, and strict PCI clean-room network isolation.
+          </p>
+          <div class="simple-terms-box">
+            <div class="simple-terms-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              In Simple Terms — Why It Matters
+            </div>
+            <p class="simple-terms-text">
+              In a contact center or trading desk, robotic audio or a 2-second voice delay loses customers. We prioritize voice packets above all background downloads so every local and international call sounds crystal-clear (MOS &gt; 4.4), even when 500 agents are online simultaneously.
+            </p>
+          </div>
+          <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Turnkey BPO floor deployment: structured workstation drops, PoE switches &amp; headsets
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Strict DSCP EF (Expedited Forwarding) QoS voice traffic prioritization
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Enterprise IP-PBX &amp; SIP trunk integration (Cisco, Yeastar, Grandstream, 3CX, Teams)
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              4K executive boardroom video conferencing &amp; smart acoustic mic arrays
+            </li>
+          </ul>
+          <button type="button" class="btn-onramp-lime js-open-quote-modal">
+            Request BPO &amp; Voice Blueprint
+          </button>
+        </div>
+
+        <div class="detail-card-visual">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">
+            VOICE &amp; BPO BENCHMARKS
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Voice Clarity Score</span>
+            <span class="metric-value">MOS &gt; 4.42 (HD Opus / G.722)</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Packet Jitter Ceiling</span>
+            <span class="metric-value">&lt; 5ms Strictly Queued</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">SIP Trunk Redundancy</span>
+            <span class="metric-value">Dual-Carrier Auto-Failover</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Agent Seat Scalability</span>
+            <span class="metric-value">25 to 2,500+ Concurrent Seats</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution 5: Tier-3 Data Center & Server Racks -->
+  <section class="detail-section" id="datacenter">
+    <div class="section-container">
+      <div class="detail-block-grid">
+        <div>
+          <div class="detail-badge">05 • Critical Power, Cooling &amp; Racks</div>
+          <h2 class="detail-title">Tier-3 Data Center Infrastructure, Server Rooms &amp; Online UPS</h2>
+          <p class="detail-desc">
+            Your core switches and enterprise servers are only as reliable as the room housing them. We build turnkey server rooms and micro-data centers featuring 42U/48U seismic cabinets, hot/cold aisle containment, precision in-row cooling, N+1 double-conversion online UPS banks, and FM-200 / Novec fire suppression integration.
+          </p>
+          <div class="simple-terms-box">
+            <div class="simple-terms-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              In Simple Terms — Why It Matters
+            </div>
+            <p class="simple-terms-text">
+              Grid power fluctuations, generator switchover gaps, and overheated server closets destroy expensive IT hardware. Our online UPS units deliver zero-millisecond battery transfer and send instant SMS alerts to your phone if room temperature or humidity ever spikes.
+            </p>
+          </div>
+          <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              42U / 48U high-density perforated server racks with zero-U vertical smart PDUs
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              N+1 Modular Online Double-Conversion UPS (0ms transfer time)
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Precision thermal management with SNMP temperature, humidity &amp; water-leak sensors
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Overhead fiber runner trays &amp; anti-static raised access flooring
+            </li>
+          </ul>
+          <button type="button" class="btn-onramp-lime js-open-quote-modal">
+            Request Data Center Room Audit
+          </button>
+        </div>
+
+        <div class="detail-card-visual">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">
+            DATA CENTER SPECIFICATIONS
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Design Standard</span>
+            <span class="metric-value">TIA-942 Tier-3 Aligned</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Power Switchover</span>
+            <span class="metric-value">0.0 ms Online Double-Conversion</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Environmental Sensors</span>
+            <span class="metric-value">Temp, Humidity, Smoke &amp; Flood</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Power &amp; Rack Partners</span>
+            <span class="metric-value">APC Schneider, Vertiv, Eaton, Toten</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution 6: AI Network Telemetry & Cloud Direct Connect -->
+  <section class="detail-section alt-bg" id="intelligence">
+    <div class="section-container">
+      <div class="detail-block-grid reverse">
+        <div>
+          <div class="detail-badge">06 • AIOps Telemetry &amp; Hybrid Cloud</div>
+          <h2 class="detail-title">AI Network Telemetry, Automation &amp; Cloud Interconnect</h2>
+          <p class="detail-desc">
+            Move from reactive firefighting to predictive network intelligence. We deploy AI-assisted network observability platforms that monitor optical transceiver laser health, switch CPU loads, and ISP latency baselines in real time—paired with private, low-latency links to AWS, Microsoft Azure, and Google Cloud.
+          </p>
+          <div class="simple-terms-box">
+            <div class="simple-terms-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+              In Simple Terms — Why It Matters
+            </div>
+            <p class="simple-terms-text">
+              Instead of waiting for a switch port or fiber module to fail on a Monday morning, our telemetry engine detects early signal degradation days in advance and alerts our Colombo NOC to replace the part before your staff ever notice an issue.
+            </p>
+          </div>
+          <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Real-time SNMPv3, NetFlow, and optical DOM (Digital Optical Monitoring) analytics
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Automated configuration backups &amp; zero-touch branch switch provisioning
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Dedicated AWS Direct Connect &amp; Azure ExpressRoute hybrid cloud routing
+            </li>
+            <li class="sector-spec-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Executive monthly SLA health scorecards &amp; bandwidth utilization reports
+            </li>
+          </ul>
+          <button type="button" class="btn-onramp-lime js-open-quote-modal">
+            Request Telemetry &amp; Cloud Demo
+          </button>
+        </div>
+
+        <div class="detail-card-visual">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">
+            TELEMETRY &amp; CLOUD METRICS
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Polling Granularity</span>
+            <span class="metric-value">1-Second Streaming Telemetry</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Anomaly Detection</span>
+            <span class="metric-value">Predictive Optical &amp; Packet AI</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Cloud Gateways</span>
+            <span class="metric-value">AWS, Azure, GCP &amp; Local Tier-3</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Alert Escalation</span>
+            <span class="metric-value">&lt; 30 Seconds to Colombo NOC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution 7: Enterprise Biometrics, Access Control, Time Attendance & AI CCTV -->
+  <section class="detail-section" id="biometrics">
+    <div class="section-container">
+      <div class="detail-block-grid">
+        <div>
+          <div class="detail-badge">07 • Biometrics, Time Attendance &amp; Physical Security</div>
+          <h2 class="detail-title">Enterprise Biometric Access Control, Workforce Attendance &amp; AI Surveillance</h2>
+          <p class="detail-desc">
+            Unify physical facility security with your enterprise IP network. We engineer end-to-end biometric identity platforms, multi-door access control, automated workforce time-attendance terminals, lobby speed-gates, and high-definition AI CCTV surveillance running on dedicated, cyber-hardened PoE VLANs.
+          </p>
+
+          <!-- 4 Specialized Biometric & Access Sub-Cards -->
+          <div class="sub-capability-grid">
+            <div class="sub-capability-card">
+              <h4>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 10h.01"/><path d="M15 10h.01"/><path d="M12 2a8 8 0 0 0-8 8v12l3-3 2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8z"/></svg>
+                Facial, Palm &amp; Fingerprint ID
+              </h4>
+              <p>Touchless 3D anti-spoof facial recognition, hygienic infrared palm-vein scanners &amp; IP65 fingerprint readers.</p>
+            </div>
+            <div class="sub-capability-card">
+              <h4>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Time Attendance &amp; Payroll Sync
+              </h4>
+              <p>Automated multi-shift factory &amp; office attendance syncing directly with SAP, MiHCM, PeoplesHR, and custom ERPs.</p>
+            </div>
+            <div class="sub-capability-card">
+              <h4>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Door Controllers &amp; Turnstiles
+              </h4>
+              <p>Fail-safe electromagnetic locks, server rack biometric handles, fire-alarm break-glass interlocks &amp; lobby flap barriers.</p>
+            </div>
+            <div class="sub-capability-card">
+              <h4>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                Visitor Management &amp; AI CCTV
+              </h4>
+              <p>Digital visitor QR badges with host notifications, paired with 4K PoE IP cameras and RAID-redundant NVR storage.</p>
+            </div>
+          </div>
+
+          <button type="button" class="btn-onramp-lime js-open-quote-modal">
+            Request Biometric &amp; Security Survey
+          </button>
+        </div>
+
+        <div class="detail-card-visual">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">
+            BIOMETRIC &amp; ACCESS BENCHMARKS
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Recognition Speed</span>
+            <span class="metric-value">&lt; 0.2s Facial / Palm-Vein Match</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Anti-Spoofing Defense</span>
+            <span class="metric-value">Dual-IR Live Face &amp; Vein Detection</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">HRMS / ERP Integration</span>
+            <span class="metric-value">Real-Time API &amp; Cloud Push</span>
+          </div>
+          <div class="metric-stat-row">
+            <span class="metric-label">Hardware Ecosystems</span>
+            <span class="metric-value">Suprema, ZKTeco, Hikvision, Axis</span>
           </div>
         </div>
       </div>
@@ -653,6 +1355,6 @@
   <script src="hero-network.js?v=2025.56"></script>
   <script src="cable-current.js?v=2025.56"></script>
   <script src="smooth-scroll.js?v=2025.66"></script>
-  <script src="script.js?v=2025.73"></script>
+  <script src="script.js?v=2025.74"></script>
 </body>
 </html>
