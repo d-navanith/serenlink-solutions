@@ -104,4 +104,32 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
     });
     observer.observe(navMenu, { attributes: true, attributeFilter: ['class'] });
   }
+
+  // 7. Handle Hash Anchor Navigation on Page Load
+  if (window.location.hash) {
+    try {
+      const initialHash = window.location.hash;
+      const initialTarget = document.querySelector(initialHash);
+      if (initialTarget) {
+        const scrollToInitial = function() {
+          const header = document.querySelector('.main-header');
+          const headerHeight = header ? header.offsetHeight : 75;
+          const offset = -(headerHeight + 20);
+          lenis.scrollTo(initialTarget, {
+            offset: offset,
+            duration: 1.2,
+            immediate: false
+          });
+        };
+        const splashEl = document.getElementById('serenlinkSplashScreen');
+        if (splashEl && document.body.classList.contains('splash-active')) {
+          window.addEventListener('serenlink:splashCompleted', scrollToInitial, { once: true });
+        } else {
+          setTimeout(scrollToInitial, 200);
+        }
+      }
+    } catch (e) {
+      // Invalid selector fallback
+    }
+  }
 })();

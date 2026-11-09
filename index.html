@@ -221,7 +221,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="splash.css?v=2025.80">
-  <link rel="stylesheet" href="style.css?v=2025.62">
+  <link rel="stylesheet" href="style.css?v=2025.63">
 </head>
 <body>
   <!-- ==========================================================================
@@ -891,53 +891,295 @@
       </div>
     </section>
 
-  <!-- ==========================================================================
-       SECTION: "ON WHAT TO EXPECT" (Exact 3-Icon Graphic Columns from OnRamp)
+    <!-- ==========================================================================
+       SECTION: "ON WHAT TO EXPECT" - 10 SPECIALIZED INDUSTRY VERTICALS
        ========================================================================== -->
-  <section class="section-expect">
+  <section class="section-expect" id="industries-section">
     <div class="section-container">
       
       <div class="expect-header">
-        <span class="section-tag">Engineering Standards</span>
+        <span class="section-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+          Industry Specialization
+        </span>
         <h2 class="section-title">On what to expect</h2>
         <p class="section-lead">
-          Our network implementations are built with military precision, rigorous Fluke testing, and proactive 24/7 telemetry. You leave legacy connection drops behind and operate on an ironclad corporate backbone.
+          Our network implementations are built with military precision, rigorous Fluke testing, and proactive 24/7 telemetry. Explore our specialized architectures tailored across 10 mission-critical enterprise domains.
         </p>
+
+        <!-- Category Filter Pills -->
+        <div class="industry-filter-nav">
+          <button type="button" class="industry-filter-btn active" data-filter="all">All Industries (10)</button>
+          <button type="button" class="industry-filter-btn" data-filter="tech-telecom">IT, Telecom & BPO</button>
+          <button type="button" class="industry-filter-btn" data-filter="finance-gov">Banking & Government</button>
+          <button type="button" class="industry-filter-btn" data-filter="health-edu">Healthcare & University</button>
+          <button type="button" class="industry-filter-btn" data-filter="mfg-logistics">Manufacturing & Logistics</button>
+          <button type="button" class="industry-filter-btn" data-filter="cyber-ops">Cybersecurity & NOC</button>
+        </div>
       </div>
 
-      <div class="expect-grid">
+      <div class="expect-grid" id="industryGrid">
         
-        <!-- Column 1: OnRamp Diagonal Arrow Symbol -->
-        <div class="expect-card">
-          <div class="expect-symbol-wrap">
-            <div class="symbol-arrow"></div>
+        <!-- 1. IT and Technology -->
+        <div class="expect-card" data-category="tech-telecom" data-industry-id="it-tech">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <span class="industry-card-badge">Cloud & DevOps</span>
           </div>
-          <h3 class="expect-title">Smarter networks</h3>
+          <h3 class="expect-title">IT and Technology</h3>
           <p class="expect-desc">
-            Discover intelligent traffic engineering with automated BGP failover, multi-ISP load balancing, and AI-assisted packet inspection that eliminates bottlenecks before users ever notice.
+            Ultra-low latency 10G/100G optical backbones, multi-cloud direct connects (AWS/Azure/GCP), containerized workload traffic optimization, and high-density developer Wi-Fi 7 with Trace City and Orion City engineering standards.
           </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">100G Leaf-Spine</span>
+            <span class="industry-spec-pill">Multi-Cloud Interconnect</span>
+            <span class="industry-spec-pill">Sub-1ms Latency</span>
+          </div>
+          <a href="industries.html#it-tech" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
 
-        <!-- Column 2: OnRamp Torus Ring Symbol -->
-        <div class="expect-card">
-          <div class="expect-symbol-wrap">
-            <div class="symbol-ring"></div>
+        <!-- 2. Banking and Financial -->
+        <div class="expect-card" data-category="finance-gov" data-industry-id="banking-finance">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"></path>
+              </svg>
+            </div>
+            <span class="industry-card-badge">CBSL & PCI-DSS 4.0</span>
           </div>
-          <h3 class="expect-title">Smoother workflows</h3>
+          <h3 class="expect-title">Banking and Financial</h3>
           <p class="expect-desc">
-            Eliminate dropped calls and factory scanner delays with seamless Wi-Fi 7 roaming, micro-segmented VLANs for ERP systems, and zero-loss optical backbones between buildings.
+            Zero-downtime transactional cores with automated dual-ISP BGP failover, PCI-DSS compliant perimeter segmentation, direct leased-line teller connectivity, and Active-Active HA Fortinet firewall clustering.
           </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">CBSL Compliant</span>
+            <span class="industry-spec-pill">&lt;50ms BGP Failover</span>
+            <span class="industry-spec-pill">99.999% SLA</span>
+          </div>
+          <a href="industries.html#banking" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
 
-        <!-- Column 3: OnRamp Plus Sign Symbol -->
-        <div class="expect-card">
-          <div class="expect-symbol-wrap">
-            <div class="symbol-plus"></div>
+        <!-- 3. Healthcare Administration -->
+        <div class="expect-card" data-category="health-edu" data-industry-id="healthcare">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M2 12h20"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+            </div>
+            <span class="industry-card-badge">Medical IoT & PACS</span>
           </div>
-          <h3 class="expect-title">Scalable systems</h3>
+          <h3 class="expect-title">Healthcare Administration</h3>
           <p class="expect-desc">
-            Unlock modular 10G/40G/100G architectures that grow seamlessly with your enterprise expansion across Colombo, regional branches, and overseas cloud platforms.
+            Mission-critical hospital backbones supporting high-resolution DICOM/PACS transfers, patient telemetry isolation, zero-jitter telemedicine streaming, and isolated HIPAA-aligned clinical VLANs.
           </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">PACS 10G Ready</span>
+            <span class="industry-spec-pill">Medical IoT Shield</span>
+            <span class="industry-spec-pill">UPS Dual Feeds</span>
+          </div>
+          <a href="industries.html#healthcare" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 4. Government -->
+        <div class="expect-card" data-category="finance-gov" data-industry-id="government">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 10h16M2 20h20M6 10v10M10 10v10M14 10v10M18 10v10M12 2L2 7h20L12 2z"></path>
+              </svg>
+            </div>
+            <span class="industry-card-badge">State Enclaves</span>
+          </div>
+          <h3 class="expect-title">Government</h3>
+          <p class="expect-desc">
+            Air-gapped secure enclaves, certified state-grade cryptographic tunnels, hardened perimeter defenses against APT threats, and resilient intra-ministry optical rings connecting secretariat administrative campuses.
+          </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">Air-Gapped Enclaves</span>
+            <span class="industry-spec-pill">State-Level Encryption</span>
+            <span class="industry-spec-pill">Tamper-Proof Racks</span>
+          </div>
+          <a href="industries.html#government" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 5. Education and University -->
+        <div class="expect-card" data-category="health-edu" data-industry-id="education">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c0 3 3 5 6 5s6-2 6-5v-5"></path>
+              </svg>
+            </div>
+            <span class="industry-card-badge">Campus Wi-Fi 7</span>
+          </div>
+          <h3 class="expect-title">Education and University</h3>
+          <p class="expect-desc">
+            High-density campus wireless covering lecture halls, labs, and dorms with eduroam 802.1X roaming, content safety firewalls, multi-gigabit research feeds, and automated student/faculty device onboarding.
+          </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">eduroam 802.1X</span>
+            <span class="industry-spec-pill">5,000+ Concurrency</span>
+            <span class="industry-spec-pill">Campus Fiber Ring</span>
+          </div>
+          <a href="industries.html#education" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 6. Manufacturing Company -->
+        <div class="expect-card" data-category="mfg-logistics" data-industry-id="manufacturing">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 20h20M2 20V8l6 4V8l6 4V4h6v16"></path>
+              </svg>
+            </div>
+            <span class="industry-card-badge">FTZ Industrial IoT</span>
+          </div>
+          <h3 class="expect-title">Manufacturing Company</h3>
+          <p class="expect-desc">
+            Ruggedized Ethernet and vibration-resistant Wi-Fi engineered for Katunayake, Biyagama, and Seethawaka export zones. Delivers zero-drop barcode scanner roaming and isolated SCADA/MES automation VLANs.
+          </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">IP67 Harsh-Enviro</span>
+            <span class="industry-spec-pill">SCADA/MES Isolation</span>
+            <span class="industry-spec-pill">Zero-Drop Roaming</span>
+          </div>
+          <a href="industries.html#manufacturing" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 7. Logistics and Supply Chain -->
+        <div class="expect-card" data-category="mfg-logistics" data-industry-id="logistics">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <span class="industry-card-badge">Port & Warehouse</span>
+          </div>
+          <h3 class="expect-title">Logistics and Supply Chain</h3>
+          <p class="expect-desc">
+            Long-range outdoor directional wireless for Colombo Port container yards and cold-storage distribution hubs. Guarantees non-stop RFID/scanner handoffs and real-time WMS inventory telemetry.
+          </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">300m Beamforming</span>
+            <span class="industry-spec-pill">Port Terminal Mesh</span>
+            <span class="industry-spec-pill">Temp-Resistant APs</span>
+          </div>
+          <a href="industries.html#logistics" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 8. Telecommunications -->
+        <div class="expect-card" data-category="tech-telecom" data-industry-id="telecom">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="2"></circle>
+                <path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path>
+              </svg>
+            </div>
+            <span class="industry-card-badge">Carrier-Grade DWDM</span>
+          </div>
+          <h3 class="expect-title">Telecommunications</h3>
+          <p class="expect-desc">
+            High-density carrier meet-me rooms, dark fiber optical transport rings, DWDM multiplexing, and Tier-3 data center rack containment engineered for uninterrupted nationwide voice and IP data transit.
+          </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">DWDM Optical Mesh</span>
+            <span class="industry-spec-pill">Meet-Me-Room Ready</span>
+            <span class="industry-spec-pill">DC Power -48V Dual</span>
+          </div>
+          <a href="industries.html#telecom" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 9. BPO (Business Process Outsourcing) -->
+        <div class="expect-card" data-category="tech-telecom" data-industry-id="bpo">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+                <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+              </svg>
+            </div>
+            <span class="industry-card-badge">Jitter-Free VoIP</span>
+          </div>
+          <h3 class="expect-title">BPO (Business Process Outsourcing)</h3>
+          <p class="expect-desc">
+            Carrier-grade SIP trunk redundancy with strict QoS voice queueing (MOS &gt; 4.4), dual undersea cable internet breakouts, PCI-compliant agent call floor segmentation, and zero-drop 24/7 global shift operations.
+          </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">MOS &gt; 4.4 Voice QoS</span>
+            <span class="industry-spec-pill">Multi-SIP Failover</span>
+            <span class="industry-spec-pill">PCI Call Center</span>
+          </div>
+          <a href="industries.html#bpo" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </div>
+
+        <!-- 10. Cybersecurity and Network Operations -->
+        <div class="expect-card" data-category="cyber-ops" data-industry-id="cybersecurity">
+          <div class="industry-card-head">
+            <div class="industry-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <circle cx="12" cy="11" r="2.5"></circle>
+                <line x1="12" y1="13.5" x2="12" y2="16"></line>
+              </svg>
+            </div>
+            <span class="industry-card-badge">Zero Trust & SOC/NOC</span>
+          </div>
+          <h3 class="expect-title">Cybersecurity & Network Operations</h3>
+          <p class="expect-desc">
+            Zero Trust Network Architecture (ZTNA) with AI-powered Network Detection & Response (NDR), automated micro-segmentation, centralized SIEM log telemetry, and proactive 24/7 Colombo SOC threat hunting.
+          </p>
+          <div class="industry-specs-mini">
+            <span class="industry-spec-pill">Zero Trust (ZTNA)</span>
+            <span class="industry-spec-pill">AI Threat Hunting</span>
+            <span class="industry-spec-pill">15-Min Response SLA</span>
+          </div>
+          <a href="industries.html#cybersecurity" class="link-tech-specs">
+            <span>View Technical Specifications</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
         </div>
 
       </div>
@@ -1539,7 +1781,11 @@
   <script src="hero-network.js?v=2025.55"></script>
   <script src="cable-current.js?v=2025.55"></script>
   <script src="smooth-scroll.js?v=2025.60"></script>
-  <script src="script.js?v=2025.58"></script>
+  <script src="script.js?v=2025.63"></script>
   <script src="splash.js?v=2025.80"></script>
+
+  
+  </div>
+
 </body>
 </html>

@@ -89,7 +89,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="style.css?v=2025.61">
+  <link rel="stylesheet" href="style.css?v=2025.63">
 </head>
 <body>
 
@@ -197,123 +197,449 @@
   </section>
 
   <!-- DIGITAL POWER CURRENT & OPTICAL CABLE HIGHWAY ZONE -->
+    <!-- DIGITAL POWER CURRENT & OPTICAL CABLE HIGHWAY ZONE -->
   <div class="cable-highway-zone" id="cableHighwayZone">
     <!-- Viewport-Fixed Lightweight Hardware-Accelerated 60FPS Cable Canvas -->
     <canvas id="cableHighwayCanvas" class="cable-highway-canvas" aria-hidden="true"></canvas>
 
-  <!-- Industry 1: Banking & Finance -->
-  <section class="detail-section" id="banking">
-    <div class="section-container">
-      <div class="detail-block-grid">
-        <div>
-          <div class="detail-badge">BFSI & Fintech</div>
-          <h2 class="detail-title">Banking, Financial Services & Insurance (BFSI)</h2>
-          <p class="detail-desc">
-            Sri Lankan commercial banks and financial institutions operate under strict Central Bank of Sri Lanka (CBSL) regulatory requirements. Our BFSI architecture isolates core banking transactional networks from corporate Wi-Fi, enforces micro-segmentation, and implements multi-ISP automatic BGP failover.
-          </p>
-          <ul class="sector-specs-list" style="margin-bottom: 2rem;">
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              PCI-DSS 4.0 compliant perimeter segmentation
-            </li>
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Direct leased-line ATM & teller connectivity
-            </li>
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Encrypted IPsec tunnels with hardware crypto-acceleration
-            </li>
-          </ul>
-          <button type="button" class="btn-onramp-lime js-open-quote-modal">Request BFSI Network Blueprint</button>
-        </div>
-
-        <div class="detail-card-visual">
-          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">BANKING ARCHITECTURE</div>
-          <div class="metric-stat-row"><span class="metric-label">CBSL Guideline Alignment</span><span class="metric-value">100% Compliant</span></div>
-          <div class="metric-stat-row"><span class="metric-label">Core Uptime SLA</span><span class="metric-value">99.999% Zero Downtime</span></div>
-          <div class="metric-stat-row"><span class="metric-label">Firewall Clustering</span><span class="metric-value">Active-Active HA FortiGate</span></div>
-          <div class="metric-stat-row"><span class="metric-label">On-Site Dispatch</span><span class="metric-value">2-Hour Dedicated SLA</span></div>
-        </div>
+    <!-- Interactive Industry Quick-Jump Bar -->
+    <div class="section-container" style="padding-top: 2rem; padding-bottom: 2rem;">
+      <div style="font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #1e40af; margin-bottom: 0.75rem;">
+        SELECT INDUSTRY VERTICAL TO EXPLORE ARCHITECTURE
+      </div>
+      <div class="pills-container" style="margin-bottom: 0;">
+        <a href="#it-tech" class="sector-pill"><span class="pill-dot"></span>IT & Technology</a>
+        <a href="#banking" class="sector-pill"><span class="pill-dot"></span>Banking & Financial</a>
+        <a href="#healthcare" class="sector-pill"><span class="pill-dot"></span>Healthcare Admin</a>
+        <a href="#government" class="sector-pill"><span class="pill-dot"></span>Government</a>
+        <a href="#education" class="sector-pill"><span class="pill-dot"></span>Education & University</a>
+        <a href="#manufacturing" class="sector-pill"><span class="pill-dot"></span>Manufacturing Company</a>
+        <a href="#logistics" class="sector-pill"><span class="pill-dot"></span>Logistics & Supply Chain</a>
+        <a href="#telecom" class="sector-pill"><span class="pill-dot"></span>Telecommunications</a>
+        <a href="#bpo" class="sector-pill"><span class="pill-dot"></span>BPO Out-Sourcing</a>
+        <a href="#cybersecurity" class="sector-pill"><span class="pill-dot"></span>Cybersecurity & NOC</a>
       </div>
     </div>
-  </section>
 
-  <!-- Industry 2: Apparel & BOI Manufacturing -->
-  <section class="detail-section alt-bg" id="apparel">
-    <div class="section-container">
-      <div class="detail-block-grid reverse">
-        <div>
-          <div class="detail-badge">Export Manufacturing</div>
-          <h2 class="detail-title">Apparel & BOI Export Processing Zones</h2>
-          <p class="detail-desc">
-            Operating in Katunayake, Biyagama, Koggala, and Seethawaka export processing zones? Apparel factories require ruggedized wireless networks that withstand fabric lint, machine vibrations, and high ceilings, while ensuring continuous barcode tracking and ERP manufacturing execution systems (MES).
-          </p>
-          <ul class="sector-specs-list" style="margin-bottom: 2rem;">
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              IP67 dust-sealed access points with external antennas
-            </li>
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Zero packet drop for fast handheld barcode scanners
-            </li>
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Inter-building armored fiber backbones
-            </li>
-          </ul>
-          <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Factory Site Survey</button>
-        </div>
+    <!-- 1. IT and Technology -->
+    <section class="detail-section" id="it-tech">
+      <div class="section-container">
+        <div class="detail-block-grid">
+          <div>
+            <div class="detail-badge">Cloud & DevOps Interconnect</div>
+            <h2 class="detail-title">IT and Technology Enterprises</h2>
+            <p class="detail-desc">
+              Engineered for Sri Lanka's leading software exporters, SaaS platforms, and tech parks operating across Orion City, Trace Expert City, and Colombo 02. We build ultra-low-latency 100G optical cores, containerized workload routing, and direct multi-cloud dedicated connections with zero packet drop.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                100G Leaf-Spine data center switching with sub-1ms core latency
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Direct AWS Direct Connect & Microsoft Azure ExpressRoute links
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                High-density developer Wi-Fi 7 with micro-segmented isolated VLANs
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Tier-3 cold-aisle server containment with intelligent PDU metering
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request IT Architecture Blueprint</button>
+          </div>
 
-        <div class="detail-card-visual">
-          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">BOI FACTORY METRICS</div>
-          <div class="metric-stat-row"><span class="metric-label">Floor Area Covered</span><span class="metric-value">Up to 500,000 sq ft</span></div>
-          <div class="metric-stat-row"><span class="metric-label">Concurrent Scanners</span><span class="metric-value">2,500+ Active Terminals</span></div>
-          <div class="metric-stat-row"><span class="metric-label">Cabling Durability</span><span class="metric-value">Shielded Cat6A + Metal Trunking</span></div>
-          <div class="metric-stat-row"><span class="metric-label">FTZ Dedicated Support</span><span class="metric-value">90-Minute Response Time</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Industry 3: Hospitality & Luxury Tourism -->
-  <section class="detail-section" id="hospitality">
-    <div class="section-container">
-      <div class="detail-block-grid">
-        <div>
-          <div class="detail-badge">Tourism & Hospitality</div>
-          <h2 class="detail-title">Luxury Resorts & 5-Star Boutique Hotels</h2>
-          <p class="detail-desc">
-            In modern hospitality, poor Wi-Fi is the #1 guest complaint on TripAdvisor. We engineer high-density, discreet Wi-Fi 7 networks with GPON optical fiber to each suite, delivering uninterrupted 4K streaming, flawless beach roaming, and integrated Property Management System (PMS) authentication.
-          </p>
-          <ul class="sector-specs-list" style="margin-bottom: 2rem;">
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Aesthetic discreet in-wall access points per villa/room
-            </li>
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              High-speed outdoor wireless for pools, spas, and beaches
-            </li>
-            <li class="sector-spec-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-              Complete physical isolation of guest and POS billing VLANs
-            </li>
-          </ul>
-          <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Hospitality Wi-Fi Audit</button>
-        </div>
-
-        <div class="detail-card-visual">
-          <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">HOTEL BENCHMARKS</div>
-          <div class="metric-stat-row"><span class="metric-label">Guest Wi-Fi Rating</span><span class="metric-value">4.9 / 5.0 Average</span></div>
-          <div class="metric-stat-row"><span class="metric-label">GPON Bandwidth</span><span class="metric-value">Gigabit to Every Room</span></div>
-          <div class="metric-stat-row"><span class="metric-label">Outdoor Weatherproof</span><span class="metric-value">Saline & Monsoon Proof</span></div>
-          <div class="metric-stat-row"><span class="metric-label">PMS Integration</span><span class="metric-value">Opera, Protel & Hotelogix</span></div>
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">IT & CLOUD BENCHMARKS</div>
+            <div class="metric-stat-row"><span class="metric-label">Switching Fabric</span><span class="metric-value">100G Wire-Speed Leaf-Spine</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Local Packet Latency</span><span class="metric-value">&lt; 0.8ms Core-to-Access</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Multi-Cloud Interconnect</span><span class="metric-value">AWS / Azure Direct Connect</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Security Standards</span><span class="metric-value">ISO 27001 & SOC 2 Aligned</span></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- 2. Banking and Financial -->
+    <section class="detail-section alt-bg" id="banking">
+      <div class="section-container">
+        <div class="detail-block-grid reverse">
+          <div>
+            <div class="detail-badge">BFSI & Fintech</div>
+            <h2 class="detail-title">Banking, Financial Services & Insurance (BFSI)</h2>
+            <p class="detail-desc">
+              Sri Lankan commercial banks and financial institutions operate under strict Central Bank of Sri Lanka (CBSL) regulatory requirements. Our BFSI architecture isolates core banking transactional networks from corporate Wi-Fi, enforces micro-segmentation, and implements multi-ISP automatic BGP failover.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                PCI-DSS 4.0 compliant perimeter segmentation & encryption
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Direct leased-line ATM & teller connectivity with zero drop
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Active-Active HA Fortinet FortiGate enterprise firewall clusters
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Automated multi-carrier BGP failover in under 50 milliseconds
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request BFSI Network Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">BANKING ARCHITECTURE</div>
+            <div class="metric-stat-row"><span class="metric-label">CBSL Guideline Alignment</span><span class="metric-value">100% Compliant</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Core Uptime SLA</span><span class="metric-value">99.999% Zero Downtime</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Failover Latency</span><span class="metric-value">&lt; 50 Milliseconds</span></div>
+            <div class="metric-stat-row"><span class="metric-label">On-Site Dispatch</span><span class="metric-value">2-Hour Dedicated SLA</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Healthcare Administration -->
+    <section class="detail-section" id="healthcare">
+      <div class="section-container">
+        <div class="detail-block-grid">
+          <div>
+            <div class="detail-badge">Medical Telemetry & PACS</div>
+            <h2 class="detail-title">Healthcare Administration & Hospital Networks</h2>
+            <p class="detail-desc">
+              Healthcare environments require uninterrupted communication between operating theaters, emergency intensive care units, and diagnostic imaging centers. We deploy isolated medical IoT networks, rapid PACS/DICOM radiology transfers, and guaranteed continuous battery power bypass infrastructure.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                10G OM4/OS2 optical fiber backbones for instant DICOM/PACS transfers
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Isolated Medical IoT micro-VLANs shielding infusion pumps and monitors
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Zero-interference medical grade wireless compliant with IEC 60601-1
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dual-source uninterrupted online power supplies with auto-transfer bypass
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Hospital Network Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">HEALTHCARE BENCHMARKS</div>
+            <div class="metric-stat-row"><span class="metric-label">PACS 10G Transfer Speed</span><span class="metric-value">&lt; 1.2s per 2GB MRI</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Medical IoT Isolation</span><span class="metric-value">100% Micro-Segmented</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Regulatory Compliance</span><span class="metric-value">HIPAA & EMR Guideline Ready</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Emergency Response</span><span class="metric-value">1-Hour Dedicated Hospital SLA</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Government -->
+    <section class="detail-section alt-bg" id="government">
+      <div class="section-container">
+        <div class="detail-block-grid reverse">
+          <div>
+            <div class="detail-badge">State-Level Secure Enclaves</div>
+            <h2 class="detail-title">Government & Public Sector Administration</h2>
+            <p class="detail-desc">
+              Custom-engineered for public ministries, secretariats, and judicial administrative bodies. Implements physically air-gapped enclaves, certified state-grade hardware cryptography, and armored optical fiber rings connecting administrative departmental complexes.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Air-gapped classified enclaves with hardware physical boundary isolation
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Armored underground single-mode optical fiber inter-building rings
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Advanced Persistent Threat (APT) deep packet inspection defenses
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Biometric access server rack enclosures with anti-tamper sensors
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Government Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">GOVERNMENT STANDARDS</div>
+            <div class="metric-stat-row"><span class="metric-label">Crypto Standard</span><span class="metric-value">State-Grade Hardware IPsec</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Enclave Isolation</span><span class="metric-value">True Physical Air-Gap Ready</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Physical Enclosures</span><span class="metric-value">Biometric Logged Racks</span></div>
+            <div class="metric-stat-row"><span class="metric-label">National NOC Guard</span><span class="metric-value">24/7 Monitored Telemetry</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Education and University -->
+    <section class="detail-section" id="education">
+      <div class="section-container">
+        <div class="detail-block-grid">
+          <div>
+            <div class="detail-badge">Campus-Wide Wi-Fi 7</div>
+            <h2 class="detail-title">Education, Universities & Research Institutes</h2>
+            <p class="detail-desc">
+              Campus environments require expansive wireless roaming that never collapses under peak student density. We deploy multi-gigabit campus optical rings with eduroam 802.1X secure authentication, intelligent application shaping, and high-density 500-seat lecture hall wireless.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Global eduroam 802.1X federated authentication for visiting scholars
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                High-density Wi-Fi 7 (802.11be) handling 500+ students per lecture hall
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                CIPA-aligned application filtering and automated student quota controls
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Multi-gigabit research network uplinks connecting labs and data banks
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Campus Wi-Fi Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">CAMPUS BENCHMARKS</div>
+            <div class="metric-stat-row"><span class="metric-label">Concurrent Capacity</span><span class="metric-value">10,000+ Active Students</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Authentication Protocol</span><span class="metric-value">eduroam 802.1X Validated</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Auditorium Density</span><span class="metric-value">500+ AP Handoff Capacity</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Exam Support SLA</span><span class="metric-value">Dedicated Standby Engineers</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Manufacturing Company -->
+    <section class="detail-section alt-bg" id="manufacturing">
+      <div class="section-container">
+        <div class="detail-block-grid reverse">
+          <div>
+            <div class="detail-badge">Export Processing Zones (FTZ)</div>
+            <h2 class="detail-title">Manufacturing Companies & BOI Factories</h2>
+            <p class="detail-desc">
+              Operating in Katunayake, Biyagama, Koggala, and Seethawaka export processing zones? Industrial manufacturing requires ruggedized networking that withstands fabric lint, vibration, and heat, while ensuring continuous handheld barcode scanner roaming and SCADA/MES automation integration.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                IP67 dust-sealed industrial switches and vibration-resistant APs
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Fast 802.11r/k BSS handoff ensuring zero drops on handheld ERP scanners
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Purdue Model industrial architecture isolating SCADA/OT from corporate IT
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Armored Cat6A STP shielded cabling inside heavy-duty galvanized trunking
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Factory Site Survey</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">BOI FACTORY METRICS</div>
+            <div class="metric-stat-row"><span class="metric-label">Floor Area Covered</span><span class="metric-value">Up to 500,000 sq ft</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Concurrent Scanners</span><span class="metric-value">2,500+ Active Terminals</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Cabling Durability</span><span class="metric-value">Shielded Cat6A + Metal Trunking</span></div>
+            <div class="metric-stat-row"><span class="metric-label">FTZ Dedicated Support</span><span class="metric-value">90-Minute Response Time</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Logistics and Supply Chain -->
+    <section class="detail-section" id="logistics">
+      <div class="section-container">
+        <div class="detail-block-grid">
+          <div>
+            <div class="detail-badge">Port Terminal & Cold-Chain</div>
+            <h2 class="detail-title">Logistics, Supply Chain & Colombo Port Terminals</h2>
+            <p class="detail-desc">
+              Long-range outdoor directional wireless, cold-storage warehouse connectivity, and inter-terminal telemetry connecting Colombo Port facilities with inland bonded container depots. Ensures continuous real-time inventory tracking and vehicle fleet integration without demurrage delays.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Up to 300-meter outdoor beamforming wireless piercing dense container stacks
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Ruggedized IP68 hardware operating in extreme -30°C to +75°C environments
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Sub-30ms seamless roaming for forklift, crane, and yard truck terminals
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dedicated secure Electronic Data Interchange (EDI) pipe for customs clearance
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Logistics Network Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">PORT & LOGISTICS METRICS</div>
+            <div class="metric-stat-row"><span class="metric-label">Outdoor Coverage</span><span class="metric-value">300m Beamforming Array</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Terminal Handoff</span><span class="metric-value">&lt; 30ms Fast BSS Roam</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Weatherproofing</span><span class="metric-value">IP68 Marine Saline Proof</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Dispatch Guarantee</span><span class="metric-value">Zero Demurrage 24/7 SLA</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Telecommunications -->
+    <section class="detail-section alt-bg" id="telecom">
+      <div class="section-container">
+        <div class="detail-block-grid reverse">
+          <div>
+            <div class="detail-badge">Carrier-Grade DWDM Transport</div>
+            <h2 class="detail-title">Telecommunications & Internet Service Providers</h2>
+            <p class="detail-desc">
+              Engineered for telecommunications operators, regional ISPs, and carrier-neutral meet-me rooms. We deploy DWDM/CWDM optical multiplexing, dark fiber cross-connect patch facilities, and high-density Tier-3 data center rack enclosures built for 24/7/365 uninterrupted transit.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                40-Channel DWDM multiplexing carrying 100G/200G optical wavelengths
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Fluke OTDR Tier-2 certification verifying minimal insertion and return loss
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Dual -48V DC power feeds with isolated A+B busbar distribution systems
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Ultra-high-density 1U 144-fiber LC optical distribution frames (ODF)
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Carrier Architecture Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">TELECOM CARRIER BENCHMARKS</div>
+            <div class="metric-stat-row"><span class="metric-label">Optical Capacity</span><span class="metric-value">40 x 100G/200G Channels</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Testing Standard</span><span class="metric-value">Fluke OTDR Certified</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Power Redundancy</span><span class="metric-value">-48V DC Dual Feeds</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Carrier SLA</span><span class="metric-value">99.999% Core Transit Uptime</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. BPO (Business Process Outsourcing) -->
+    <section class="detail-section" id="bpo">
+      <div class="section-container">
+        <div class="detail-block-grid">
+          <div>
+            <div class="detail-badge">Jitter-Free VoIP & Global Shifts</div>
+            <h2 class="detail-title">BPO & International Customer Contact Centers</h2>
+            <p class="detail-desc">
+              Optimized for high-volume 24/7 call centers and BPO firms in Colombo serving US, UK, and Australian enterprise clients. Features strict QoS voice queuing (MOS &gt; 4.4), dual undersea cable route diversity, and PCI-DSS compliant clean-floor agent network segmentation.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Strict SIP/RTP voice queuing guaranteeing MOS &gt; 4.4 crystal-clear clarity
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Multi-carrier international route diversity (SMW4 & BBG subsea links)
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Clean-floor agent desktop isolation preventing PCI card data leakage
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Automated instant failover between primary and secondary SIP trunks
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request BPO Infrastructure Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">BPO CONTACT CENTER METRICS</div>
+            <div class="metric-stat-row"><span class="metric-label">Voice Quality Score</span><span class="metric-value">MOS &gt; 4.4 Crystal Clear</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Subsea Cable Diversity</span><span class="metric-value">Dual Gateway Redundancy</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Voice Failover</span><span class="metric-value">Sub-second SIP Session Handoff</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Call Center Standard</span><span class="metric-value">PCI-DSS 4.0 Compliant</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Cybersecurity and Network Operations -->
+    <section class="detail-section alt-bg" id="cybersecurity">
+      <div class="section-container">
+        <div class="detail-block-grid reverse">
+          <div>
+            <div class="detail-badge">Zero Trust & 24/7 Colombo SOC</div>
+            <h2 class="detail-title">Cybersecurity, SOC & Network Operations Centers</h2>
+            <p class="detail-desc">
+              Complete Zero Trust Network Architecture (ZTNA), Network Detection & Response (NDR), and managed 24/7 Colombo SOC/NOC telemetry. We shield enterprise perimeters against ransomware, insider threats, and zero-day vulnerabilities with automated micro-isolation.
+            </p>
+            <ul class="sector-specs-list" style="margin-bottom: 2rem;">
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Identity-aware Zero Trust Network Access (ZTNA) replacing legacy VPNs
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                AI-assisted Network Detection & Response (NDR) containing lateral breaches
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Centralized SIEM syslog aggregation with encrypted compliance retention
+              </li>
+              <li class="sector-spec-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                Full SSL/TLS deep packet inspection without throttling network throughput
+              </li>
+            </ul>
+            <button type="button" class="btn-onramp-lime js-open-quote-modal">Request Zero Trust Blueprint</button>
+          </div>
+
+          <div class="detail-card-visual">
+            <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-lime); margin-bottom: 1rem; text-transform: uppercase;">CYBERSECURITY BENCHMARKS</div>
+            <div class="metric-stat-row"><span class="metric-label">Architecture Model</span><span class="metric-value">Zero Trust (ZTNA)</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Breach Containment</span><span class="metric-value">Automated Micro-Isolation</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Incident Response</span><span class="metric-value">15-Minute Guaranteed SLA</span></div>
+            <div class="metric-stat-row"><span class="metric-label">Monitoring Radar</span><span class="metric-value">24/7 Colombo SOC Guard</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </div>
 
@@ -441,6 +767,6 @@
   <script src="hero-network.js?v=2025.56"></script>
   <script src="cable-current.js?v=2025.56"></script>
   <script src="smooth-scroll.js?v=2025.60"></script>
-  <script src="script.js?v=2025.58"></script>
+  <script src="script.js?v=2025.63"></script>
 </body>
 </html>

@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initQuoteModal();
   initContactForm();
   initSmoothScroll();
+  initIndustryCardsAndModal();
 });
 
 /* ==========================================================================
@@ -181,8 +182,6 @@ function initDropdownMenus() {
     navItems.forEach(el => {
       el.classList.remove('open');
     });
-  }
-}, { passive: true });
   }
 }
 
@@ -812,6 +811,10 @@ function initScrollReveals() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('is-revealed');
+        // Clear transition delay once entrance animation completes so hover physics are immediate
+        setTimeout(() => {
+          if (entry.target) entry.target.style.transitionDelay = '';
+        }, 1100);
         // Unobserve once revealed to eliminate scroll overhead and replay
         obs.unobserve(entry.target);
       }
@@ -893,4 +896,388 @@ function initContactForm() {
       </div>
     `;
   });
+}
+
+
+/* ==========================================================================
+   INTERACTIVE 10 INDUSTRY VERTICAL CARDS & ARCHITECTURE MODAL
+   ========================================================================== */
+function initIndustryCardsAndModal() {
+  const filterBtns = document.querySelectorAll('.industry-filter-btn');
+  const cards = document.querySelectorAll('#industryGrid .expect-card');
+  const modal = document.getElementById('industryModalBackdrop');
+  const modalCloseBtn = document.getElementById('industryModalCloseBtn');
+  const modalContent = document.getElementById('industryModalContent');
+  const quoteModal = document.getElementById('quoteModalBackdrop');
+
+  // Comprehensive Engineering Data Store for the 10 Industry Domains
+  const industryData = {
+    'it-tech': {
+      title: 'IT and Technology',
+      badge: 'Cloud & DevOps Interconnect',
+      category: 'tech-telecom',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>`,
+      lead: 'Engineered for software companies, SaaS providers, and technology hubs operating in Trace Expert City, Orion City, and across Colombo. Delivers ultra-low latency, micro-segmented developer environments, and direct multi-cloud connectivity.',
+      challenges: [
+        'Developer bottlenecks caused by slow local build pushes and heavy Git repositories',
+        'Frequent micro-outages disrupting production deployments and CI/CD pipelines',
+        'Unsecured multi-tenant office layouts lacking strict physical and logical VLAN segmentation'
+      ],
+      specs: [
+        { label: 'Backbone Throughput', val: '10G / 40G / 100G Leaf-Spine' },
+        { label: 'Cloud Interconnect', val: 'AWS Direct Connect & Azure ExpressRoute' },
+        { label: 'Developer Wi-Fi', val: 'Wi-Fi 7 (802.11be) 320MHz Channels' },
+        { label: 'Target Availability', val: '99.999% SLA (< 5 mins annual downtime)' }
+      ],
+      compliance: ['ISO/IEC 27001 Aligned', 'SOC 2 Type II Ready', 'TIA-942 Tier-3 Standards', 'Fluke DSX-8000 Certified'],
+      sla: '24/7 Automated Proactive Telemetry with 15-Minute Remote Response & 2-Hour Colombo On-Site SLA.'
+    },
+    'banking-finance': {
+      title: 'Banking and Financial',
+      badge: 'CBSL & PCI-DSS 4.0 Architecture',
+      category: 'finance-gov',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M12 2L2 7h20L12 2z"></path></svg>`,
+      lead: 'Full compliance with Central Bank of Sri Lanka (CBSL) cybersecurity guidelines. We architect zero-downtime transactional cores with automated dual-ISP BGP failover, PCI-DSS compliant perimeter segmentation, and Active-Active HA firewall clustering.',
+      challenges: [
+        'Regulatory exposure from non-compliance with strict CBSL directional network guidelines',
+        'ATM and Teller downtime disrupting branch retail banking transactions',
+        'Sophisticated perimeter threats, ransomware, and unauthorized internal lateral movement'
+      ],
+      specs: [
+        { label: 'Failover Speed', val: '< 50ms BGP Route Failover' },
+        { label: 'Perimeter Security', val: 'Active-Active FortiGate Next-Gen Clusters' },
+        { label: 'Transaction Latency', val: 'Sub-2ms across Colombo Clearing' },
+        { label: 'Branch Footprint', val: 'Up to 400+ Branches Supported' }
+      ],
+      compliance: ['CBSL Guideline Certified', 'PCI-DSS 4.0 Compliant', 'Zero Trust Architecture (ZTNA)', 'IPsec Hardware Accelerated'],
+      sla: 'Dedicated 2-Hour Islandwide Financial Emergency SLA Dispatch with 24/7 Bank-Grade NOC Guard.'
+    },
+    'healthcare': {
+      title: 'Healthcare Administration',
+      badge: 'Medical IoT & PACS Telemetry',
+      category: 'health-edu',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20"></path><circle cx="12" cy="12" r="9"></circle></svg>`,
+      lead: 'Mission-critical hospital communications connecting diagnostic laboratories, surgical theaters, and patient rooms. Guarantees non-stop DICOM/PACS transfers, telemetry monitor prioritization, and isolated HIPAA/GDPR clinical records.',
+      challenges: [
+        'Delayed high-resolution MRI/CT scan transfers due to congested copper backbones',
+        'Vulnerability of unmanaged medical IoT devices to hospital-wide ransomware attacks',
+        'Wi-Fi signal degradation through thick x-ray shielding walls and operating rooms'
+      ],
+      specs: [
+        { label: 'Imaging Backbone', val: '10G OM4/OS2 Optical Dedicated Links' },
+        { label: 'Medical IoT Shield', val: 'Isolated Medical Equipment Micro-VLANs' },
+        { label: 'Power Redundancy', val: 'Dual-feed Online UPS with Bypass Racks' },
+        { label: 'Telemedicine QoS', val: 'Dedicated Priority VoIP & 4K Video Streams' }
+      ],
+      compliance: ['HIPAA / EMR Aligned', 'IEC 60601-1 Medical Safety', 'Bio-Medical IoT Isolated', 'Zero-Interference RF'],
+      sla: 'Priority Code-Red Healthcare Dispatch: Guaranteed 1-Hour Colombo Emergency Hospital Response.'
+    },
+    'government': {
+      title: 'Government',
+      badge: 'State-Level Secure Enclaves',
+      category: 'finance-gov',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16M2 20h20M6 10v10M10 10v10M14 10v10M18 10v10M12 2L2 7h20L12 2z"></path></svg>`,
+      lead: 'Hardened national infrastructure engineered for state ministries, public sector secretariats, and defense establishments. Implements air-gapped classified enclaves, military-grade cryptographic tunnels, and centralized government campus fiber rings.',
+      challenges: [
+        'State-sponsored Advanced Persistent Threats (APTs) targeting public administrative portals',
+        'Legacy copper wiring causing intermittent link loss across large colonial secretariat buildings',
+        'Lack of tamper-evident physical and optical network access controls'
+      ],
+      specs: [
+        { label: 'Security Classification', val: 'Air-Gapped & Hardware Crypto Enclaves' },
+        { label: 'Optical Backbone', val: 'Armored Underground Single-Mode Fiber Ring' },
+        { label: 'Perimeter Defense', val: 'Hardware Security Modules (HSM) & Deep Packet IDS' },
+        { label: 'Cabinet Security', val: 'Biometric Access Tamper-Evident Racks' }
+      ],
+      compliance: ['National Cybersecurity Standards', 'NIST SP 800-53 Ready', 'Air-Gapped Isolation', 'TIA-568-D Defense Grade'],
+      sla: 'Dedicated Government Operations Specialist Unit with 24/7 Secure NOC Monitoring.'
+    },
+    'education': {
+      title: 'Education and University',
+      badge: 'High-Density Campus Wi-Fi 7',
+      category: 'health-edu',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c0 3 3 5 6 5s6-2 6-5v-5"></path></svg>`,
+      lead: 'Comprehensive campus networking connecting lecture halls, research faculties, student dormitories, and administrative centers. Features eduroam 802.1X secure authentication, intelligent bandwidth rate-limiting, and multi-gigabit research interconnects.',
+      challenges: [
+        'Sudden Wi-Fi collapse in 500-seat lecture halls when students connect multiple devices',
+        'Bandwidth hogging and illicit peer-to-peer downloading draining university internet bandwidth',
+        'Complex multi-building campus layouts requiring expensive aerial or trench fiber cabling'
+      ],
+      specs: [
+        { label: 'Concurrent Capacity', val: '10,000+ Concurrent Students & Devices' },
+        { label: 'Authentication', val: 'eduroam Global 802.1X Federated Access' },
+        { label: 'Content Security', val: 'Next-Gen Firewall Web & Application Filter' },
+        { label: 'Campus Links', val: 'Multi-Gigabit Inter-Faculty Optical Links' }
+      ],
+      compliance: ['eduroam Validated', 'CIPA Compliant Content Safety', 'IEEE 802.1X Certified', '802.11be Campus Grade'],
+      sla: 'Semester-Critical Exam Guarantee: Dedicated Standby Support During Online Exam & Registration Windows.'
+    },
+    'manufacturing': {
+      title: 'Manufacturing Company',
+      badge: 'FTZ Industrial IoT & SCADA',
+      category: 'mfg-logistics',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M2 20V8l6 4V8l6 4V4h6v16"></path></svg>`,
+      lead: 'Built for Sri Lanka\'s leading export apparel, rubber, and manufacturing plants in Katunayake, Biyagama, Koggala, and Seethawaka Export Processing Zones. Endures machine vibrations, fabric lint, and high temperatures with zero scanner drops.',
+      challenges: [
+        'Handheld barcode scanners dropping connection across vast production lines, causing ERP export delays',
+        'Dust, humidity, and fabric lint destroying standard commercial network switches',
+        'Unsafe interconnects between industrial production machines (SCADA/OT) and corporate office networks'
+      ],
+      specs: [
+        { label: 'Enclosure Rating', val: 'IP67 Dust, Lint & Moisture Protection' },
+        { label: 'Scanner Roaming', val: 'Zero-Loss 802.11r/k Fast BSS Handoff' },
+        { label: 'OT/IT Boundary', val: 'Purdue Model Micro-Segmented SCADA VLANs' },
+        { label: 'Cable Standards', val: 'Heavy-Duty Industrial Shielded Cat6A STP' }
+      ],
+      compliance: ['Purdue Model Architecture', 'TIA-1005 Industrial Certified', 'Fluke DSX-8000 Verified', 'ISO 9001:2015 Aligned'],
+      sla: 'Fast-Track FTZ Zone Dispatch: 2-Hour Emergency On-Site Response for Katunayake & Biyagama Zones.'
+    },
+    'logistics': {
+      title: 'Logistics and Supply Chain',
+      badge: 'Port & Cold-Chain Wireless',
+      category: 'mfg-logistics',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>`,
+      lead: 'High-power outdoor wireless, cold-chain warehouse connectivity, and inter-terminal telemetry connecting Colombo Port facilities with inland bonded container depots. Ensures continuous real-time inventory tracking and vehicle fleet integration.',
+      challenges: [
+        'Massive shipping container stacks completely blocking standard Wi-Fi line-of-sight signals',
+        'Sub-zero cold storage warehouses creating severe condensation that damages network electronics',
+        'Interrupted container yard gate entry systems stalling container trucks and incurring demurrage costs'
+      ],
+      specs: [
+        { label: 'Outdoor Coverage', val: 'Up to 300-Meter Directional High-Gain Beams' },
+        { label: 'Temperature Range', val: '-30°C to +75°C Extreme Tolerance' },
+        { label: 'Terminal Roaming', val: 'Sub-30ms Seamless Crane & Forklift Roaming' },
+        { label: 'Port Interface', val: 'EDI Electronic Manifest System Dedicated Pipe' }
+      ],
+      compliance: ['Port Authority Standards', 'Cold-Chain HACCP Aligned', 'IP68 Weatherproof Rated', 'Lightning Surge Protected'],
+      sla: '24/7 Port Logistics Emergency Standby: Zero Demurrage Guarantee with Rapid Spares Replacement.'
+    },
+    'telecom': {
+      title: 'Telecommunications',
+      badge: 'Carrier-Grade Optical Transport',
+      category: 'tech-telecom',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"></circle><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"></path></svg>`,
+      lead: 'Infrastructure engineering for telecom operators, Internet Service Providers, and carrier neutral meet-me rooms. We deploy DWDM/CWDM optical multiplexing, dark fiber cross-connect patch facilities, and high-density Tier-3 data center rack enclosures.',
+      challenges: [
+        'Rapid bandwidth exhaustion on core metro routes requiring expensive fiber trenching',
+        'High insertion loss on fiber splices causing optical power degradation over long runs',
+        'Thermal dissipation and power density bottlenecks inside high-density telecom point-of-presence (PoP) shelters'
+      ],
+      specs: [
+        { label: 'Multiplexing Capacity', val: 'DWDM 40-Channel 100G/200G Lambda Transport' },
+        { label: 'Testing Standard', val: 'Fluke OTDR & Tier-2 Optical Power Loss' },
+        { label: 'Power Infrastructure', val: '-48V DC Dual Power Feeds & A+B Busbars' },
+        { label: 'Cross-Connects', val: 'Ultra-High-Density 1U 144-Fiber LC Patch Racks' }
+      ],
+      compliance: ['ITU-T G.694.1 DWDM Standard', 'TIA-942 Tier-3 Ready', 'Telcordia GR-63-CORE', 'Fluke OTDR Certified'],
+      sla: 'Carrier-Grade SLA: 99.999% Service Availability with Continuous Optical Dark-Fiber Telemetry.'
+    },
+    'bpo': {
+      title: 'BPO (Business Process Outsourcing)',
+      badge: 'Zero-Jitter VoIP & Shift Matrix',
+      category: 'tech-telecom',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>`,
+      lead: 'Optimized for high-volume 24/7 call centers and BPO firms serving US, UK, and Australian clients from Colombo. Features strict QoS voice queuing (MOS > 4.4), dual undersea cable internet route diversity, and PCI-DSS compliant clean floor agent routing.',
+      challenges: [
+        'Voice jitter, echo, and dropped customer calls resulting in penalized international client SLA scores',
+        'Subsea cable cuts or local ISP issues causing catastrophic multi-hour work stoppages for 500+ agents',
+        'Agent desktop security risks and confidential payment card information leakage during calls'
+      ],
+      specs: [
+        { label: 'Voice Quality (MOS)', val: 'Guaranteed MOS > 4.4 (Crystal Clear VoIP)' },
+        { label: 'Subsea Diversity', val: 'SMW4 & BBG Cable Gateway Redundancy' },
+        { label: 'Failover Speed', val: 'Instant Seamless Session-Persisting SIP Switch' },
+        { label: 'Agent Clean Floor', val: 'Zero-Trust PCI Segregated Agent Desktops' }
+      ],
+      compliance: ['PCI-DSS 4.0 Contact Center', 'ITU-T P.800 Voice QoS', 'ISO 27001 Certified', 'SIP Trunking Standard'],
+      sla: '24/7 Global Shift Guarantee: Dedicated Priority NOC Line for Continuous International BPO Operations.'
+    },
+    'cybersecurity': {
+      title: 'Cybersecurity & Network Operations',
+      badge: 'Zero Trust & 24/7 Colombo SOC',
+      category: 'cyber-ops',
+      icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><circle cx="12" cy="11" r="2.5"></circle><line x1="12" y1="13.5" x2="12" y2="16"></line></svg>`,
+      lead: 'Complete Zero Trust Network Architecture (ZTNA), Network Detection & Response (NDR), and managed 24/7 Colombo SOC/NOC telemetry. We shield enterprise perimeters against modern ransomware, insider threats, and zero-day vulnerabilities.',
+      challenges: [
+        'Unchecked lateral movement where an infected laptop compromises entire enterprise server rooms',
+        'Alert fatigue with thousands of unanalyzed firewall logs obscuring active zero-day attacks',
+        'Lack of 24/7 monitoring leaving corporate networks completely unmonitored over weekends and holidays'
+      ],
+      specs: [
+        { label: 'Architecture Model', val: 'Zero Trust Network Access (ZTNA)' },
+        { label: 'Threat Response', val: 'AI-Driven Automated Lateral Threat Containment' },
+        { label: 'Log Telemetry', val: 'Centralized SIEM Log Retention & Syslog Audit' },
+        { label: 'Perimeter Inspection', val: 'Full SSL/TLS Deep Packet Decryption & Inspection' }
+      ],
+      compliance: ['NIST Cybersecurity Framework', 'CIS Controls Top 18', 'Zero Trust Architecture', 'Fluke Certified Cabling'],
+      sla: 'Continuous 24/7/365 SOC Monitoring with 15-Minute Guaranteed Threat Mitigation SLA.'
+    }
+  };
+
+  // 1. Category Filter Tabs Click Handling
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'flex';
+          card.style.animation = 'fadeInCard 0.35s ease forwards';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // 2. Open Industry Architecture Modal
+  const viewMoreButtons = document.querySelectorAll('.js-open-industry-modal');
+  viewMoreButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = btn.getAttribute('data-target');
+      const data = industryData[targetId];
+      if (!data) return;
+
+      renderIndustryModal(data, targetId);
+      if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // 3. Render Modal Content
+  function renderIndustryModal(item, targetId) {
+    if (!modalContent) return;
+
+    let specsHtml = '';
+    item.specs.forEach(s => {
+      specsHtml += `
+        <div class="modal-spec-card">
+          <div class="modal-spec-card-title">${s.label}</div>
+          <div class="modal-spec-card-val">${s.val}</div>
+        </div>
+      `;
+    });
+
+    let complianceHtml = '';
+    item.compliance.forEach(c => {
+      complianceHtml += `<span class="modal-compliance-pill">${c}</span>`;
+    });
+
+    let challengesHtml = '';
+    item.challenges.forEach(ch => {
+      challengesHtml += `
+        <li style="display:flex; align-items:flex-start; gap:0.6rem; margin-bottom:0.5rem; color:#475569; font-size:0.9rem;">
+          <svg style="flex-shrink:0; margin-top:3px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0284c7" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>${ch}</span>
+        </li>
+      `;
+    });
+
+    modalContent.innerHTML = `
+      <div class="modal-industry-header">
+        <div class="modal-industry-icon">${item.icon}</div>
+        <div>
+          <span class="modal-industry-badge">${item.badge}</span>
+          <h3 class="modal-industry-title">${item.title}</h3>
+        </div>
+      </div>
+
+      <div style="font-size:1.05rem; color:#334155; line-height:1.6; margin-bottom:1.5rem;">
+        ${item.lead}
+      </div>
+
+      <h4 class="modal-section-h4">Key Operational Pressures Solved</h4>
+      <ul style="list-style:none; padding:0; margin-bottom:1.5rem;">
+        ${challengesHtml}
+      </ul>
+
+      <h4 class="modal-section-h4">Enterprise Architecture Specifications</h4>
+      <div class="modal-specs-grid">
+        ${specsHtml}
+      </div>
+
+      <h4 class="modal-section-h4">Regulatory Standards & Compliance</h4>
+      <div class="modal-compliance-wrap">
+        ${complianceHtml}
+      </div>
+
+      <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:12px; padding:1rem 1.25rem; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        <span style="font-size:0.88rem; font-weight:600; color:#166534;">${item.sla}</span>
+      </div>
+
+      <div class="modal-actions-bar">
+        <button type="button" class="btn-modal-cancel" id="btnIndustryModalClose">
+          Close
+        </button>
+        <button type="button" class="btn-nav-quote js-modal-request-blueprint" data-industry-title="${item.title}">
+          <span>Request ${item.title} Blueprint</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+      </div>
+    `;
+
+    // Hook up buttons inside the dynamic modal
+    const closeInnerBtn = document.getElementById('btnIndustryModalClose');
+    if (closeInnerBtn) {
+      closeInnerBtn.addEventListener('click', closeIndustryModal);
+    }
+
+    const requestBlueprintBtn = modalContent.querySelector('.js-modal-request-blueprint');
+    if (requestBlueprintBtn) {
+      requestBlueprintBtn.addEventListener('click', () => {
+        closeIndustryModal();
+        if (quoteModal) {
+          quoteModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          // Pre-populate service type if field exists
+          const serviceSelect = quoteModal.querySelector('select[name="service_type"]');
+          if (serviceSelect) {
+            // Find option matching or set first
+            let matched = false;
+            for (let i = 0; i < serviceSelect.options.length; i++) {
+              if (serviceSelect.options[i].text.toLowerCase().includes(item.title.toLowerCase().substring(0, 5))) {
+                serviceSelect.selectedIndex = i;
+                matched = true;
+                break;
+              }
+            }
+          }
+        }
+      });
+    }
+  }
+
+  // 4. Modal Close Handlers
+  if (modalCloseBtn) {
+    modalCloseBtn.addEventListener('click', closeIndustryModal);
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeIndustryModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeIndustryModal();
+    }
+  });
+
+  function closeIndustryModal() {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
 }
