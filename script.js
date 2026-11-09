@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initIndustryCardsAndModal();
   initSolutionsHubFilter();
+  initFaqAccordion();
 });
 
 /* ==========================================================================
@@ -1558,4 +1559,33 @@ function initSolutionsHubFilter() {
       filterHubCards();
     });
   }
+}
+
+/* ==========================================================================
+   14. HOME PAGE FAQ ACCORDION (#faqAccordionList)
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqList = document.getElementById('faqAccordionList');
+  if (!faqList) return;
+
+  const items = Array.from(faqList.querySelectorAll('.faq-item'));
+  items.forEach((item) => {
+    const btn = item.querySelector('.faq-question-btn');
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('is-open');
+      // Close other open items for a clean single-active accordion experience
+      items.forEach((other) => {
+        other.classList.remove('is-open');
+        const otherBtn = other.querySelector('.faq-question-btn');
+        if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }
