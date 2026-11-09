@@ -395,13 +395,11 @@ button, input, select, textarea {
   position: absolute;
   top: calc(100% + 4px);
   left: 0;
-  background: rgba(1, 7, 43, 0.96);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  color: #ffffff;
+  background: var(--bg-pure-white);
+  color: var(--text-dark);
   border-radius: 16px;
-  box-shadow: 0 25px 60px -12px rgba(1, 7, 43, 0.95), 0 0 0 1px rgba(180, 165, 255, 0.25);
-  border: 1px solid rgba(180, 165, 255, 0.22);
+  box-shadow: var(--shadow-dropdown), 0 0 0 1px rgba(15, 23, 42, 0.04);
+  border: 1px solid var(--border-light);
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
@@ -457,8 +455,8 @@ button, input, select, textarea {
 }
 
 .drop-item:hover {
-  background: rgba(55, 39, 114, 0.35);
-  border-color: rgba(180, 165, 255, 0.25);
+  background: var(--bg-offwhite);
+  border-color: var(--border-light);
   transform: translateX(4px);
 }
 
@@ -466,8 +464,8 @@ button, input, select, textarea {
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: rgba(55, 39, 114, 0.4);
-  border: 1px solid rgba(180, 165, 255, 0.2);
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -478,37 +476,39 @@ button, input, select, textarea {
 .drop-icon-box svg {
   width: 20px;
   height: 20px;
-  stroke: rgba(220, 210, 255, 0.95);
+  stroke: #372772;
+  transition: stroke var(--transition-fast);
 }
 
 .drop-item:hover .drop-icon-box {
   background: #372772;
-  border-color: var(--color-lime);
-  box-shadow: 0 0 15px rgba(55, 39, 114, 0.6);
+  border-color: #372772;
+  box-shadow: 0 4px 14px rgba(55, 39, 114, 0.3);
 }
 
 .drop-item:hover .drop-icon-box svg {
-  stroke: var(--color-lime);
+  stroke: var(--text-light);
 }
 
 .drop-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--text-dark);
   line-height: 1.25;
   margin-bottom: 0.25rem;
+  transition: color var(--transition-fast);
 }
 
 .drop-desc {
   font-size: 0.825rem;
-  color: #cbd5e1;
+  color: var(--text-secondary);
   line-height: 1.4;
 }
 
 .drop-bottom-bar {
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid #f1f5f9;
+  border-top: 1px solid var(--border-light);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -517,14 +517,14 @@ button, input, select, textarea {
 .drop-bottom-link {
   font-size: 0.875rem;
   font-weight: 700;
-  color: #0f307d;
+  color: var(--color-blue-vibrant);
   display: flex;
   align-items: center;
   gap: 0.35rem;
 }
 
 .drop-bottom-link:hover {
-  color: #1d4ed8;
+  color: var(--color-blue-primary);
   gap: 0.55rem;
 }
 
