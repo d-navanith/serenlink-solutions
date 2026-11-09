@@ -384,9 +384,16 @@ button, input, select, textarea {
 /* ==========================================================================
    DROPDOWN MENUS (Exact pattern from TKWIT screenshot)
    ========================================================================== */
+/* Dropdown invisible hit-bridge to eliminate mouseleave gap */
+.nav-item.has-dropdown {
+  position: relative;
+  padding-bottom: 6px;
+  margin-bottom: -6px;
+}
+
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 4px);
   left: 0;
   background: rgba(1, 7, 43, 0.96);
   backdrop-filter: blur(20px) saturate(180%);
@@ -397,29 +404,28 @@ button, input, select, textarea {
   border: 1px solid rgba(180, 165, 255, 0.22);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(10px);
-  transition: all var(--transition-fast);
+  transform: translateY(6px);
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1500;
   pointer-events: none;
-  overflow: hidden;
 }
 
-.dropdown-menu::before {
+/* Invisible Hit Bridge above dropdown */
+.dropdown-menu::after {
   content: "";
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(circle at 10% 10%, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.2) 40%, transparent 75%);
-  z-index: 0;
+  top: -18px;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: transparent;
+  pointer-events: auto;
 }
 
-.dropdown-menu > * {
-  position: relative;
-  z-index: 1;
-}
-
-.nav-item:hover > .dropdown-menu,
-.nav-item.open > .dropdown-menu {
+.nav-item.has-dropdown:hover > .dropdown-menu,
+.nav-item.has-dropdown.open > .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

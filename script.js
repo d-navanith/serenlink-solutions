@@ -100,6 +100,7 @@ function initHeroPhraseCycle() {
    ========================================================================== */
 function initDropdownMenus() {
   const navItems = document.querySelectorAll('.nav-item.has-dropdown');
+  let activeTimer = null;
 
   navItems.forEach(item => {
     const trigger = item.querySelector('.nav-link');
@@ -107,29 +108,55 @@ function initDropdownMenus() {
 
     if (!trigger || !dropdown) return;
 
-    // Desktop hover & click handler
+    // Generous hover grace timer to prevent sudden disappearing on mouse move
     item.addEventListener('mouseenter', () => {
       if (window.innerWidth > 1080) {
-        closeAllDropdowns();
+        if (activeTimer) {
+          clearTimeout(activeTimer);
+          activeTimer = null;
+        }
+        navItems.forEach(other => {
+          if (other !== item) other.classList.remove('open');
+        });
         item.classList.add('open');
       }
     });
 
     item.addEventListener('mouseleave', () => {
       if (window.innerWidth > 1080) {
-        item.classList.remove('open');
+        if (activeTimer) clearTimeout(activeTimer);
+        // 320ms grace period so user can smoothly move mouse across to dropdown
+        activeTimer = setTimeout(() => {
+          item.classList.remove('open');
+        }, 320);
       }
     });
 
+    // Keeping dropdown open when mouse is directly inside it
+    dropdown.addEventListener('mouseenter', () => {
+      if (activeTimer) {
+        clearTimeout(activeTimer);
+        activeTimer = null;
+      }
+      item.classList.add('open');
+    });
+
+    dropdown.addEventListener('mouseleave', () => {
+      if (window.innerWidth > 1080) {
+        if (activeTimer) clearTimeout(activeTimer);
+        activeTimer = setTimeout(() => {
+          item.classList.remove('open');
+        }, 320);
+      }
+    });
+
+    // Click handler (also locks dropdown open on desktop until clicked outside)
     trigger.addEventListener('click', (e) => {
-      // If mobile or clicked
-      if (window.innerWidth <= 1080 || e.pointerType === 'touch') {
-        e.preventDefault();
-        const isOpen = item.classList.contains('open');
-        closeAllDropdowns();
-        if (!isOpen) {
-          item.classList.add('open');
-        }
+      e.preventDefault();
+      const isOpen = item.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) {
+        item.classList.add('open');
       }
     });
   });
@@ -137,26 +164,25 @@ function initDropdownMenus() {
   // Close when clicking outside
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.nav-item.has-dropdown')) {
+      if (activeTimer) clearTimeout(activeTimer);
+      closeAllDropdowns();
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (activeTimer) clearTimeout(activeTimer);
       closeAllDropdowns();
     }
   });
 
   function closeAllDropdowns() {
-    document.querySelectorAll('.nav-item.has-dropdown.open').forEach(el => {
+    navItems.forEach(el => {
       el.classList.remove('open');
     });
   }
-
-  // Header background on scroll
-  const header = document.querySelector('.main-header');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }, { passive: true });
+}, { passive: true });
   }
 }
 

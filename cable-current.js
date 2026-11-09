@@ -36,13 +36,13 @@
 
     // Simple, Crisp Highlight Color Palette (Light, clean highlights; No dark colors, No dark green)
     const colors = {
-      solidCable: 'rgba(203, 213, 225, 0.45)',    // Subtle light slate track
-      dottedCable: 'rgba(56, 189, 248, 0.35)',   // Delicate light sky-blue dotted track
-      cyanHighlight: '#00e5ff',                   // Simple bright electric cyan highlight
-      blueHighlight: '#60a5fa',                   // Soft bright sky azure highlight
-      skyHighlight: '#38bdf8',                    // Clean radiant sky blue highlight
-      limeHighlight: '#bef264',                   // Soft light lime-green highlight (clean & vivid, no dark green)
-      whiteCore: '#ffffff'                        // Pure white highlight bead
+      solidCable: 'rgba(180, 165, 255, 0.38)',    // Refined luminous violet track
+      dottedCable: 'rgba(129, 140, 248, 0.32)',   // Delicate soft indigo dotted track
+      cyanHighlight: '#b4a5ff',                   // Luminous violet-indigo electric pulse
+      blueHighlight: '#818cf8',                   // Radiant royal indigo pulse
+      skyHighlight: '#c084fc',                    // Crisp lavender-violet pulse
+      limeHighlight: '#d9f99d',                   // Signature SerenLink neon lime spark
+      whiteCore: '#ffffff'                        // Pure white energy bead
     };
 
     // Control waypoints in normalized zone coordinates: (xRatio, yRatio)

@@ -307,8 +307,8 @@
             // Luminous dual-stop gradient from cursor hub out to particle
             const grad = ctx.createLinearGradient(mouse.x, mouse.y, rx, ry);
             grad.addColorStop(0, `rgba(255, 255, 255, ${rayAlpha.toFixed(3)})`);
-            grad.addColorStop(0.3, `rgba(0, 229, 255, ${rayAlpha.toFixed(3)})`);
-            grad.addColorStop(1, `rgba(53, 200, 244, ${(rayAlpha * 0.6).toFixed(3)})`);
+            grad.addColorStop(0.3, `rgba(180, 165, 255, ${rayAlpha.toFixed(3)})`);
+            grad.addColorStop(1, `rgba(129, 140, 248, ${(rayAlpha * 0.6).toFixed(3)})`);
 
             ctx.strokeStyle = grad;
             ctx.shadowColor = config.nodeTeal;
@@ -328,9 +328,9 @@
 
         // Ambient cyan radial halo
         const haloGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 26);
-        haloGrad.addColorStop(0, `rgba(53, 200, 244, ${(0.38 * hubAlpha).toFixed(3)})`);
-        haloGrad.addColorStop(0.5, `rgba(0, 229, 255, ${(0.16 * hubAlpha).toFixed(3)})`);
-        haloGrad.addColorStop(1, 'rgba(0, 229, 255, 0)');
+        haloGrad.addColorStop(0, `rgba(180, 165, 255, ${(0.38 * hubAlpha).toFixed(3)})`);
+        haloGrad.addColorStop(0.5, `rgba(88, 70, 175, ${(0.16 * hubAlpha).toFixed(3)})`);
+        haloGrad.addColorStop(1, 'rgba(88, 70, 175, 0)');
         ctx.fillStyle = haloGrad;
         ctx.beginPath();
         ctx.arc(mouse.x, mouse.y, 26, 0, Math.PI * 2);
