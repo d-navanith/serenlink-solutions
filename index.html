@@ -220,85 +220,171 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <link rel="stylesheet" href="splash.css?v=2025.81">
+  <link rel="stylesheet" href="splash.css?v=2025.82">
   <link rel="stylesheet" href="style.css?v=2025.73">
 </head>
 <body>
   <!-- ==========================================================================
-       CINEMATIC 3-SECOND ANIMATED SPLASH SCREEN (SerenLink Solutions)
+       CINEMATIC GEOMETRIC STROKE & TRIANGLE CASCADE SPLASH SCREEN
+       Reference-matched to STEPS kinetic ribbon & prism-triangle reveal
        ========================================================================== -->
-  <div id="serenlinkSplashScreen" class="serenlink-splash" role="dialog" aria-modal="true" aria-label="Brand Intro">
-
+  <div id="serenlinkSplashScreen" class="serenlink-splash" role="dialog" aria-modal="true" aria-label="SerenLink Brand Intro">
     <div class="splash-stage">
-      
-      <!-- Background Deep Aura -->
-      <div class="splash-bg-aura"></div>
-      
-      <!-- Scene 1: Initial Central Light Seed Particle (0.0s - 0.5s) -->
-      <div class="splash-seed-particle"></div>
 
-      <!-- Scene 2 & 3: Network Light Trails & Curved Fiber Links (0.5s - 1.5s) -->
-      <svg class="splash-network-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet">
+      <!-- Subtle ambient depth glow -->
+      <div class="splash-bg-aura"></div>
+
+      <!-- Kinetic Geometric Ribbon, Vertical Stems & Triangle Cascade SVG -->
+      <svg class="splash-kinetic-svg" viewBox="0 0 1000 420" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
         <defs>
-          <linearGradient id="cyanTrailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#c084fc" stop-opacity="0" />
-            <stop offset="50%" stop-color="#b4a5ff" stop-opacity="0.95" />
-            <stop offset="100%" stop-color="#372772" stop-opacity="0" />
+          <!-- Vibrant leading-edge comet gradient (Neon Lime -> Electric Cyan -> Violet) -->
+          <linearGradient id="slCometGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#6366f1" stop-opacity="0" />
+            <stop offset="35%" stop-color="#a855f7" stop-opacity="1" />
+            <stop offset="70%" stop-color="#00f0ff" stop-opacity="1" />
+            <stop offset="100%" stop-color="#e2ff38" stop-opacity="1" />
           </linearGradient>
-          <linearGradient id="blueTrailGrad" x1="0%" y1="100%" x2="100%" y2="0%">
-            <stop offset="0%" stop-color="#25286b" stop-opacity="0" />
-            <stop offset="50%" stop-color="#818cf8" stop-opacity="0.85" />
-            <stop offset="100%" stop-color="#b4a5ff" stop-opacity="0" />
+
+          <!-- Vertical comet gradient for the twin vertical stems -->
+          <linearGradient id="slVertCometGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#ffffff" stop-opacity="1" />
+            <stop offset="55%" stop-color="#00f0ff" stop-opacity="1" />
+            <stop offset="85%" stop-color="#e2ff38" stop-opacity="1" />
+            <stop offset="100%" stop-color="#a855f7" stop-opacity="1" />
           </linearGradient>
-          <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur1" />
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur2" />
+
+          <!-- Hexagonal prism gradient for final emblem -->
+          <linearGradient id="slHexGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#1d4ed8" />
+            <stop offset="55%" stop-color="#0284c7" />
+            <stop offset="100%" stop-color="#00f0ff" />
+          </linearGradient>
+
+          <linearGradient id="slHexGrad2" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#372772" />
+            <stop offset="50%" stop-color="#2563eb" />
+            <stop offset="100%" stop-color="#38bdf8" />
+          </linearGradient>
+
+          <filter id="slCrispGlow" x="-25%" y="-25%" width="150%" height="150%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="blur" />
             <feMerge>
-              <feMergeNode in="blur2" />
-              <feMergeNode in="blur1" />
+              <feMergeNode in="blur" />
               <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
 
-        <!-- Elliptical Light Pulse Rings -->
-        <ellipse class="splash-pulse-ring ring-1" cx="400" cy="300" rx="220" ry="85" />
-        <ellipse class="splash-pulse-ring ring-2" cx="400" cy="300" rx="340" ry="130" />
+        <!-- ==============================================================
+             BEAT 1 (0.0s - 1.1s): GEOMETRIC "S" + TWIN VERTICAL STEMS (||)
+             Matches Frame 1 (00:00) of reference video
+             ============================================================== -->
+        <g class="splash-beat1-group">
+          <!-- Geometric S-curve base white stroke + colored comet tip -->
+          <path class="s-init-white" d="M 335 175 L 235 175 C 212 175 212 204 235 204 L 295 204 C 318 204 318 234 295 234 L 210 234" />
+          <path class="s-init-comet" d="M 335 175 L 235 175 C 212 175 212 204 235 204 L 295 204 C 318 204 318 234 295 234 L 210 234" />
 
-        <!-- Vertical & Horizontal Light Beams -->
-        <line class="splash-beam beam-v" x1="400" y1="50" x2="400" y2="550" />
-        <line class="splash-beam beam-h" x1="120" y1="300" x2="680" y2="300" />
+          <!-- Horizontal crossbar cutting through vertical stems -->
+          <line class="s-crossbar-white" x1="255" y1="175" x2="435" y2="175" />
+          <line class="s-crossbar-comet" x1="255" y1="175" x2="435" y2="175" />
 
-        <!-- Elegant Curved Network Arcs (Connecting into center) -->
-        <path class="splash-curve curve-top-left" d="M 160 120 Q 280 200 400 300" />
-        <path class="splash-curve curve-top-right" d="M 640 120 Q 520 200 400 300" />
-        <path class="splash-curve curve-bot-left" d="M 160 480 Q 280 400 400 300" />
-        <path class="splash-curve curve-bot-right" d="M 640 480 Q 520 400 400 300" />
+          <!-- Left vertical stem -->
+          <line class="s-stem1-white" x1="348" y1="275" x2="348" y2="78" />
+          <line class="s-stem1-comet" x1="348" y1="275" x2="348" y2="78" />
 
-        <!-- Orbiting Fiber Data Pulses -->
-        <path class="splash-orbit-arc orbit-1" d="M 280 300 A 120 48 0 1 1 520 300 A 120 48 0 1 1 280 300" />
-        <path class="splash-orbit-arc orbit-2" d="M 240 300 A 160 62 25 1 1 560 300 A 160 62 25 1 1 240 300" />
+          <!-- Right vertical stem (taller, orange/lime-tipped in reference) -->
+          <line class="s-stem2-white" x1="392" y1="295" x2="392" y2="78" />
+          <line class="s-stem2-comet" x1="392" y1="295" x2="392" y2="78" />
+        </g>
 
-        <!-- Traveling Luminous Particles along paths -->
-        <circle class="splash-particle p-1" r="3.5" />
-        <circle class="splash-particle p-2" r="3.0" />
-        <circle class="splash-particle p-3" r="3.5" />
-        <circle class="splash-particle p-4" r="3.0" />
-        <circle class="splash-particle p-5" r="4.0" />
-        <circle class="splash-particle p-6" r="4.0" />
+        <!-- ==============================================================
+             BEAT 2 (0.85s - 2.15s): HIGH-SPEED HORIZONTAL RIBBON SWEEP
+             Matches Frame 2 (00:01) of reference video
+             ============================================================== -->
+        <g class="splash-beat2-group">
+          <!-- Top speed ribbon sweeping right and looping into the wordmark -->
+          <path class="sweep-ribbon r-top-comet" d="M 220 164 L 885 164 C 918 164 918 196 885 196 L 540 196" />
+          <path class="sweep-ribbon r-top-white" d="M 220 164 L 780 164" />
+
+          <!-- Middle speed ribbon with U-turn loop -->
+          <path class="sweep-ribbon r-mid-comet" d="M 260 194 L 845 194 C 875 194 875 224 845 224 L 490 224" />
+          <path class="sweep-ribbon r-mid-white" d="M 260 194 L 740 194" />
+
+          <!-- Bottom accent streak (Violet / Cyan / Lime) -->
+          <path class="sweep-ribbon r-bot-comet" d="M 310 224 L 810 224" />
+        </g>
+
+        <!-- ==============================================================
+             BEAT 3 (1.65s - 2.75s): VERTICAL GEOMETRIC TRIANGLE CASCADE (▶)
+             Matches Frame 3 (00:02) of reference video
+             ============================================================== -->
+        <g class="splash-beat3-triangles">
+          <!-- Vertical stack of 4 geometric triangles cascading down center-axis -->
+          <polygon class="cascade-tri tri-1" points="518,108 544,122 518,136" fill="#ffffff" />
+          <polygon class="cascade-tri tri-2" points="518,138 544,152 518,166" fill="#00f0ff" />
+          <polygon class="cascade-tri tri-3" points="518,168 544,182 518,196" fill="#a855f7" />
+          <polygon class="cascade-tri tri-4" points="518,198 548,214 518,230" fill="#e2ff38" />
+        </g>
+
+        <!-- ==============================================================
+             BEAT 3B & 4 (1.9s - 4.3s): HEXAGONAL PRISM + SERENLINK LOCKUP
+             Matches Frames 3-5 (00:02 - 00:04) of reference video
+             ============================================================== -->
+        <g class="splash-final-lockup">
+          <!-- Left: SerenLink Geometric Triangle-Matrix Hexagon Emblem -->
+          <g class="hex-emblem-group" transform="translate(115, 95)">
+            <!-- Top & Left Facet Triangles -->
+            <polygon class="hex-tri ht-1" points="95,8 122,24 95,40" fill="#2563eb" />
+            <polygon class="hex-tri ht-2" points="65,25 92,41 65,57" fill="#1d4ed8" />
+            <polygon class="hex-tri ht-3" points="125,25 152,41 125,57" fill="#0284c7" />
+            <polygon class="hex-tri ht-4" points="35,42 62,58 35,74" fill="#1e40af" />
+            <polygon class="hex-tri ht-5" points="95,42 122,58 95,74" fill="#0ea5e9" />
+            <polygon class="hex-tri ht-6" points="155,42 182,58 155,74" fill="#00f0ff" />
+
+            <!-- Upper-Mid Facet Triangles -->
+            <polygon class="hex-tri ht-7" points="35,76 62,92 35,108" fill="#2563eb" />
+            <polygon class="hex-tri ht-8" points="125,59 152,75 125,91" fill="#38bdf8" />
+            <polygon class="hex-tri ht-9" points="155,76 182,92 155,108" fill="#00e5ff" />
+
+            <!-- Central Diagonal "S" Core Ribbon inside Hexagon -->
+            <polygon class="hex-core-ribbon" points="48,74 162,136 162,162 48,100" fill="url(#slHexGrad1)" filter="url(#slCrispGlow)" />
+
+            <!-- Lower-Mid & Bottom Facet Triangles -->
+            <polygon class="hex-tri ht-10" points="35,112 62,128 35,144" fill="#1d4ed8" />
+            <polygon class="hex-tri ht-11" points="65,129 92,145 65,161" fill="#0284c7" />
+            <polygon class="hex-tri ht-12" points="35,146 62,162 35,178" fill="#1e3a8a" />
+            <polygon class="hex-tri ht-13" points="65,163 92,179 65,195" fill="#2563eb" />
+            <polygon class="hex-tri ht-14" points="95,146 122,162 95,178" fill="#00f0ff" />
+            <polygon class="hex-tri ht-15" points="125,163 152,179 125,195" fill="#06b6d4" />
+            <polygon class="hex-tri ht-16" points="155,146 182,162 155,178" fill="#22d3ee" />
+            <polygon class="hex-tri ht-17" points="95,180 122,196 95,212" fill="#00e5ff" />
+          </g>
+
+          <!-- Vertical Cyan Divider Line -->
+          <line class="lockup-divider" x1="336" y1="112" x2="336" y2="296" />
+
+          <!-- Primary Geometric Wordmark: SEREN (White) + LINK (Electric Cyan) -->
+          <g class="lockup-wordmark">
+            <text x="368" y="212" class="wordmark-main">
+              <tspan class="wm-seren">Seren</tspan><tspan class="wm-link">link</tspan>
+            </text>
+            <!-- Signature STEPS-style geometric triangle prism tucked into the wordmark -->
+            <polygon class="wm-accent-prism" points="614,192 632,202 614,212" fill="#e2ff38" />
+
+            <!-- Spaced Subtitle: S O L U T I O N S -->
+            <text x="374" y="256" class="wordmark-solutions">S O L U T I O N S</text>
+
+            <!-- Tagline with flanking cyan rules: — Network Solutions for Sri Lanka — -->
+            <line class="tagline-rule rule-left" x1="374" y1="286" x2="432" y2="286" />
+            <text x="628" y="291" text-anchor="middle" class="wordmark-tagline">Network Solutions for Sri Lanka</text>
+            <line class="tagline-rule rule-right" x1="824" y1="286" x2="882" y2="286" />
+          </g>
+        </g>
+
       </svg>
 
-      <!-- Scene 3: Energy Transition Core Expansion & Flash (1.5s - 2.1s) -->
-      <div class="splash-energy-burst"></div>
-      <div class="splash-energy-ring"></div>
-
-      <!-- Scene 4: SerenLink Solutions Logo Reveal (2.1s - 3.0s) -->
-      <div class="splash-logo-container">
-        <!-- Part 2: SerenLink Full Logo & Tagline (Resolves sharply at 2.3s - 3.0s) -->
-        <div class="splash-wordmark-wrap">
-          <img src="assets/serenlink_logo_white.png?v=2" alt="Serenlink Solutions - Network Solutions for Sri Lanka" class="splash-full-logo-img">
-        </div>
-      </div>
+    </div>
+  </div>
 
     </div>
   </div>
@@ -1850,7 +1936,7 @@
   <script src="cable-current.js?v=2025.55"></script>
   <script src="smooth-scroll.js?v=2025.66"></script>
   <script src="script.js?v=2025.73"></script>
-  <script src="splash.js?v=2025.81"></script>
+  <script src="splash.js?v=2025.82"></script>
 
   
   </div>

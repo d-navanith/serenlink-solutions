@@ -79,9 +79,9 @@
       }, 700);
     }
 
-    // 3. Play full cinematic sequence (~5.3s) with 6.8s fail-safe
-    const autoDismissTimer = setTimeout(finishSplash, 5300);
-    const failSafeTimer = setTimeout(finishSplash, 6800);
+    // 3. Play full cinematic sequence (~4.35s) with 5.8s fail-safe
+    const autoDismissTimer = setTimeout(finishSplash, 4350);
+    const failSafeTimer = setTimeout(finishSplash, 5800);
   }
 
   // Run immediately or on DOM ready
