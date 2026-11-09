@@ -26,10 +26,10 @@
 
     // Palette & Physics Configuration
     const config = {
-      nodeCyan: '#35C8F4',              // Serenlink Primary Cyan
-      nodeTeal: '#00e5ff',              // Electric Cyan Glow
-      nodeHighlight: '#f0f9ff',         // Soft White Highlight
-      meshLineColor: 'rgba(53, 200, 244, ', // Base mesh lines
+      nodeCyan: 'rgba(165, 196, 255, 0.85)', // Light sapphire node
+      nodeTeal: 'rgba(215, 230, 255, 0.9)',  // Soft luminous highlight
+      nodeHighlight: '#ffffff',              // White node highlight
+      meshLineColor: 'rgba(110, 150, 220, ', // Harmonized navy mesh lines
       
       // Proximity connection thresholds
       desktopConnectDist: 140,
