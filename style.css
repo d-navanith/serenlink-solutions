@@ -1760,13 +1760,31 @@ button, input, select, textarea {
   max-width: 1240px;
   margin: 0 auto;
   border-radius: 28px;
-  background: linear-gradient(135deg, #030c22 0%, #0c2b75 55%, #1d4ed8 100%);
+  background: #01072b radial-gradient(circle at 12% 12%, #372772 0%, #25286b 28%, #0b1341 55%, #01072b 85%);
+  background: #01072b url('assets/hero_gradient_bg.jpg') no-repeat center center;
+  background-size: cover;
+  background-position: center center;
   color: #ffffff;
   padding: 5rem 3rem;
   text-align: center;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 25px 60px -15px rgba(12, 43, 117, 0.35);
+  border: 1px solid rgba(55, 39, 114, 0.45);
+  box-shadow: 0 25px 60px -15px rgba(1, 7, 43, 0.8), 0 0 0 1px rgba(55, 39, 114, 0.25);
+}
+
+.final-cta-capsule::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 14% 15%, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.25) 38%, rgba(11, 19, 65, 0.15) 60%, rgba(1, 7, 43, 0) 80%);
+  z-index: 1;
+}
+
+.final-cta-capsule > * {
+  position: relative;
+  z-index: 2;
 }
 
 .final-cta-tag {
