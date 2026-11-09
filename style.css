@@ -1056,6 +1056,7 @@ button, input, select, textarea {
   box-shadow: 0 20px 50px -10px rgba(1, 7, 43, 0.95), 0 0 35px rgba(55, 39, 114, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
   animation: heroEntranceUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.58s both;
   position: relative;
+  overflow: hidden;
   z-index: 2;
 }
 
@@ -3468,3 +3469,137 @@ html.lenis body {
 .link-tech-specs:hover svg {
   transform: translateX(4px);
 }
+
+/* ==========================================================================
+   ODOMETER STATS (hero trust strip) - Pinterest reference-matched 3D odometer
+   ========================================================================== */
+.odo-bg-backdrop {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 25%, rgba(0, 0, 0, 0.85) 75%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.85) 25%, rgba(0, 0, 0, 0.85) 75%, transparent 100%);
+}
+
+.odo-bg-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 5.2rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: rgba(167, 139, 250, 0.105);
+  user-select: none;
+  will-change: transform;
+  animation: odoBgGlideUp 22s linear infinite;
+}
+
+.odo-bg-col.reverse {
+  animation-name: odoBgGlideDown;
+}
+
+@keyframes odoBgGlideUp {
+  0% { transform: translateY(0%); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes odoBgGlideDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0%); }
+}
+
+.hero-trust-strip .trust-item {
+  position: relative;
+  z-index: 1;
+}
+
+.trust-number.odo-ready {
+  text-shadow: none;
+  filter: drop-shadow(0 3px 14px rgba(167, 139, 250, 0.42));
+  font-variant-numeric: tabular-nums;
+  transition: filter 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.odo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: bottom;
+}
+
+/* Tight 1.16em window: at rest only the settled digit is visible; during a roll
+   the outgoing and incoming digits glide past each other through soft top/bottom masks */
+.odo-digit {
+  position: relative;
+  display: inline-block;
+  width: 0.62em;
+  height: 1.16em;
+  overflow: hidden;
+  vertical-align: bottom;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.odo-reel {
+  display: block;
+  will-change: transform;
+}
+
+.odo-reel > span {
+  display: block;
+  height: 1.16em;
+  line-height: 1.16em;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 15%, #ede9fe 68%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: filter 0.25s ease;
+}
+
+/* Active rolling digit gets a luminous violet-lavender highlight matching the reference & theme */
+.odo-digit.is-rolling .odo-reel > span {
+  background: linear-gradient(180deg, #ffffff 0%, #ddd6fe 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Static pieces (. + % Hours Years) share the exact 1.16em baseline and stay visible */
+.odo-static {
+  display: inline-block;
+  height: 1.16em;
+  line-height: 1.16em;
+  vertical-align: bottom;
+  white-space: pre;
+  background: linear-gradient(180deg, #ffffff 15%, #ede9fe 70%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.92;
+  transition: opacity 0.4s ease;
+}
+
+.odo.is-live .odo-static {
+  opacity: 1;
+}
+
+/* Hover: unified violet-lavender glow */
+.trust-item:hover .trust-number.odo-ready {
+  text-shadow: none;
+  filter: drop-shadow(0 0 18px rgba(167, 139, 250, 0.75));
+  transform: translateY(-2px) scale(1.04);
+}
+
+.trust-item:hover .odo-reel > span,
+.trust-item:hover .odo-static {
+  background: linear-gradient(180deg, #ffffff 0%, #e9d5ff 60%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+

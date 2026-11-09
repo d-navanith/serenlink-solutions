@@ -685,55 +685,243 @@ function initNavbarScrollMorph() {
 }
 
 function initAnimatedMetrics() {
-  const trustBar = document.querySelector('.hero-trust-bar');
-  if (!trustBar) return;
+  /* Reference-inspired 3D Odometer Animation:
+     1. Subtle oversized ghost-digit reels drift slowly in the dark violet-indigo glass backdrop.
+     2. Foreground digits roll through vertical mechanical reels with top/bottom gradient masking.
+     3. Initial cascade rolls all 4 stats into place; afterwards, a gentle periodic odometer step
+        and hover re-spin keep the counters alive while always landing on the exact target metrics. */
+  const strip = document.querySelector('.hero-trust-strip');
+  if (!strip) return;
 
-  const metricNumbers = trustBar.querySelectorAll('.trust-number');
-  if (!metricNumbers.length) return;
+  const numbers = Array.from(strip.querySelectorAll('.trust-number'));
+  if (!numbers.length) return;
 
-  let animated = false;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canAnimate = typeof Element !== 'undefined' && typeof Element.prototype.animate === 'function';
+  if (reduceMotion || !canAnimate) return;
+
+  // Inject subtle ambient background ghost-digit columns (matching the Pinterest reference backdrop)
+  if (!strip.querySelector('.odo-bg-backdrop')) {
+    const bg = document.createElement('div');
+    bg.className = 'odo-bg-backdrop';
+    bg.setAttribute('aria-hidden', 'true');
+    const bgCols = [
+      ['3', '4', '5', '6', '7', '8', '3', '4', '5', '6'],
+      ['8', '9', '0', '1', '2', '9', '8', '9', '0', '1'],
+      ['1', '2', '3', '4', '5', '6', '1', '2', '3', '4'],
+      ['2', '4', '5', '7', '8', '9', '2', '4', '5', '7']
+    ];
+    bgCols.forEach((colDigits, idx) => {
+      const col = document.createElement('div');
+      col.className = 'odo-bg-col ' + (idx % 2 === 1 ? 'reverse' : '');
+      col.style.animationDuration = (20 + idx * 4) + 's';
+      colDigits.forEach(d => {
+        const sp = document.createElement('span');
+        sp.textContent = d;
+        col.appendChild(sp);
+      });
+      bg.appendChild(col);
+    });
+    strip.insertBefore(bg, strip.firstChild);
+  }
+
+  const STEP_EM = 1.16; // exact height of one digit cell in em
+  const groups = [];
+
+  numbers.forEach((el, groupIdx) => {
+    const raw = el.getAttribute('data-target');
+    if (raw === null) return;
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const suffix = el.getAttribute('data-suffix') || '';
+    const finalText = parseFloat(raw).toFixed(decimals) + suffix;
+
+    el.setAttribute('role', 'img');
+    el.setAttribute('aria-label', finalText);
+    el.textContent = '';
+
+    const wrap = document.createElement('span');
+    wrap.className = 'odo';
+    wrap.setAttribute('aria-hidden', 'true');
+
+    const chars = finalText.split('');
+    let digitIndex = 0;
+    const digits = [];
+
+    chars.forEach(ch => {
+      if (/\d/.test(ch)) {
+        const win = document.createElement('span');
+        win.className = 'odo-digit';
+        const reel = document.createElement('span');
+        reel.className = 'odo-reel';
+
+        const targetDigit = parseInt(ch, 10);
+        const turns = 1 + digitIndex; // right-most digits spin through more numbers
+        const totalSteps = turns * 10 + targetDigit;
+
+        for (let n = 0; n <= totalSteps; n++) {
+          const cell = document.createElement('span');
+          cell.textContent = String(n % 10);
+          reel.appendChild(cell);
+        }
+
+        win.appendChild(reel);
+        wrap.appendChild(win);
+        digits.push({
+          win,
+          reel,
+          targetDigit,
+          totalSteps,
+          order: digitIndex,
+          activeAnim: null
+        });
+        digitIndex++;
+      } else {
+        const stat = document.createElement('span');
+        stat.className = 'odo-static';
+        stat.textContent = ch;
+        wrap.appendChild(stat);
+      }
+    });
+
+    el.appendChild(wrap);
+    el.classList.add('odo-ready');
+
+    const itemCard = el.closest('.trust-item');
+    const group = { el, wrap, itemCard, digits, groupIdx, busy: false };
+    groups.push(group);
+
+    // Interactive hover: smoothly roll the rightmost digits when user hovers the metric card
+    if (itemCard) {
+      itemCard.addEventListener('mouseenter', () => {
+        pulseGroup(group, true);
+      });
+    }
+  });
+
+  // Full initial odometer roll from 0 up to the target value
+  function rollGroupFull(group, baseDelay) {
+    group.busy = true;
+    let maxEnd = 0;
+    group.digits.forEach((d) => {
+      if (d.activeAnim) d.activeAnim.cancel();
+      const duration = 1250 + d.order * 300;
+      const end = baseDelay + duration;
+      if (end > maxEnd) maxEnd = end;
+
+      d.win.classList.add('is-rolling');
+      d.reel.style.transform = 'translateY(0em)';
+
+      const anim = d.reel.animate(
+        [
+          { transform: 'translateY(0em)' },
+          { transform: 'translateY(' + (-d.totalSteps * STEP_EM).toFixed(3) + 'em)' }
+        ],
+        {
+          duration: duration,
+          delay: baseDelay,
+          easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+          fill: 'forwards'
+        }
+      );
+      d.activeAnim = anim;
+      anim.onfinish = () => {
+        d.reel.style.transform = 'translateY(' + (-d.totalSteps * STEP_EM).toFixed(3) + 'em)';
+        d.win.classList.remove('is-rolling');
+        d.activeAnim = null;
+      };
+    });
+
+    setTimeout(() => {
+      group.wrap.classList.add('is-live');
+      group.busy = false;
+    }, maxEnd + 40);
+  }
+
+  // Signature step-by-step odometer roll (like the Pinterest reference: steps through last 3 values into target)
+  function pulseGroup(group, isHover) {
+    if (group.busy) return;
+    group.busy = true;
+
+    const len = group.digits.length;
+    // Animate the last 1-2 digits stepping through 3 consecutive odometer ticks to land on target
+    const startIdx = Math.max(0, len - 2);
+    let maxDuration = 0;
+
+    group.digits.slice(startIdx).forEach((d, idx) => {
+      const isLast = (startIdx + idx) === len - 1;
+      const backSteps = isLast ? 3 : 1;
+      const fromStep = Math.max(0, d.totalSteps - backSteps);
+      const duration = isLast ? (isHover ? 1150 : 1450) : (isHover ? 850 : 1050);
+      if (duration > maxDuration) maxDuration = duration;
+
+      if (d.activeAnim) d.activeAnim.cancel();
+      d.win.classList.add('is-rolling');
+
+      // Build multi-stop keyframes so each intermediate digit pauses briefly like a real odometer wheel
+      const keyframes = [];
+      const count = d.totalSteps - fromStep;
+      for (let s = 0; s <= count; s++) {
+        const stepPos = fromStep + s;
+        keyframes.push({
+          transform: 'translateY(' + (-stepPos * STEP_EM).toFixed(3) + 'em)'
+        });
+      }
+
+      const anim = d.reel.animate(keyframes, {
+        duration: duration,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        fill: 'forwards'
+      });
+      d.activeAnim = anim;
+      anim.onfinish = () => {
+        d.reel.style.transform = 'translateY(' + (-d.totalSteps * STEP_EM).toFixed(3) + 'em)';
+        d.win.classList.remove('is-rolling');
+        d.activeAnim = null;
+      };
+    });
+
+    setTimeout(() => {
+      group.busy = false;
+    }, maxDuration + 60);
+  }
+
+  let started = false;
+  let cycleIndex = 0;
+
+  function startAll() {
+    if (started) return;
+    started = true;
+    groups.forEach((g, idx) => {
+      rollGroupFull(g, idx * 160);
+    });
+
+    // Gentle periodic odometer step across the 4 counters so the strip stays dynamically alive
+    setInterval(() => {
+      if (document.hidden) return;
+      const g = groups[cycleIndex % groups.length];
+      cycleIndex++;
+      pulseGroup(g, false);
+    }, 3200);
+  }
+
+  function whenReady(cb) {
+    if (document.body.classList.contains('splash-active')) {
+      window.addEventListener('serenlink:splashCompleted', () => setTimeout(cb, 250), { once: true });
+    } else {
+      cb();
+    }
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting && !animated) {
-        animated = true;
-        metricNumbers.forEach(el => animateMetricNumber(el));
+      if (entry.isIntersecting) {
+        observer.disconnect();
+        whenReady(startAll);
       }
     });
   }, { threshold: 0.25 });
 
-  observer.observe(trustBar);
-
-  function animateMetricNumber(el) {
-    const rawTarget = el.getAttribute('data-target');
-    if (!rawTarget) return;
-
-    const target = parseFloat(rawTarget);
-    const suffix = el.getAttribute('data-suffix') || '';
-    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
-    const duration = 1800; // ms
-    const startTime = performance.now();
-
-    const startVal = decimals > 0 ? Math.max(0, target - 9.999) : 0;
-
-    function frame(now) {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Quintic ease out
-      const ease = 1 - Math.pow(1 - progress, 5);
-      const current = startVal + (target - startVal) * ease;
-
-      el.textContent = current.toFixed(decimals) + suffix;
-
-      if (progress < 1) {
-        requestAnimationFrame(frame);
-      } else {
-        el.textContent = target.toFixed(decimals) + suffix;
-      }
-    }
-
-    requestAnimationFrame(frame);
-  }
+  observer.observe(strip);
 }
 
 function initScrollReveals() {
