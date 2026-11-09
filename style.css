@@ -1301,10 +1301,10 @@ button, input, select, textarea {
 }
 
 .sector-pill.active {
-  background: #0f172a;
+  background: #372772;
   color: #ffffff;
-  border-color: #0f172a;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  border-color: #372772;
+  box-shadow: 0 4px 16px rgba(55, 39, 114, 0.45);
 }
 
 .sector-content-card {
@@ -1358,11 +1358,14 @@ button, input, select, textarea {
 }
 
 .sector-metric-box {
-  background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+  background: linear-gradient(135deg, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.3) 38%, rgba(1, 7, 43, 0.95) 100%), #01072b;
   color: #ffffff;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 2.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(180, 165, 255, 0.28);
+  box-shadow: 0 20px 45px -10px rgba(1, 7, 43, 0.85), 0 0 25px rgba(55, 39, 114, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .metric-title {
@@ -1379,7 +1382,7 @@ button, input, select, textarea {
   justify-content: space-between;
   align-items: baseline;
   padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(180, 165, 255, 0.15);
 }
 
 .metric-stat-row:last-child {
@@ -1388,13 +1391,15 @@ button, input, select, textarea {
 
 .metric-label {
   font-size: 0.9rem;
-  color: #94a3b8;
+  color: #cbd5e1;
+  font-weight: 500;
 }
 
 .metric-value {
   font-size: 1.15rem;
   font-weight: 700;
   color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* ==========================================================================
@@ -1623,7 +1628,8 @@ button, input, select, textarea {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: #0f172a;
+  background: #01072b;
+  border: 1px solid rgba(180, 165, 255, 0.35);
   color: var(--color-lime);
   display: flex;
   align-items: center;
@@ -1631,6 +1637,7 @@ button, input, select, textarea {
   font-weight: 800;
   font-size: 1.15rem;
   flex-shrink: 0;
+  box-shadow: 0 0 16px rgba(55, 39, 114, 0.45);
 }
 
 .sla-box-text h4 {
@@ -1648,12 +1655,14 @@ button, input, select, textarea {
 
 /* Coverage Hubs List */
 .coverage-hubs-grid {
-  background: #091224;
+  background: linear-gradient(135deg, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.3) 38%, rgba(1, 7, 43, 0.95) 100%), #01072b;
   color: #ffffff;
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(180, 165, 255, 0.28);
+  box-shadow: 0 20px 45px -10px rgba(1, 7, 43, 0.85), 0 0 25px rgba(55, 39, 114, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .hubs-title {
@@ -1774,30 +1783,36 @@ button, input, select, textarea {
 }
 
 .calc-summary-panel {
-  background: #091224;
+  background: linear-gradient(135deg, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.3) 38%, rgba(1, 7, 43, 0.95) 100%), #01072b;
   color: #ffffff;
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 2.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid rgba(180, 165, 255, 0.28);
+  box-shadow: 0 20px 45px -10px rgba(1, 7, 43, 0.85), 0 0 25px rgba(55, 39, 114, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .summary-spec-item {
   display: flex;
   justify-content: space-between;
   padding: 0.65rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(180, 165, 255, 0.15);
   font-size: 0.875rem;
 }
 
 .summary-spec-item .label {
-  color: #94a3b8;
+  color: #cbd5e1;
+  font-weight: 500;
 }
 
 .summary-spec-item .val {
   font-weight: 700;
   color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .summary-quote-btn {
@@ -2213,12 +2228,14 @@ button, input, select, textarea {
 }
 
 .detail-card-visual {
-  background: #091224;
+  background: linear-gradient(135deg, rgba(55, 39, 114, 0.45) 0%, rgba(37, 40, 107, 0.3) 38%, rgba(1, 7, 43, 0.95) 100%), #01072b;
   border-radius: 20px;
   padding: 2.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(180, 165, 255, 0.28);
   color: #ffffff;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 45px -10px rgba(1, 7, 43, 0.85), 0 0 25px rgba(55, 39, 114, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 /* ==========================================================================
