@@ -36,69 +36,6 @@
   pointer-events: none !important;
 }
 
-/* Interactive Skip Button - High visibility, instant access from 0ms */
-.splash-skip-btn {
-  position: absolute;
-  top: 24px;
-  right: 28px;
-  background: rgba(1, 7, 43, 0.92);
-  border: 1.5px solid #e2ff38;
-  color: #ffffff;
-  padding: 0.6rem 1.35rem;
-  border-radius: 9999px;
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  cursor: pointer !important;
-  z-index: 10000001;
-  opacity: 1 !important;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5), 0 0 16px rgba(226, 255, 56, 0.35);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: auto !important;
-}
-
-.splash-skip-btn span {
-  color: #ffffff;
-  font-weight: 700;
-}
-
-.splash-skip-btn svg {
-  stroke: #e2ff38;
-  transition: transform 0.25s ease;
-}
-
-.splash-skip-btn:hover {
-  background: #e2ff38;
-  color: #090d16;
-  border-color: #e2ff38;
-  transform: translateY(-2px) scale(1.03);
-  box-shadow: 0 6px 24px rgba(226, 255, 56, 0.65);
-}
-
-.splash-skip-btn:hover span {
-  color: #090d16;
-}
-
-.splash-skip-btn:hover svg {
-  stroke: #090d16;
-  transform: rotate(90deg);
-}
-
-/* Fast Fade Out for Skip Actions */
-.serenlink-splash.splash-fast-exit {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  transition: opacity 0.22s ease, visibility 0.22s ease, transform 0.22s ease !important;
-  transform: scale(1.02);
-  pointer-events: none !important;
-}
-
 /* Animation Stage Container */
 .splash-stage {
   position: relative;
@@ -622,12 +559,6 @@
    RESPONSIVE DESIGN (Desktop, Tablet & Mobile)
    ========================================================================== */
 @media (max-width: 768px) {
-  .splash-skip-btn {
-    top: 20px;
-    right: 20px;
-    padding: 0.45rem 1rem;
-    font-size: 0.75rem;
-  }
   .splash-wordmark-wrap {
     width: 320px;
   }

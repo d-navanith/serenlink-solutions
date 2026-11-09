@@ -92,8 +92,7 @@
 * **Zero Bloat / 100% Vanilla Stack**: Built purely with semantic HTML5, modern CSS3 custom properties, and vanilla JavaScript without heavy bundle dependencies.
 * **Hardware GPU Accelerated**: Smooth 60 FPS scroll reveals, Lenis-style inertial scrolling (`smooth-scroll.js`), 3D odometer reels, and SVG circuit path animations powered by CSS `transform` and `opacity`.
 * **Smart Splash Screen Engine (`splash.js` & `splash.css`)**:
-  * Plays once per session (`sessionStorage`) or on demand via `?splash=1`.
-  * Interactive Skip button (`Skip ✕`), click-anywhere to dismiss, and `Escape` key handler.
+  * Plays in full on initial website entry and on every browser refresh/reload.
   * Hard 6.8s fail-safe timer guarantees page content is never blocked and respects `prefers-reduced-motion`.
 * **Enterprise Mega-Menu Navigation**: Two-column responsive dropdown menus with hover grace timers, hit-target bridges, clickable top-level parent links, and mobile accordion drawers.
 * **Cross-Platform Compatibility**: Fully responsive across mobile (`375px`), tablet (`768px`), and widescreen desktop (`1440px+`) viewports.

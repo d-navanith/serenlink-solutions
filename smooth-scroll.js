@@ -8,12 +8,18 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
 (function() {
   'use strict';
 
-  // 0. HOME REFRESH STANDARD: reloading the home page always lands on the hero section
+  // 0. HOME & SPLASH REFRESH STANDARD: reloading any page returns to the Home Hero section & plays the Splash Screen
   var isHomePage = /(^|\/)(index\.html)?$/.test(window.location.pathname);
   var navEntry = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || null;
   var isReload = navEntry ? navEntry.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
+  if (isReload && !isHomePage) {
+    try { sessionStorage.setItem('serenlink_force_splash', '1'); } catch (e) {}
+    window.location.replace('index.html');
+    return;
+  }
   window.__serenlinkHomeReload = !!(isHomePage && isReload);
   if (window.__serenlinkHomeReload) {
+    try { sessionStorage.setItem('serenlink_force_splash', '1'); } catch (e) {}
     if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
     if (window.location.hash) {
       history.replaceState(null, '', window.location.pathname + window.location.search);
