@@ -36,13 +36,13 @@
 
     // Simple, Crisp Highlight Color Palette (Light, clean highlights; No dark colors, No dark green)
     const colors = {
-      solidCable: 'rgba(180, 165, 255, 0.38)',    // Refined luminous violet track
-      dottedCable: 'rgba(129, 140, 248, 0.32)',   // Delicate soft indigo dotted track
-      cyanHighlight: '#b4a5ff',                   // Luminous violet-indigo electric pulse
-      blueHighlight: '#818cf8',                   // Radiant royal indigo pulse
-      skyHighlight: '#c084fc',                    // Crisp lavender-violet pulse
-      limeHighlight: '#d9f99d',                   // Signature SerenLink neon lime spark
-      whiteCore: '#ffffff'                        // Pure white energy bead
+      solidCable: 'rgba(180, 165, 255, 0.25)',    // Ultra-thin subtle violet-silver track
+      dottedCable: 'rgba(147, 130, 240, 0.20)',   // Delicate ultra-fine indigo dotted conduit
+      cyanHighlight: '#b4a5ff',                   // Soft luminous violet-indigo pulse
+      blueHighlight: '#818cf8',                   // Radiant soft royal indigo pulse
+      skyHighlight: '#c084fc',                    // Crisp subtle lavender-violet pulse
+      limeHighlight: '#d9f99d',                   // Signature SerenLink delicate neon lime spark
+      whiteCore: '#ffffff'                        // Pure white micro-bead
     };
 
     // Control waypoints in normalized zone coordinates: (xRatio, yRatio)
@@ -263,36 +263,36 @@
       ctx.scale(dpr, dpr);
     }
 
-    // Direction Chevron Drawer (Delicate, thin 2px accent)
+    // Direction Chevron Drawer (Ultra-thin 1px micro-accent)
     function drawChevron(ctx, x, y, angle, color) {
       ctx.save();
       ctx.translate(x, y);
       ctx.rotate(angle);
       ctx.fillStyle = color;
       ctx.beginPath();
-      ctx.moveTo(-3.5, -2.5);
-      ctx.lineTo(2, 0);
-      ctx.lineTo(-3.5, 2.5);
+      ctx.moveTo(-2.2, -1.5);
+      ctx.lineTo(1.2, 0);
+      ctx.lineTo(-2.2, 1.5);
       ctx.closePath();
       ctx.fill();
       ctx.restore();
     }
 
-    // Terminal Port Node Drawer (Minimal, thin micro-node)
+    // Terminal Port Node Drawer (Ultra-delicate micro-node)
     function drawTerminalPort(ctx, x, y, labelColor) {
       ctx.save();
       ctx.beginPath();
-      ctx.arc(x, y, 4.0, 0, Math.PI * 2);
+      ctx.arc(x, y, 2.0, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(255, 255, 255, 0.95)';
       ctx.strokeStyle = labelColor;
-      ctx.lineWidth = 1.4;
+      ctx.lineWidth = 0.75;
       ctx.shadowColor = labelColor;
-      ctx.shadowBlur = 5;
+      ctx.shadowBlur = 2;
       ctx.fill();
       ctx.stroke();
 
       ctx.beginPath();
-      ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+      ctx.arc(x, y, 0.8, 0, Math.PI * 2);
       ctx.fillStyle = labelColor;
       ctx.fill();
       ctx.restore();
@@ -335,11 +335,11 @@
 
         if (track.type === 'dotted') {
           ctx.strokeStyle = colors.dottedCable;
-          ctx.lineWidth = 0.75;
-          ctx.setLineDash([2.5, 6]);
+          ctx.lineWidth = 0.45;
+          ctx.setLineDash([2, 5]);
         } else {
           ctx.strokeStyle = colors.solidCable;
-          ctx.lineWidth = 0.95;
+          ctx.lineWidth = 0.60;
           ctx.setLineDash([]);
         }
 
@@ -419,14 +419,14 @@
           const tailProgress = (p.progress - p.length + 1.0) % 1.0;
           const tailIdx = Math.floor(tailProgress * (total - 1));
 
-          // Draw the thin glowing current capsule along the curve
+          // Draw the ultra-thin glowing current line along the curve
           ctx.save();
           ctx.beginPath();
-          ctx.lineWidth = 1.8;
+          ctx.lineWidth = 0.85; // Ultra-thin razor line
           ctx.lineCap = 'round';
           ctx.strokeStyle = p.color;
           ctx.shadowColor = p.glow;
-          ctx.shadowBlur = 6;
+          ctx.shadowBlur = 2.0; // Delicate subtle glow without wide blooming
 
           let stepCount = Math.max(2, Math.floor(p.length * total));
           let headPt = null;
@@ -450,13 +450,13 @@
           }
           ctx.stroke();
 
-          // Leading Energy Bead / Dot (Delicate 2.0px white micro-dot)
+          // Leading Energy Bead / Dot (Ultra-delicate 1.1px white micro-spark)
           if (p.hasBead && headPt && headPt.sy >= -30 && headPt.sy <= height + 30) {
             ctx.beginPath();
-            ctx.arc(headPt.sx, headPt.sy, 2.0, 0, Math.PI * 2);
+            ctx.arc(headPt.sx, headPt.sy, 1.1, 0, Math.PI * 2);
             ctx.fillStyle = colors.whiteCore;
             ctx.shadowColor = p.glow;
-            ctx.shadowBlur = 6;
+            ctx.shadowBlur = 2.0;
             ctx.fill();
           }
 
