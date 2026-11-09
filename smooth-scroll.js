@@ -8,6 +8,23 @@ function t(t,i,e){return Math.max(t,Math.min(i,e))}var i=class{isRunning=!1;valu
 (function() {
   'use strict';
 
+  // 0. HOME REFRESH STANDARD: reloading the home page always lands on the hero section
+  var isHomePage = /(^|\/)(index\.html)?$/.test(window.location.pathname);
+  var navEntry = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || null;
+  var isReload = navEntry ? navEntry.type === 'reload' : (performance.navigation && performance.navigation.type === 1);
+  window.__serenlinkHomeReload = !!(isHomePage && isReload);
+  if (window.__serenlinkHomeReload) {
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    if (window.location.hash) {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    window.scrollTo(0, 0);
+    window.addEventListener('load', function() {
+      window.scrollTo(0, 0);
+      if (window.serenlinkLenis) window.serenlinkLenis.scrollTo(0, { immediate: true, force: true });
+    });
+  }
+
   // 1. Accessibility First: Respect prefers-reduced-motion
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return;

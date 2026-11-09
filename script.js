@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnimatedMetrics();
   initScrollReveals();
   initDropdownMenus();
+  initHomeNavigation();
   initMobileNavigation();
   initSectorPillTabs();
   initNetworkCalculator();
@@ -99,6 +100,29 @@ function initHeroPhraseCycle() {
 /* ==========================================================================
    2. TKWIT-STYLE DROPDOWN MENUS (Desktop & Mobile)
    ========================================================================== */
+/* ==========================================================================
+   HOME STANDARD: clicking Home / logo always shows the home page hero section
+   ========================================================================== */
+function initHomeNavigation() {
+  const isHomePage = /(^|\/)(index\.html)?$/.test(window.location.pathname);
+  if (!isHomePage) return;
+
+  document.querySelectorAll('a[href="index.html"], a[href="./"], a[href="/"]').forEach(link => {
+    if (!link.closest('.main-header') && !link.closest('.footer-brand')) return;
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (window.location.hash) {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+      if (window.serenlinkLenis) {
+        window.serenlinkLenis.scrollTo(0, { duration: 1.4 });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  });
+}
+
 function initDropdownMenus() {
   const navItems = document.querySelectorAll('.nav-item.has-dropdown');
   let activeTimer = null;
@@ -151,13 +175,18 @@ function initDropdownMenus() {
       }
     });
 
-    // Click handler (also locks dropdown open on desktop until clicked outside)
+    // Parent links (Solutions, Services, Industries, Locations) are real, clickable links.
+    // Desktop with a mouse: click navigates, hover opens the dropdown.
+    // Touch / mobile drawer: tapping the caret toggles the submenu, tapping the label navigates.
     trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const isOpen = item.classList.contains('open');
-      closeAllDropdowns();
-      if (!isOpen) {
-        item.classList.add('open');
+      const touchOnly = window.matchMedia('(hover: none)').matches;
+      const isMobileDrawer = window.innerWidth <= 1080;
+      const tappedCaret = !!e.target.closest('.caret');
+      if (tappedCaret || (touchOnly && !isMobileDrawer && !item.classList.contains('open'))) {
+        e.preventDefault();
+        const isOpen = item.classList.contains('open');
+        closeAllDropdowns();
+        if (!isOpen) item.classList.add('open');
       }
     });
   });
