@@ -41,6 +41,12 @@ Allow: /favicon.ico
 Allow: /favicon.png
 Allow: /assets/
 
+User-agent: Googlebot-Favicon
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon.png
+Allow: /assets/
+
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
