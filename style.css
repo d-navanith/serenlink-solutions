@@ -1186,6 +1186,20 @@ button, input, select, textarea {
   gap: 1.5rem;
 }
 
+/* 4-Card "Four Pillars" Grid on About Page: Symmetrical 2x2 Layout */
+.expect-grid.about-pillars-grid {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1020px;
+  margin: 2.25rem auto 0;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .expect-grid.about-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .expect-card {
   padding: 1.5rem 1.45rem;
   border-radius: 15px;
