@@ -138,7 +138,7 @@ function initDropdownMenus() {
 
     // Generous hover grace timer to prevent sudden disappearing on mouse move
     item.addEventListener('mouseenter', () => {
-      if (window.innerWidth > 1080) {
+      if (window.innerWidth > 1140) {
         if (activeTimer) {
           clearTimeout(activeTimer);
           activeTimer = null;
@@ -151,7 +151,7 @@ function initDropdownMenus() {
     });
 
     item.addEventListener('mouseleave', () => {
-      if (window.innerWidth > 1080) {
+      if (window.innerWidth > 1140) {
         if (activeTimer) clearTimeout(activeTimer);
         // 320ms grace period so user can smoothly move mouse across to dropdown
         activeTimer = setTimeout(() => {
@@ -170,7 +170,7 @@ function initDropdownMenus() {
     });
 
     dropdown.addEventListener('mouseleave', () => {
-      if (window.innerWidth > 1080) {
+      if (window.innerWidth > 1140) {
         if (activeTimer) clearTimeout(activeTimer);
         activeTimer = setTimeout(() => {
           item.classList.remove('open');
@@ -184,7 +184,7 @@ function initDropdownMenus() {
     // all inner sub-links navigate directly and close the mobile menu.
     trigger.addEventListener('click', (e) => {
       const touchOnly = window.matchMedia('(hover: none)').matches;
-      const isMobileDrawer = window.innerWidth <= 1080;
+      const isMobileDrawer = window.innerWidth <= 1140;
       const tappedCaret = !!e.target.closest('.caret');
       if (isMobileDrawer) {
         e.preventDefault();
@@ -272,7 +272,7 @@ function initMobileNavigation() {
       if (link.parentElement.classList.contains('has-dropdown') && link.classList.contains('nav-link')) {
         return;
       }
-      if (window.innerWidth <= 1080) {
+      if (window.innerWidth <= 1140) {
         closeMenu();
       }
     });
@@ -280,7 +280,7 @@ function initMobileNavigation() {
 
   // Close when clicking outside on mobile
   document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 1080 && navMenu.classList.contains('is-open')) {
+    if (window.innerWidth <= 1140 && navMenu.classList.contains('is-open')) {
       if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target)) {
         closeMenu();
       }
@@ -1595,7 +1595,7 @@ function initTestimonialCarousel() {
   const AUTOPLAY_INTERVAL = 3500; // Auto-play every 3.5 seconds
 
   function getCardsPerView() {
-    if (window.innerWidth > 1080) return 3;
+    if (window.innerWidth > 1140) return 3;
     if (window.innerWidth > 680) return 2;
     return 1;
   }

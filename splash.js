@@ -29,7 +29,8 @@
     }
 
     const urlForcesSplash = window.location.search.indexOf('splash=1') !== -1;
-    const shouldPlaySplash = !hasSeenSplash || isReload || forceSplash || urlForcesSplash;
+    const skipSplash = window.location.search.indexOf('nosplash=1') !== -1;
+    const shouldPlaySplash = !skipSplash && (!hasSeenSplash || isReload || forceSplash || urlForcesSplash);
 
     // If user clicked "Home" or brand logo during internal browsing (not first visit and not a reload),
     // go straight to the Home Hero section without replaying the intro.
