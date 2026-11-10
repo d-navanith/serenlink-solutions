@@ -228,7 +228,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="splash.css?v=2025.82">
-  <link rel="stylesheet" href="style.css?v=2025.96">
+  <link rel="stylesheet" href="style.css?v=2025.97">
 </head>
 <body>
   <!-- ==========================================================================
@@ -1838,7 +1838,7 @@
        FINAL CTA: ONRAMP 2025 SIGNATURE BANNER ("MAKE CONNECTIONS")
        ========================================================================== -->
   <!-- ==========================================================================
-       SECTION: CLIENT TESTIMONIALS & CASE RESULTS (ENTERPRISE REVIEWS)
+       SECTION: CLIENT TESTIMONIALS & CASE RESULTS (ENTERPRISE AUTO-PLAY CAROUSEL)
        ========================================================================== -->
   <section class="section-testimonials" id="testimonials">
     <div class="section-container">
@@ -1883,212 +1883,239 @@
         <button type="button" class="testimonials-filter-btn" data-filter="healthcare">Healthcare &amp; Hospitality</button>
       </div>
 
-      <!-- Testimonials 3-Column Grid (6 Real Enterprise Case Studies) -->
-      <div class="testimonials-grid" id="testimonialsGrid">
-
-        <!-- Card 1: Banking & BFSI -->
-        <div class="testimonial-card" data-category="banking">
-          <div>
-            <div class="testimonial-card-top">
-              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span class="testimonial-sector-pill">Banking &amp; BFSI</span>
-            </div>
-            <div class="testimonial-metric-chip">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
-              <span>Zero Downtime · 100% CBSL Compliance</span>
-            </div>
-            <p class="testimonial-quote">
-              “During our islandwide core banking cutover to active-active Fortinet clusters, <strong>SerenLink delivered zero downtime across 42 branches</strong>. Their Fluke OTDR calibration dossiers satisfied CBSL cybersecurity auditors without a single query. True precision engineers.”
-            </p>
+      <!-- Auto-Play Testimonials Carousel -->
+      <div class="testimonials-carousel-wrapper" id="testimonialsCarousel" aria-roledescription="carousel" aria-label="Client Testimonials Carousel">
+        
+        <!-- Controls Bar: Autoplay status badge + Navigation arrows -->
+        <div class="testimonials-controls-row">
+          <div class="testimonials-autoplay-badge" id="testimonialAutoplayBadge">
+            <span class="autoplay-pulse-dot" aria-hidden="true"></span>
+            <span class="autoplay-label" id="testimonialAutoplayLabel">Auto-Playing (Hover to pause)</span>
           </div>
-          <div>
-            <div class="testimonial-divider"></div>
-            <div class="testimonial-author-block">
-              <div class="testimonial-author-info">
-                <div class="testimonial-avatar">DW</div>
-                <div class="testimonial-author-meta">
-                  <span class="testimonial-author-name">Dinesh Wijesinghe</span>
-                  <span class="testimonial-author-role">Head of IT Infrastructure &amp; Security</span>
-                  <span class="testimonial-author-org">Commercial Banking Group · Colombo 01</span>
-                </div>
-              </div>
-              <span class="testimonial-verified-badge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Verified
-              </span>
-            </div>
+
+          <div class="testimonials-nav-btns">
+            <button type="button" class="testimonial-arrow-btn prev" id="testimonialPrevBtn" aria-label="Previous testimonials slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button type="button" class="testimonial-arrow-btn next" id="testimonialNextBtn" aria-label="Next testimonials slide">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
           </div>
         </div>
 
-        <!-- Card 2: Apparel & BOI Manufacturing -->
-        <div class="testimonial-card" data-category="manufacturing">
-          <div>
-            <div class="testimonial-card-top">
-              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span class="testimonial-sector-pill">Apparel &amp; BOI FTZ</span>
-            </div>
-            <div class="testimonial-metric-chip">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
-              <span>25-Year Fluke Warranty · 10G Backbone</span>
-            </div>
-            <p class="testimonial-quote">
-              “Our 8-acre manufacturing facility struggled with electromagnetic interference near heavy textile machinery. SerenLink re-cabled our plant with armored LSZH Cat6A and high-density industrial APs. <strong>Floor scanner drops vanished immediately on cutover night</strong>.”
-            </p>
-          </div>
-          <div>
-            <div class="testimonial-divider"></div>
-            <div class="testimonial-author-block">
-              <div class="testimonial-author-info">
-                <div class="testimonial-avatar">RS</div>
-                <div class="testimonial-author-meta">
-                  <span class="testimonial-author-name">Rohan Senaratne</span>
-                  <span class="testimonial-author-role">VP of Manufacturing Systems &amp; Automation</span>
-                  <span class="testimonial-author-org">Export Apparel Group · Katunayake FTZ</span>
+        <!-- Carousel Viewport (Overflow Hidden) -->
+        <div class="testimonials-viewport" id="testimonialsViewport">
+          <div class="testimonials-track" id="testimonialsTrack">
+
+            <!-- Card 1: Banking & BFSI -->
+            <div class="testimonial-card" data-category="banking">
+              <div>
+                <div class="testimonial-card-top">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <span class="testimonial-sector-pill">Banking &amp; BFSI</span>
+                </div>
+                <div class="testimonial-metric-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                  <span>Zero Downtime · 100% CBSL Compliance</span>
+                </div>
+                <p class="testimonial-quote">
+                  “During our islandwide core banking cutover to active-active Fortinet clusters, <strong>SerenLink delivered zero downtime across 42 branches</strong>. Their Fluke OTDR calibration dossiers satisfied CBSL cybersecurity auditors without a single query. True precision engineers.”
+                </p>
+              </div>
+              <div>
+                <div class="testimonial-divider"></div>
+                <div class="testimonial-author-block">
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-avatar">DW</div>
+                    <div class="testimonial-author-meta">
+                      <span class="testimonial-author-name">Dinesh Wijesinghe</span>
+                      <span class="testimonial-author-role">Head of IT Infrastructure &amp; Security</span>
+                      <span class="testimonial-author-org">Commercial Banking Group · Colombo 01</span>
+                    </div>
+                  </div>
+                  <span class="testimonial-verified-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Verified
+                  </span>
                 </div>
               </div>
-              <span class="testimonial-verified-badge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Verified
-              </span>
             </div>
+
+            <!-- Card 2: Apparel & BOI Manufacturing -->
+            <div class="testimonial-card" data-category="manufacturing">
+              <div>
+                <div class="testimonial-card-top">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <span class="testimonial-sector-pill">Apparel &amp; BOI FTZ</span>
+                </div>
+                <div class="testimonial-metric-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                  <span>25-Year Fluke Warranty · 10G Backbone</span>
+                </div>
+                <p class="testimonial-quote">
+                  “Our 8-acre manufacturing facility struggled with electromagnetic interference near heavy textile machinery. SerenLink re-cabled our plant with armored LSZH Cat6A and high-density industrial APs. <strong>Floor scanner drops vanished immediately on cutover night</strong>.”
+                </p>
+              </div>
+              <div>
+                <div class="testimonial-divider"></div>
+                <div class="testimonial-author-block">
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-avatar">RS</div>
+                    <div class="testimonial-author-meta">
+                      <span class="testimonial-author-name">Rohan Senaratne</span>
+                      <span class="testimonial-author-role">VP of Manufacturing Systems &amp; Automation</span>
+                      <span class="testimonial-author-org">Export Apparel Group · Katunayake FTZ</span>
+                    </div>
+                  </div>
+                  <span class="testimonial-verified-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Verified
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Healthcare & Medical IoT -->
+            <div class="testimonial-card" data-category="healthcare">
+              <div>
+                <div class="testimonial-card-top">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <span class="testimonial-sector-pill">Healthcare &amp; Hospitals</span>
+                </div>
+                <div class="testimonial-metric-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                  <span>&lt; 1.2ms Jitter · 24/7 Proactive NOC</span>
+                </div>
+                <p class="testimonial-quote">
+                  “4K surgical video streaming and DICOM/PACS transfers cannot tolerate packet jitter. SerenLink designed clinical VLAN isolation with redundant UPS feeds. <strong>Their 24/7 Colombo NOC detected an ISP optical drop and rerouted traffic</strong> before surgical teams were affected.”
+                </p>
+              </div>
+              <div>
+                <div class="testimonial-divider"></div>
+                <div class="testimonial-author-block">
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-avatar">SP</div>
+                    <div class="testimonial-author-meta">
+                      <span class="testimonial-author-name">Dr. Shanaka Perera</span>
+                      <span class="testimonial-author-role">Chief Medical Information Officer (CMIO)</span>
+                      <span class="testimonial-author-org">Tertiary Hospital Network · Colombo &amp; Kandy</span>
+                    </div>
+                  </div>
+                  <span class="testimonial-verified-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Verified
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4: High-Density Tech & Cloud CI/CD -->
+            <div class="testimonial-card" data-category="banking">
+              <div>
+                <div class="testimonial-card-top">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <span class="testimonial-sector-pill">FinTech &amp; Cloud DevOps</span>
+                </div>
+                <div class="testimonial-metric-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                  <span>38% Latency Drop · 100G Leaf-Spine</span>
+                </div>
+                <p class="testimonial-quote">
+                  “With 650+ software engineers pushing microservices to AWS and GCP daily, our local backbone was choking. SerenLink deployed an ultra-clean 100G leaf-spine architecture. <strong>Dev build sync latency dropped 38%</strong>, and their server rack dressing is the cleanest we’ve seen.”
+                </p>
+              </div>
+              <div>
+                <div class="testimonial-divider"></div>
+                <div class="testimonial-author-block">
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-avatar">KJ</div>
+                    <div class="testimonial-author-meta">
+                      <span class="testimonial-author-name">Kavinda Jayasuriya</span>
+                      <span class="testimonial-author-role">Director of Cloud Infrastructure &amp; DevOps</span>
+                      <span class="testimonial-author-org">Global FinTech Campus · Trace City, Colombo</span>
+                    </div>
+                  </div>
+                  <span class="testimonial-verified-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Verified
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Luxury Hospitality & Resorts -->
+            <div class="testimonial-card" data-category="healthcare">
+              <div>
+                <div class="testimonial-card-top">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <span class="testimonial-sector-pill">5-Star Luxury Resorts</span>
+                </div>
+                <div class="testimonial-metric-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                  <span>100% Roaming Coverage · 0 Dead Zones</span>
+                </div>
+                <p class="testimonial-quote">
+                  “Providing uninterrupted guest Wi-Fi through thick colonial stone walls across 25 beachfront villas seemed impossible. SerenLink ran an Ekahau 3D RF heatmap and deployed discreet outdoor APs. <strong>Our guest satisfaction score for Wi-Fi surged from 3.2 to a flawless 5.0</strong>.”
+                </p>
+              </div>
+              <div>
+                <div class="testimonial-divider"></div>
+                <div class="testimonial-author-block">
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-avatar">AF</div>
+                    <div class="testimonial-author-meta">
+                      <span class="testimonial-author-name">Anushka Fernando</span>
+                      <span class="testimonial-author-role">General Manager of Operations</span>
+                      <span class="testimonial-author-org">Luxury Boutique Resort Collection · Galle &amp; Bentota</span>
+                    </div>
+                  </div>
+                  <span class="testimonial-verified-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Verified
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Port Logistics & Industrial Cold Chain -->
+            <div class="testimonial-card" data-category="manufacturing">
+              <div>
+                <div class="testimonial-card-top">
+                  <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+                  <span class="testimonial-sector-pill">Maritime &amp; Cold Logistics</span>
+                </div>
+                <div class="testimonial-metric-chip">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                  <span>IP67 Ruggedized Fiber · 99.999% SLA</span>
+                </div>
+                <p class="testimonial-quote">
+                  “Operating in coastal maritime salinity and -25°C cold storage freezers ruined previous network hardware. SerenLink designed an IP67 ruggedized optical ring with harsh-environment switches. <strong>Three years of continuous 24/7 port operations with zero hardware failures</strong>.”
+                </p>
+              </div>
+              <div>
+                <div class="testimonial-divider"></div>
+                <div class="testimonial-author-block">
+                  <div class="testimonial-author-info">
+                    <div class="testimonial-avatar">NA</div>
+                    <div class="testimonial-author-meta">
+                      <span class="testimonial-author-name">Nadeem Al-Hassan</span>
+                      <span class="testimonial-author-role">Chief Operating Officer</span>
+                      <span class="testimonial-author-org">Intermodal Logistics Depot · Colombo Port</span>
+                    </div>
+                  </div>
+                  <span class="testimonial-verified-badge">
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Verified
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Card 3: Healthcare & Medical IoT -->
-        <div class="testimonial-card" data-category="healthcare">
-          <div>
-            <div class="testimonial-card-top">
-              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span class="testimonial-sector-pill">Healthcare &amp; Hospitals</span>
-            </div>
-            <div class="testimonial-metric-chip">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
-              <span>&lt; 1.2ms Jitter · 24/7 Proactive NOC</span>
-            </div>
-            <p class="testimonial-quote">
-              “4K surgical video streaming and DICOM/PACS transfers cannot tolerate packet jitter. SerenLink designed clinical VLAN isolation with redundant UPS feeds. <strong>Their 24/7 Colombo NOC detected an ISP optical drop and rerouted traffic</strong> before surgical teams were affected.”
-            </p>
-          </div>
-          <div>
-            <div class="testimonial-divider"></div>
-            <div class="testimonial-author-block">
-              <div class="testimonial-author-info">
-                <div class="testimonial-avatar">SP</div>
-                <div class="testimonial-author-meta">
-                  <span class="testimonial-author-name">Dr. Shanaka Perera</span>
-                  <span class="testimonial-author-role">Chief Medical Information Officer (CMIO)</span>
-                  <span class="testimonial-author-org">Tertiary Hospital Network · Colombo &amp; Kandy</span>
-                </div>
-              </div>
-              <span class="testimonial-verified-badge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Verified
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: High-Density Tech & Cloud CI/CD -->
-        <div class="testimonial-card" data-category="banking">
-          <div>
-            <div class="testimonial-card-top">
-              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span class="testimonial-sector-pill">FinTech &amp; Cloud DevOps</span>
-            </div>
-            <div class="testimonial-metric-chip">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
-              <span>38% Latency Drop · 100G Leaf-Spine</span>
-            </div>
-            <p class="testimonial-quote">
-              “With 650+ software engineers pushing microservices to AWS and GCP daily, our local backbone was choking. SerenLink deployed an ultra-clean 100G leaf-spine architecture. <strong>Dev build sync latency dropped 38%</strong>, and their server rack dressing is the cleanest we’ve seen.”
-            </p>
-          </div>
-          <div>
-            <div class="testimonial-divider"></div>
-            <div class="testimonial-author-block">
-              <div class="testimonial-author-info">
-                <div class="testimonial-avatar">KJ</div>
-                <div class="testimonial-author-meta">
-                  <span class="testimonial-author-name">Kavinda Jayasuriya</span>
-                  <span class="testimonial-author-role">Director of Cloud Infrastructure &amp; DevOps</span>
-                  <span class="testimonial-author-org">Global FinTech Campus · Trace City, Colombo</span>
-                </div>
-              </div>
-              <span class="testimonial-verified-badge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Verified
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: Luxury Hospitality & Resorts -->
-        <div class="testimonial-card" data-category="healthcare">
-          <div>
-            <div class="testimonial-card-top">
-              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span class="testimonial-sector-pill">5-Star Luxury Resorts</span>
-            </div>
-            <div class="testimonial-metric-chip">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
-              <span>100% Roaming Coverage · 0 Dead Zones</span>
-            </div>
-            <p class="testimonial-quote">
-              “Providing uninterrupted guest Wi-Fi through thick colonial stone walls across 25 beachfront villas seemed impossible. SerenLink ran an Ekahau 3D RF heatmap and deployed discreet outdoor APs. <strong>Our guest satisfaction score for Wi-Fi surged from 3.2 to a flawless 5.0</strong>.”
-            </p>
-          </div>
-          <div>
-            <div class="testimonial-divider"></div>
-            <div class="testimonial-author-block">
-              <div class="testimonial-author-info">
-                <div class="testimonial-avatar">AF</div>
-                <div class="testimonial-author-meta">
-                  <span class="testimonial-author-name">Anushka Fernando</span>
-                  <span class="testimonial-author-role">General Manager of Operations</span>
-                  <span class="testimonial-author-org">Luxury Boutique Resort Collection · Galle &amp; Bentota</span>
-                </div>
-              </div>
-              <span class="testimonial-verified-badge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Verified
-              </span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 6: Port Logistics & Industrial Cold Chain -->
-        <div class="testimonial-card" data-category="manufacturing">
-          <div>
-            <div class="testimonial-card-top">
-              <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
-              <span class="testimonial-sector-pill">Maritime &amp; Cold Logistics</span>
-            </div>
-            <div class="testimonial-metric-chip">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
-              <span>IP67 Ruggedized Fiber · 99.999% SLA</span>
-            </div>
-            <p class="testimonial-quote">
-              “Operating in coastal maritime salinity and -25°C cold storage freezers ruined previous network hardware. SerenLink designed an IP67 ruggedized optical ring with harsh-environment switches. <strong>Three years of continuous 24/7 port operations with zero hardware failures</strong>.”
-            </p>
-          </div>
-          <div>
-            <div class="testimonial-divider"></div>
-            <div class="testimonial-author-block">
-              <div class="testimonial-author-info">
-                <div class="testimonial-avatar">NA</div>
-                <div class="testimonial-author-meta">
-                  <span class="testimonial-author-name">Nadeem Al-Hassan</span>
-                  <span class="testimonial-author-role">Chief Operating Officer</span>
-                  <span class="testimonial-author-org">Intermodal Logistics Depot · Colombo Port</span>
-                </div>
-              </div>
-              <span class="testimonial-verified-badge">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Verified
-              </span>
-            </div>
-          </div>
-        </div>
+        <!-- Dot Indicators -->
+        <div class="testimonials-dots" id="testimonialsDots"></div>
 
       </div>
 
@@ -2549,7 +2576,7 @@
   <script src="hero-network.js?v=2025.55"></script>
   <script src="cable-current.js?v=2025.55"></script>
   <script src="smooth-scroll.js?v=2025.66"></script>
-  <script src="script.js?v=2025.96"></script>
+  <script src="script.js?v=2025.97"></script>
   <script src="splash.js?v=2025.82"></script>
 
   
