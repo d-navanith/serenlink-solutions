@@ -1583,18 +1583,16 @@ function initTestimonialCarousel() {
   const prevBtn = document.getElementById('testimonialPrevBtn');
   const nextBtn = document.getElementById('testimonialNextBtn');
   const dotsContainer = document.getElementById('testimonialsDots');
-  const autoplayBadge = document.getElementById('testimonialAutoplayBadge');
-  const autoplayLabel = document.getElementById('testimonialAutoplayLabel');
-  const filterBtns = document.querySelectorAll('.testimonials-filter-btn');
 
   if (!carousel || !track || !viewport) return;
 
-  const allCards = Array.from(track.querySelectorAll('.testimonial-card'));
-  let activeCards = [...allCards];
+  const cards = Array.from(track.querySelectorAll('.testimonial-card'));
+  if (!cards.length) return;
+
   let currentIndex = 0;
   let autoplayTimer = null;
   let isPaused = false;
-  const AUTOPLAY_INTERVAL = 3800; // Auto-play every 3.8s
+  const AUTOPLAY_INTERVAL = 3500; // Auto-play every 3.5 seconds
 
   function getCardsPerView() {
     if (window.innerWidth > 1080) return 3;
@@ -1604,7 +1602,7 @@ function initTestimonialCarousel() {
 
   function getMaxIndex() {
     const cpv = getCardsPerView();
-    return Math.max(0, activeCards.length - cpv);
+    return Math.max(0, cards.length - cpv);
   }
 
   function renderDots() {
@@ -1627,12 +1625,11 @@ function initTestimonialCarousel() {
   }
 
   function updateSlidePosition(smooth = true) {
-    if (!activeCards.length) return;
     const maxIdx = getMaxIndex();
     if (currentIndex > maxIdx) currentIndex = maxIdx;
     if (currentIndex < 0) currentIndex = 0;
 
-    const firstCard = activeCards[0];
+    const firstCard = cards[0];
     if (!firstCard) return;
 
     const cardRect = firstCard.getBoundingClientRect();
@@ -1689,22 +1686,9 @@ function initTestimonialCarousel() {
     startAutoplay();
   }
 
-  function setPaused(paused) {
-    isPaused = paused;
-    if (autoplayBadge && autoplayLabel) {
-      if (paused) {
-        autoplayBadge.classList.add('is-paused');
-        autoplayLabel.textContent = '❚❚ Paused (Move away to resume)';
-      } else {
-        autoplayBadge.classList.remove('is-paused');
-        autoplayLabel.textContent = '● Auto-Playing (Hover to pause)';
-      }
-    }
-  }
-
-  // Hover pauses autoplay so user can comfortably read
-  viewport.addEventListener('mouseenter', () => setPaused(true));
-  viewport.addEventListener('mouseleave', () => setPaused(false));
+  // Hover on viewport pauses auto-play so user can comfortably read
+  viewport.addEventListener('mouseenter', () => { isPaused = true; });
+  viewport.addEventListener('mouseleave', () => { isPaused = false; });
 
   if (prevBtn) {
     prevBtn.addEventListener('click', () => {
@@ -1720,13 +1704,13 @@ function initTestimonialCarousel() {
     });
   }
 
-  // Touch swipe on mobile & tablets
+  // Touch Swipe for mobile & tablets
   let touchStartX = 0;
   let touchEndX = 0;
 
   viewport.addEventListener('touchstart', (e) => {
     touchStartX = e.changedTouches[0].clientX;
-    setPaused(true);
+    isPaused = true;
   }, { passive: true });
 
   viewport.addEventListener('touchend', (e) => {
@@ -1740,31 +1724,8 @@ function initTestimonialCarousel() {
       }
       restartAutoplay();
     }
-    setPaused(false);
+    isPaused = false;
   }, { passive: true });
-
-  // Sector filtering
-  if (filterBtns.length) {
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        const filterVal = btn.getAttribute('data-filter');
-
-        activeCards = allCards.filter(card => {
-          const cat = card.getAttribute('data-category');
-          const matches = (filterVal === 'all' || cat === filterVal);
-          card.style.display = matches ? 'flex' : 'none';
-          return matches;
-        });
-
-        currentIndex = 0;
-        renderDots();
-        updateSlidePosition(false);
-        restartAutoplay();
-      });
-    });
-  }
 
   // Responsive window resize
   let resizeTimer = null;
@@ -1776,7 +1737,7 @@ function initTestimonialCarousel() {
     }, 120);
   });
 
-  // Initialize
+  // Init
   renderDots();
   updateSlidePosition(false);
   startAutoplay();
