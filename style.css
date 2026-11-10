@@ -243,7 +243,7 @@ button, input, select, textarea {
 
 /* State 1 (At Top of Page): Floating Translucent Sapphire Glass Pill Capsule */
 .main-header:not(.scrolled) {
-  top: 44px;
+  top: 56px;
   width: 88%;
   max-width: 1220px;
   border-radius: 9999px;
@@ -646,7 +646,7 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6.5rem 1.5rem 6.5rem;
+  padding: 9.5rem 1.5rem 6.5rem;
   overflow: hidden;
 }
 
@@ -3180,7 +3180,7 @@ button, input, select, textarea {
   background: #01072b url('assets/hero_gradient_bg.jpg') no-repeat center center / cover;
   background-image: radial-gradient(circle at 12% 12%, #372772 0%, #25286b 28%, #0b1341 55%, #01072b 85%);
   color: #ffffff;
-  padding: 7rem 1.5rem 5rem;
+  padding: 9.5rem 1.5rem 5rem;
   text-align: center;
 }
 
@@ -3290,6 +3290,20 @@ button, input, select, textarea {
    RESPONSIVE QUERIES
    ========================================================================== */
 @media (max-width: 1080px) {
+  .main-header:not(.scrolled) {
+    top: 52px;
+    width: calc(100% - 2.5rem);
+    max-width: 980px;
+  }
+
+  .hero-onramp-section {
+    padding: 9rem 1.25rem 5.5rem;
+  }
+
+  .page-hero-banner {
+    padding: 9rem 1.25rem 4.5rem !important;
+  }
+
   .nav-menu {
     display: none;
   }
@@ -3779,8 +3793,8 @@ section {
 @media (max-width: 768px) {
   /* Header & Navigation Bar (FlairsTech Responsive Morph) */
   .main-header:not(.scrolled) {
-    width: calc(100% - 1.25rem);
-    top: 38px;
+    width: calc(100% - 1.5rem);
+    top: 48px;
     padding: 0.25rem 0.5rem;
     border-radius: 9999px;
   }
@@ -3811,8 +3825,12 @@ section {
 
   /* Hero Section */
   .hero-onramp-section {
-    padding: 5.5rem 1rem 3.5rem;
+    padding: 8.5rem 1rem 3.5rem;
     min-height: auto;
+  }
+
+  .page-hero-banner {
+    padding: 8.5rem 1rem 3.5rem !important;
   }
 
   .hero-title {
@@ -6737,12 +6755,20 @@ img, svg, video, canvas {
 @media (max-width: 420px) {
   .main-header:not(.scrolled) {
     width: calc(100% - 0.75rem);
-    top: 34px;
+    top: 46px;
     padding: 0.2rem 0.4rem;
   }
 
   .main-header .nav-container {
     padding: 0.55rem 0.75rem !important;
+  }
+
+  .hero-onramp-section {
+    padding: 7.75rem 0.85rem 3.5rem !important;
+  }
+
+  .page-hero-banner {
+    padding: 7.75rem 0.85rem 3.5rem !important;
   }
 
   .brand-logo img,
