@@ -4613,13 +4613,14 @@ html.lenis body {
 }
 
 /* ==========================================================================
-   HOME PAGE ENTERPRISE TESTIMONIALS (Flairstech-Inspired White Card Theme)
+   HOME PAGE ENTERPRISE TESTIMONIALS (Seamless Theme-Matched Light Palette)
    ========================================================================== */
 .section-testimonials {
   position: relative;
   z-index: 2;
-  padding: 5.5rem 1.5rem 4rem;
-  background: radial-gradient(circle at 50% 25%, rgba(55, 39, 114, 0.45) 0%, rgba(4, 13, 33, 1) 75%);
+  padding: 5.5rem 1.5rem 4.5rem;
+  background: linear-gradient(180deg, #edf2f7 0%, #f8fafc 40%, #ffffff 100%);
+  border-top: 1px solid #e2e8f0;
 }
 
 .section-testimonials .section-container {
@@ -4638,19 +4639,32 @@ html.lenis body {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1d4ed8 !important;
+  background: #eff6ff !important;
+  border: 1px solid #bfdbfe !important;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+}
+
+.testimonials-header .section-tag svg {
+  stroke: #1d4ed8;
 }
 
 .testimonials-header .flairstech-title {
   font-size: clamp(2rem, 4.2vw, 2.75rem);
   font-weight: 800;
   line-height: 1.2;
-  color: #ffffff;
+  color: #0f172a;
   margin-bottom: 1.15rem;
   letter-spacing: -0.02em;
 }
 
 .testimonials-header .flairstech-title .gradient-text-cyan {
-  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 50%, #0284c7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -4659,7 +4673,7 @@ html.lenis body {
 .testimonials-header .section-lead {
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   line-height: 1.65;
-  color: #cbd5e1;
+  color: #475569;
   max-width: 700px;
   margin: 0 auto;
 }
@@ -4670,7 +4684,7 @@ html.lenis body {
   width: 100%;
 }
 
-/* Controls Row: Only Prev / Next arrows */
+/* Controls Row: Clean Prev / Next arrow buttons */
 .testimonials-controls-row {
   display: flex;
   align-items: center;
@@ -4683,9 +4697,9 @@ html.lenis body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -4693,20 +4707,24 @@ html.lenis body {
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   padding: 0;
   flex-shrink: 0;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
 }
 
 .testimonial-arrow-btn svg {
-  stroke: #ffffff;
-  transition: transform 0.2s ease;
+  stroke: #0f172a;
+  transition: stroke 0.2s ease, transform 0.2s ease;
 }
 
 .testimonial-arrow-btn:hover {
-  background: #0066ff;
-  border-color: #0066ff;
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 4px 18px rgba(0, 102, 255, 0.45);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.35);
+}
+
+.testimonial-arrow-btn:hover svg {
+  stroke: #ffffff;
 }
 
 .testimonial-arrow-btn:active {
@@ -4737,19 +4755,20 @@ html.lenis body {
   justify-content: space-between;
   background: #ffffff !important;
   color: #0f172a !important;
-  border: 1px solid rgba(226, 232, 240, 0.95);
+  border: 1px solid #e2e8f0;
   border-radius: 22px;
   padding: 2rem 1.75rem 1.65rem;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.32), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.03);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
   box-sizing: border-box;
 }
 
 .testimonial-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45), 0 0 25px rgba(0, 102, 255, 0.2);
+  border-color: #bfdbfe;
+  box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.16), 0 0 0 1px rgba(37, 99, 235, 0.15);
 }
 
 .testimonial-card-top {
@@ -4760,7 +4779,7 @@ html.lenis body {
   gap: 0.5rem;
 }
 
-/* Category Pill (Exact Flairstech Style) */
+/* Category Pill (Flairstech Style) */
 .flairstech-badge {
   display: inline-flex;
   align-items: center;
@@ -4776,7 +4795,7 @@ html.lenis body {
 }
 
 .flairstech-badge svg {
-  stroke: #0066ff;
+  stroke: #2563eb;
   width: 14px;
   height: 14px;
 }
@@ -4784,12 +4803,12 @@ html.lenis body {
 .testimonial-stars {
   display: flex;
   gap: 2px;
-  color: #0066ff;
+  color: #2563eb;
   font-size: 0.92rem;
   letter-spacing: 1px;
 }
 
-/* Card Headline (Exact Flairstech Bold Blue/Navy Heading) */
+/* Card Headline */
 .testimonial-card-title {
   font-size: 1.18rem;
   font-weight: 800;
@@ -4831,7 +4850,7 @@ html.lenis body {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #372772 0%, #1e40af 100%);
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -4839,7 +4858,7 @@ html.lenis body {
   font-size: 0.85rem;
   font-weight: 800;
   flex-shrink: 0;
-  box-shadow: 0 4px 10px rgba(55, 39, 114, 0.25);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.25);
 }
 
 .testimonial-author-meta {
@@ -4857,7 +4876,7 @@ html.lenis body {
 .testimonial-author-role {
   font-size: 0.76rem;
   font-weight: 600;
-  color: #0066ff;
+  color: #2563eb;
   line-height: 1.35;
 }
 
@@ -4867,14 +4886,14 @@ html.lenis body {
   line-height: 1.35;
 }
 
-/* Full-Width Blue Pill Action Button (Exact Flairstech Style) */
+/* Full-Width Blue Pill Action Button (Flairstech Style) */
 .flairstech-card-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   width: 100%;
-  background: #0066ff;
+  background: #2563eb;
   color: #ffffff !important;
   font-size: 0.88rem;
   font-weight: 700;
@@ -4882,7 +4901,7 @@ html.lenis body {
   border-radius: 9999px;
   text-decoration: none;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
   box-sizing: border-box;
 }
 
@@ -4892,9 +4911,9 @@ html.lenis body {
 }
 
 .flairstech-card-btn:hover {
-  background: #0052cc;
+  background: #1d4ed8;
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 102, 255, 0.45);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.38);
 }
 
 .flairstech-card-btn:hover svg {
@@ -4914,7 +4933,7 @@ html.lenis body {
   width: 9px;
   height: 9px;
   border-radius: 9999px;
-  background: rgba(255, 255, 255, 0.25);
+  background: #cbd5e1;
   border: none;
   cursor: pointer;
   padding: 0;
@@ -4922,13 +4941,13 @@ html.lenis body {
 }
 
 .testimonial-dot:hover {
-  background: rgba(56, 189, 248, 0.6);
+  background: #94a3b8;
 }
 
 .testimonial-dot.active {
   width: 26px;
-  background: #38bdf8;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+  background: #2563eb;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
 }
 
 /* Responsive Breakpoints */
