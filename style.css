@@ -4617,10 +4617,8 @@ html.lenis body {
    ========================================================================== */
 .section-testimonials {
   position: relative;
-  z-index: 2;
   padding: 5.5rem 1.5rem 4.5rem;
-  background: linear-gradient(180deg, #edf2f7 0%, #f8fafc 40%, #ffffff 100%);
-  border-top: 1px solid #e2e8f0;
+  background: transparent !important;
 }
 
 .section-testimonials .section-container {
