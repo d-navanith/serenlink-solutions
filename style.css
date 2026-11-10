@@ -4751,7 +4751,7 @@ html.lenis body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 385px;
+  min-height: 520px;
   background: #ffffff !important;
   color: #0f172a !important;
   border: 1px solid #e2e8f0;
@@ -6744,3 +6744,430 @@ img, svg, video, canvas {
   }
 }
 
+
+
+/* ==========================================================================
+   ENTERPRISE HIGHWAY VISUAL IMAGERY (Solutions, Bento, Testimonials & Footer)
+   Transforms website with high-tech enterprise photography & FlairsTech styles
+   ========================================================================== */
+
+/* 1. Solution Card Photo Banners */
+.solution-card {
+  overflow: hidden !important;
+}
+
+.sol-card-photo {
+  width: 100%;
+  height: 175px;
+  overflow: hidden;
+  position: relative;
+  background: #0f172a;
+}
+
+.sol-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.solution-card:hover .sol-card-photo img {
+  transform: scale(1.07);
+}
+
+.sol-photo-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.45) 100%);
+  pointer-events: none;
+}
+
+/* 2. Bento Advantage Visual Banners */
+.why-card-visual {
+  width: 100%;
+  height: 140px;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+  position: relative;
+  background: #0f172a;
+}
+
+.why-card-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.why-card:hover .why-card-visual img {
+  transform: scale(1.07);
+}
+
+.why-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(11, 19, 43, 0.35) 100%);
+  pointer-events: none;
+}
+
+/* 3. Testimonial Card Cover Images (FlairsTech Benchmark) */
+.testimonial-card-cover {
+  width: 100%;
+  height: 165px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  position: relative;
+  flex-shrink: 0;
+  background: #0f172a;
+}
+
+.testimonial-card-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+
+.testimonial-card:hover .testimonial-card-cover img {
+  transform: scale(1.08);
+}
+
+.testimonial-cover-badge {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  background: rgba(11, 19, 43, 0.78);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+/* ==========================================================================
+   4. FLAIRSTECH-STANDARD MODERN FLOATING FOOTER (.flairstech-footer-zone)
+   Matches the exact design benchmark from FlairsTech (Curved Vibrant Gradient,
+   CTA Headline, Floating White Card, Multi-Column Hub & Socials)
+   ========================================================================== */
+.flairstech-footer-zone {
+  position: relative;
+  z-index: 10;
+  padding: 2rem 1.5rem 3rem;
+  background: transparent;
+}
+
+.flairstech-footer-shell {
+  max-width: 1360px;
+  margin: 0 auto;
+  border-radius: 36px;
+  background: linear-gradient(135deg, #4f46e5 0%, #2563eb 32%, #0ea5e9 65%, #06b6d4 85%, #10b981 100%);
+  padding: 5rem 2.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -20px rgba(37, 99, 235, 0.45);
+}
+
+/* Background Wireframe Concentric Waves in Bottom-Left Corner (FlairsTech Benchmark) */
+.footer-contour-waves {
+  position: absolute;
+  bottom: -40px;
+  left: -40px;
+  width: 480px;
+  height: 320px;
+  pointer-events: none;
+  opacity: 0.35;
+  z-index: 0;
+}
+
+/* Top Call-to-Action inside Gradient Shell */
+.flairstech-footer-cta {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 3.5rem;
+}
+
+.flairstech-footer-cta-title {
+  font-family: var(--font-display);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.85rem;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+}
+
+.flairstech-footer-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #ffffff;
+  color: #0f172a !important;
+  font-size: 0.98rem;
+  font-weight: 800;
+  padding: 0.88rem 1.85rem;
+  border-radius: 9999px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flairstech-footer-cta-btn svg {
+  stroke: #2563eb;
+  transition: transform 0.25s ease;
+}
+
+.flairstech-footer-cta-btn:hover {
+  background: #0f172a;
+  color: #ffffff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.45);
+}
+
+.flairstech-footer-cta-btn:hover svg {
+  stroke: #38bdf8;
+  transform: translate(2px, -2px);
+}
+
+/* Floating White Container Card (FlairsTech Benchmark) */
+.flairstech-footer-card {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 3.25rem 3rem 2.25rem;
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.28), 0 0 0 1px rgba(15, 23, 42, 0.04);
+}
+
+/* Card Column Grid */
+.flairstech-card-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1.1fr 1.1fr 1.1fr 1.1fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Col 1: Brand & Direct Telephones */
+.ft-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.ft-brand-logo {
+  display: inline-block;
+  line-height: 1;
+}
+
+.ft-brand-desc {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.62;
+  margin: 0;
+}
+
+.ft-hotlines-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-top: 0.25rem;
+}
+
+.ft-hotline-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.ft-hotline-region {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #64748b;
+}
+
+.ft-hotline-num {
+  font-size: 0.92rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.ft-hotline-num:hover {
+  color: #2563eb;
+}
+
+/* Link Columns */
+.ft-link-col h5 {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #0f172a;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 1.25rem;
+}
+
+.ft-link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ft-link-list a {
+  font-size: 0.88rem;
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.ft-link-list a:hover {
+  color: #2563eb;
+  transform: translateX(3px);
+}
+
+/* Card Bottom: Socials Bar */
+.flairstech-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding-top: 1.75rem;
+}
+
+.ft-compliance-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ft-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 0.3rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.ft-social-follow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.ft-social-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.ft-social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.ft-social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.ft-social-btn:hover {
+  background: #2563eb;
+  color: #ffffff !important;
+  border-color: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* Centered Copyright & SLA Below the White Card */
+.flairstech-footer-legal {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding-top: 2rem;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.flairstech-footer-legal a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin: 0 0.35rem;
+}
+
+.flairstech-footer-legal a:hover {
+  color: #d9f99d;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1080px) {
+  .flairstech-card-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .flairstech-footer-zone {
+    padding: 1rem 0.75rem 2rem;
+  }
+  .flairstech-footer-shell {
+    border-radius: 24px;
+    padding: 3.5rem 1.25rem 1.75rem;
+  }
+  .flairstech-footer-cta-title {
+    font-size: 2rem;
+  }
+  .flairstech-footer-card {
+    border-radius: 20px;
+    padding: 2rem 1.25rem 1.5rem;
+  }
+  .flairstech-card-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+  .flairstech-card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
