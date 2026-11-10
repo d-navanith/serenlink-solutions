@@ -208,51 +208,54 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   MAIN NAVBAR: FLAIRSTECH MORPHING FLOATING PILL & FULL-WIDTH HEADER
-   Reference: https://flairstech.com/
-   At top: Floating white rounded pill capsule with shadow
-   Scrolled: Expands to full-width edge-to-edge sticky header
+   MAIN NAVBAR: GLASSIFY THEME + MORPHING FLOATING PILL & FULL-WIDTH HEADER
+   SerenLink Signature Glassmorphic Dark Sapphire Theme with Pill-to-Bar Morph
+   At top: Floating Glass Capsule with translucent sapphire depth & glow
+   Scrolled: Expands to full-width edge-to-edge sticky glass header
    ========================================================================== */
 .main-header {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  background: #ffffff;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
   box-sizing: border-box;
   transition: top 0.42s cubic-bezier(0.16, 1, 0.3, 1),
               width 0.42s cubic-bezier(0.16, 1, 0.3, 1),
               max-width 0.42s cubic-bezier(0.16, 1, 0.3, 1),
               border-radius 0.42s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.42s cubic-bezier(0.16, 1, 0.3, 1),
-              padding 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+              border 0.42s cubic-bezier(0.16, 1, 0.3, 1),
               border-bottom 0.42s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* State 1 (At Top of Page): Floating White Pill Capsule */
+/* State 1 (At Top of Page): Floating Translucent Sapphire Glass Pill Capsule */
 .main-header:not(.scrolled) {
   top: 44px;
   width: 88%;
-  max-width: 1200px;
+  max-width: 1220px;
   border-radius: 9999px;
-  box-shadow: 0 14px 40px -6px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(15, 23, 42, 0.05);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.04);
+  background: rgba(1, 7, 43, 0.82);
+  border: 1px solid rgba(180, 165, 255, 0.24);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.65), 0 0 25px rgba(55, 39, 114, 0.35);
 }
 
 .main-header:not(.scrolled) .nav-container {
-  padding: 0.48rem 1.25rem;
+  padding: 0.5rem 1.35rem;
 }
 
-/* State 2 (Scrolled Down): Full-Width Flat Sticky Header */
+/* State 2 (Scrolled Down): Full-Width Flat Sticky Glass Header */
 .main-header.scrolled {
   top: 0;
   width: 100%;
   max-width: 100%;
   border-radius: 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(1, 7, 43, 0.94);
+  border: 1px solid transparent;
+  border-bottom: 1px solid rgba(180, 165, 255, 0.25);
+  box-shadow: 0 12px 32px rgba(1, 7, 43, 0.85);
 }
 
 .main-header.scrolled .nav-container {
@@ -357,27 +360,27 @@ button, input, select, textarea {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  color: #0f172a;
+  color: #e2e8f0;
   font-size: 0.925rem;
   font-weight: 600;
-  padding: 0.48rem 0.85rem;
+  padding: 0.5rem 0.85rem;
   border-radius: 9999px;
   border: 1px solid transparent;
   transition: all var(--transition-fast);
 }
 
 .nav-link:hover {
-  color: #0066ff;
-  background: rgba(0, 102, 255, 0.06);
-  border-color: transparent;
+  color: #ffffff;
+  background: rgba(180, 165, 255, 0.14);
+  border-color: rgba(180, 165, 255, 0.2);
 }
 
 .nav-link.active {
-  color: #0066ff;
+  color: #ffffff;
   font-weight: 700;
-  background: rgba(0, 102, 255, 0.08);
-  border-color: transparent;
-  box-shadow: none;
+  background: rgba(55, 39, 114, 0.55);
+  border-color: rgba(180, 165, 255, 0.35);
+  box-shadow: 0 2px 12px rgba(55, 39, 114, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .nav-link .caret {
@@ -385,13 +388,13 @@ button, input, select, textarea {
   transition: transform var(--transition-fast);
   width: 12px;
   height: 12px;
-  stroke: #64748b;
+  stroke: #94a3b8;
 }
 
 .nav-item:hover .nav-link .caret,
 .nav-item.open .nav-link .caret {
   transform: rotate(180deg);
-  stroke: #0066ff;
+  stroke: var(--color-lime);
 }
 
 /* ==========================================================================
@@ -568,33 +571,31 @@ button, input, select, textarea {
 }
 
 .btn-nav-quote {
-  background: linear-gradient(135deg, #0066ff 0%, #8c4ff4 100%);
-  color: #ffffff;
+  background: var(--color-lime);
+  color: #090d16;
   font-weight: 700;
-  font-size: 0.88rem;
-  padding: 0.52rem 1.35rem;
-  border-radius: 9999px;
+  font-size: 0.9375rem;
+  padding: 0.62rem 1.35rem;
+  border-radius: 9px;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  border: none;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+  border: 1px solid var(--color-lime);
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.35);
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .btn-nav-quote:hover {
-  background: linear-gradient(135deg, #0052cc 0%, #7938e5 100%);
+  background: var(--color-lime-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(140, 79, 244, 0.45);
+  box-shadow: var(--shadow-glow-lime);
 }
 
 .btn-nav-quote svg {
-  width: 15px;
-  height: 15px;
-  stroke: #ffffff;
+  width: 16px;
+  height: 16px;
+  stroke: #090d16;
   transition: transform 0.2s ease;
 }
 
@@ -607,20 +608,15 @@ button, input, select, textarea {
   display: none;
   background: transparent;
   border: none;
-  color: #0f172a;
+  color: #ffffff;
   cursor: pointer;
   padding: 0.4rem;
-  border-radius: 8px;
-}
-
-.mobile-nav-toggle:hover {
-  background: #f1f5f9;
 }
 
 .mobile-nav-toggle svg {
-  width: 24px;
-  height: 24px;
-  stroke: #0f172a;
+  width: 26px;
+  height: 26px;
+  stroke: #ffffff;
 }
 
 /* ==========================================================================
@@ -3566,11 +3562,11 @@ button, input, select, textarea {
 
 /* 6. FlairsTech Navbar Scroll Morph Elevation */
 .main-header.scrolled {
-  background: rgba(255, 255, 255, 0.98) !important;
-  backdrop-filter: blur(20px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
-  border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+  background: rgba(1, 7, 43, 0.94) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(180, 165, 255, 0.25) !important;
+  box-shadow: 0 12px 32px rgba(1, 7, 43, 0.85) !important;
 }
 
 /* 7. Button Radiant Light Sweep */
