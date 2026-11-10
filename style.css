@@ -3751,21 +3751,7 @@ section {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .nav-menu.is-open .dropdown-container {
-    position: static;
-    display: none;
-    width: 100%;
-    box-shadow: none;
-    background: rgba(2, 6, 23, 0.7);
-    border: 1px solid rgba(56, 189, 248, 0.15);
-    margin-top: 0.5rem;
-    padding: 0.75rem;
-    border-radius: 12px;
-  }
 
-  .nav-menu.is-open .nav-item.has-dropdown.dropdown-active .dropdown-container {
-    display: block;
-  }
 }
 
 @media (max-width: 768px) {
@@ -5355,7 +5341,7 @@ img, svg, video, canvas {
     border-bottom-color: transparent;
   }
 
-  /* Inline Accordion Submenu inside Mobile/Tablet Drawer */
+  /* Inline Accordion Submenu inside Mobile/Tablet Drawer (TKWIT Pristine White Card) */
   .nav-menu.is-open .dropdown-menu,
   .nav-menu.is-open .mega-dropdown-solutions,
   .nav-menu.is-open .standard-dropdown {
@@ -5363,76 +5349,152 @@ img, svg, video, canvas {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
+    box-sizing: border-box !important;
+    float: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
     display: none !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
     transform: none !important;
-    pointer-events: auto !important;
-    background: rgba(11, 19, 65, 0.88) !important;
-    border: 1px solid rgba(129, 140, 248, 0.24) !important;
-    border-radius: 12px !important;
-    padding: 0.65rem !important;
-    margin-top: 0.35rem !important;
-    margin-bottom: 0.35rem !important;
-    box-shadow: none !important;
+    pointer-events: none !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    padding: 0.75rem !important;
+    margin: 0.5rem 0 0.75rem 0 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(15, 23, 42, 0.05) !important;
+    z-index: 10 !important;
   }
 
   .nav-menu.is-open .dropdown-menu::after {
     display: none !important;
   }
 
+  /* When accordion is open, smoothly expand in-flow pushing subsequent items down */
   .nav-menu.is-open .nav-item.has-dropdown.open > .dropdown-menu {
     display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    animation: mobileSubmenuSlideDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
   }
 
+  @keyframes mobileSubmenuSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Mobile single column layout - never cuts off items horizontally */
   .nav-menu.is-open .mega-grid-2col {
-    grid-template-columns: 1fr !important;
-    gap: 0.4rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.45rem !important;
   }
 
   .nav-menu.is-open .drop-item {
-    padding: 0.6rem 0.65rem !important;
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 0.75rem !important;
+    padding: 0.65rem 0.75rem !important;
     border-radius: 10px !important;
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: all 0.15s ease !important;
+    text-decoration: none !important;
   }
 
-  .nav-menu.is-open .drop-item:hover {
-    background: rgba(55, 39, 114, 0.55) !important;
-    border-color: rgba(129, 140, 248, 0.25) !important;
+  .nav-menu.is-open .drop-item:hover,
+  .nav-menu.is-open .drop-item:active {
+    background: #f8fafc !important;
+    border-color: #e2e8f0 !important;
     transform: none !important;
   }
 
-  .nav-menu.is-open .drop-title {
-    color: #ffffff !important;
-    font-size: 0.9rem !important;
-  }
-
-  .nav-menu.is-open .drop-desc {
-    color: #cbd5e1 !important;
-    font-size: 0.78rem !important;
-  }
-
   .nav-menu.is-open .drop-icon-box {
-    width: 36px !important;
-    height: 36px !important;
-    background: rgba(55, 39, 114, 0.65) !important;
-    border-color: rgba(129, 140, 248, 0.3) !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    background: #f1f5f9 !important;
+    border: 1px solid #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
   }
 
   .nav-menu.is-open .drop-icon-box svg {
-    stroke: #38bdf8 !important;
+    width: 18px !important;
+    height: 18px !important;
+    stroke: #372772 !important;
+  }
+
+  .nav-menu.is-open .drop-item:hover .drop-icon-box,
+  .nav-menu.is-open .drop-item:active .drop-icon-box {
+    background: #372772 !important;
+    border-color: #372772 !important;
+  }
+
+  .nav-menu.is-open .drop-item:hover .drop-icon-box svg,
+  .nav-menu.is-open .drop-item:active .drop-icon-box svg {
+    stroke: #ffffff !important;
+  }
+
+  .nav-menu.is-open .drop-title {
+    color: #0f172a !important;
+    font-size: 0.92rem !important;
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .nav-menu.is-open .drop-desc {
+    color: #64748b !important;
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
   }
 
   .nav-menu.is-open .drop-bottom-bar {
     margin-top: 0.65rem !important;
     padding-top: 0.65rem !important;
-    border-top-color: rgba(255, 255, 255, 0.12) !important;
-    flex-wrap: wrap;
-    gap: 0.5rem;
+    border-top: 1px solid #e2e8f0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
   }
 
   .nav-menu.is-open .drop-bottom-link {
-    color: #38bdf8 !important;
-    font-size: 0.82rem !important;
+    font-size: 0.825rem !important;
+    font-weight: 700 !important;
+    color: #2563eb !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.35rem !important;
+    text-decoration: none !important;
+  }
+
+  .nav-menu.is-open .drop-sla-pill {
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    color: #1e40af !important;
+    background: #eff6ff !important;
+    border: 1px solid #bfdbfe !important;
+    padding: 0.2rem 0.55rem !important;
+    border-radius: 9999px !important;
   }
 }
 

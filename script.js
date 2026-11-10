@@ -178,20 +178,20 @@ function initDropdownMenus() {
     });
 
     // Parent links (Solutions, Services, Industries, Locations) are real, clickable links.
-    // Desktop with a mouse: click navigates, hover opens the dropdown.
-    // Mobile / Tablet drawer (<= 1080px): first tap or tapping caret toggles the inline accordion submenu;
-    // tapping the parent link while already open navigates to the overview page.
+    // Desktop with a mouse: click navigates directly, hover opens the mega-dropdown.
+    // Mobile / Tablet drawer (<= 1080px): tapping the parent link or caret cleanly toggles the inline accordion submenu;
+    // all inner sub-links navigate directly and close the mobile menu.
     trigger.addEventListener('click', (e) => {
       const touchOnly = window.matchMedia('(hover: none)').matches;
       const isMobileDrawer = window.innerWidth <= 1080;
       const tappedCaret = !!e.target.closest('.caret');
       if (isMobileDrawer) {
-        if (tappedCaret || !item.classList.contains('open')) {
-          e.preventDefault();
-          e.stopPropagation();
-          const isOpen = item.classList.contains('open');
-          closeAllDropdowns();
-          if (!isOpen) item.classList.add('open');
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = item.classList.contains('open');
+        closeAllDropdowns();
+        if (!isOpen) {
+          item.classList.add('open');
         }
         return;
       }
