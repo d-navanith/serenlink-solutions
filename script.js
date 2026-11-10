@@ -1737,6 +1737,13 @@ function initTestimonialCarousel() {
     }, 120);
   });
 
+  // Mobile tap / click interaction for client drawer disclosure
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      card.classList.toggle('is-expanded');
+    });
+  });
+
   // Init
   renderDots();
   updateSlidePosition(false);
