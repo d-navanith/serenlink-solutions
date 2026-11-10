@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSmoothScroll();
   initIndustryCardsAndModal();
   initSolutionsHubFilter();
+  initTestimonialFilters();
   initFaqAccordion();
 });
 
@@ -1570,6 +1571,40 @@ function initSolutionsHubFilter() {
       filterHubCards();
     });
   }
+}
+
+/* ==========================================================================
+   14. HOME PAGE TESTIMONIALS SECTOR FILTER (#testimonials)
+   ========================================================================== */
+function initTestimonialFilters() {
+  const filterBtns = document.querySelectorAll('.testimonials-filter-btn');
+  const cards = document.querySelectorAll('.testimonial-card');
+  if (!filterBtns.length || !cards.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const targetFilter = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (targetFilter === 'all' || cardCategory === targetFilter) {
+          card.style.display = 'flex';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px)';
+          setTimeout(() => {
+            card.style.transition = 'opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1)';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 35);
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
 }
 
 /* ==========================================================================
